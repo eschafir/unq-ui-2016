@@ -1,5 +1,6 @@
 package unq_ciu.gatoEncerrado
 
-class Accion {
+interface Accion {
 	
+	def void ejecutar()
 }

@@ -1,5 +1,9 @@
 package unq_ciu.gatoEncerrado
 
 enum Item {
-	PALA, MARTILLO, SOGA
+	PALA,
+	MARTILLO,
+	CLAVOS,
+	LLAVE_MAGICA,
+	MANIVELA
 }
