@@ -5,12 +5,15 @@ import java.util.ArrayList
 
 @Accessors
 class Habitacion {
+
+	String nombre
 	boolean esInicial
 	boolean esFinal
 	ArrayList<Accion> acciones
 	Item item
 
-	new(boolean eI, boolean eF, ArrayList<Accion> acc, Item i) {
+	new(String nombre, boolean eI, boolean eF, ArrayList<Accion> acc, Item i) {
+		this.nombre = nombre
 		this.esInicial = eI
 		this.esFinal = eF
 		this.acciones = acc
