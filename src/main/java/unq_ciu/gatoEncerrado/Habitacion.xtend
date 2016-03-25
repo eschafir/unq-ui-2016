@@ -12,12 +12,20 @@ class Habitacion {
 	ArrayList<Accion> acciones
 	Item item
 
-	new(String nombre, boolean eI, boolean eF, ArrayList<Accion> acc, Item i) {
+	new(String nombre, boolean eI, boolean eF, Item i) {
 		this.nombre = nombre
 		this.esInicial = eI
 		this.esFinal = eF
-		this.acciones = acc
 		this.item = i
+		this.acciones = new ArrayList<Accion>
+	}
+
+	def agregarAccion(Accion acc) {
+		getAcciones.add(acc)
+	}
+
+	def quitarAccion(Accion acc) {
+		getAcciones.remove(acc)
 	}
 
 }

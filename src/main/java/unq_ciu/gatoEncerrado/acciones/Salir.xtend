@@ -1,11 +1,25 @@
 package unq_ciu.gatoEncerrado.acciones
 
 import unq_ciu.gatoEncerrado.Accion
+import unq_ciu.gatoEncerrado.Jugador
+import org.eclipse.xtend.lib.annotations.Accessors
+import unq_ciu.gatoEncerrado.Habitacion
 
-class Salir implements Accion {
+@Accessors
+class Salir extends Accion {
+	Habitacion habitacion
 
-	override ejecutar() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	new(Habitacion h) {
+		this.habitacion = h
+	}
+
+	override ejecutar(Jugador jugador) {
+		if (getHabitacion.isEsFinal) {
+			println("Juego ganado")
+			jugador.ganados = jugador.ganados + 1
+		} else {
+			println("No es la habitacion final")
+		}
 	}
 
 }

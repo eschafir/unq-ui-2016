@@ -1,11 +1,21 @@
 package unq_ciu.gatoEncerrado.acciones
 
 import unq_ciu.gatoEncerrado.Accion
+import org.eclipse.xtend.lib.annotations.Accessors
+import unq_ciu.gatoEncerrado.Habitacion
+import unq_ciu.gatoEncerrado.Jugador
 
-class Mover implements Accion {
+@Accessors
+class Mover extends Accion {
+	Habitacion habitacion_actual
+	Habitacion habitacion_nueva
 
-	override ejecutar() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	new(Habitacion actual, Habitacion nueva) {
+		this.habitacion_actual = actual
+		this.habitacion_nueva = nueva
 	}
 
+	override ejecutar(Jugador jugador) {
+		jugador.habitacion = habitacion_nueva
+	}
 }

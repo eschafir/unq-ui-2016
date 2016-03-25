@@ -31,4 +31,29 @@ class Jugador {
 		println("Juegos abandonados: " + abandonados)
 	}
 
+	//Verificar si este metodo lo ejecuta el Jugador
+	def ejecutarAcciones() {
+		while (!getHabitacion.isEsFinal) {
+			for (Accion acc : getHabitacion.acciones) {
+				acc.ejecutar(this)
+			}
+		}
+	}
+
+	def agregarAlInventario(Item i) {
+		if (getInventario.size == 15) {
+			println("Inventario lleno.")
+		} else {
+			getInventario.add(i)
+		}
+	}
+
+	def quitarDelInventario(Item i) {
+		if (getInventario.contains(i)) {
+			getInventario.remove(i)
+		} else {
+			println("No se encuentra el item " + i + " en el inventario.")
+		}
+	}
+
 }
