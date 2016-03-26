@@ -20,7 +20,6 @@ class Jugador {
 	}
 
 	def abandonar() {
-
 		// TODO
 		abandonados = abandonados + 1
 	}
