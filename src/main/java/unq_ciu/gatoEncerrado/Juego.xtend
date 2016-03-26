@@ -7,9 +7,11 @@ class Juego {
 
 	Jugador jugador
 	Laberinto laberinto
+	Estado estado
 
 	new(Jugador jugador, Laberinto laberinto) {
 		this.jugador = jugador
 		this.laberinto = laberinto
+		this.estado = new Iniciado()
 	}
 }

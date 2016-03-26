@@ -8,6 +8,8 @@ class Laberinto {
 
 	String nombre
 	ArrayList<Habitacion> habitaciones
+	Habitacion habitacionActual
+	Habitacion habitacionNueva
 
 	new(String nombre, ArrayList<Habitacion> habitaciones) {
 		this.nombre = nombre

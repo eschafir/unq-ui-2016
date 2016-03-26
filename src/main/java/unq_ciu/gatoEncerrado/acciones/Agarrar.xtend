@@ -3,24 +3,22 @@ package unq_ciu.gatoEncerrado.acciones
 import unq_ciu.gatoEncerrado.Accion
 import unq_ciu.gatoEncerrado.Jugador
 import org.eclipse.xtend.lib.annotations.Accessors
-import unq_ciu.gatoEncerrado.Habitacion
+import unq_ciu.gatoEncerrado.Juego
 
 @Accessors
 class Agarrar extends Accion {
-	Habitacion habitacion
 
-	new(Habitacion h) {
-		this.habitacion = h
-	}
+	new() {}
 
-	override ejecutar(Jugador jugador) {
+	override ejecutar(Jugador jugador, Juego juego) {
 
-		if (getHabitacion.item != null) {
-			jugador.agregarAlInventario(getHabitacion.item)
-			getHabitacion.item = null
-			getHabitacion.quitarAccion(this)
+		if (juego.getLaberinto().getHabitacionActual().item != null) {
+			
+			jugador.agregarAlInventario(juego.getLaberinto().getHabitacionActual().item)
+			juego.getLaberinto().getHabitacionActual().item = null
+			juego.getLaberinto().getHabitacionActual().quitarAccion(this)
 		} else {
-			println("nada para agarrar")
+			println("Nada para agarrar")
 		}
 
 	}

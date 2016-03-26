@@ -35,7 +35,9 @@ class Jugador {
 	def ejecutarAcciones() {
 		while (!getHabitacion.isEsFinal) {
 			for (Accion acc : getHabitacion.acciones) {
-				acc.ejecutar(this)
+				//Muchachos hay que ver lo que se quiere hacer con este método,
+				//ya que ahora el ejecutar toma 2 parametros: el Jugador y el Juego. Por eso lo comenté!!!
+				//acc.ejecutar(this)
 			}
 		}
 	}
