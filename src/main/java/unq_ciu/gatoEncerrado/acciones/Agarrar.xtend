@@ -10,15 +10,14 @@ class Agarrar extends Accion {
 
 	override ejecutar(Jugador jugador, Juego juego) {
 
-		if (juego.getLaberinto().getHabitacionActual().item != null) {
-
-			jugador.agregarAlInventario(juego.getLaberinto().getHabitacionActual().item)
-			juego.getLaberinto().getHabitacionActual().item = null
-			juego.getLaberinto().getHabitacionActual().quitarAccion(this)
+		if (juego.laberinto.habitacionActual.hayItem) {
+			if (jugador.puedeAgegar) {
+				jugador.agregarAlInventario(juego.laberinto.habitacionActual.item)
+				juego.laberinto.habitacionActual.item = null
+				juego.laberinto.habitacionActual.quitarAccion(this)
+			}
 		} else {
-			println("Nada para agarrar")
+			println("nada que agarrar")
 		}
-
 	}
-
 }

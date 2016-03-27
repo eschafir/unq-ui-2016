@@ -28,4 +28,8 @@ class Habitacion {
 		getAcciones.remove(acc)
 	}
 
+	def boolean hayItem() {
+		return (item != null)
+	}
+
 }

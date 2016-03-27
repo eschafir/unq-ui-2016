@@ -20,6 +20,7 @@ class Jugador {
 	}
 
 	def abandonar() {
+
 		// TODO
 		abandonados = abandonados + 1
 	}
@@ -41,12 +42,12 @@ class Jugador {
 		}
 	}
 
+	def puedeAgegar() {
+		return (getInventario.size < 15)
+	}
+
 	def agregarAlInventario(Item i) {
-		if (getInventario.size == 15) {
-			println("Inventario lleno.")
-		} else {
-			getInventario.add(i)
-		}
+		getInventario.add(i)
 	}
 
 	def quitarDelInventario(Item i) {
@@ -56,5 +57,4 @@ class Jugador {
 			println("No se encuentra el item " + i + " en el inventario.")
 		}
 	}
-
 }
