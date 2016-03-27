@@ -16,11 +16,20 @@ public class Habitacion {
   
   private Item item;
   
-  public Habitacion(final /* String */Object nombre, final boolean eI, final boolean eF, final /* ArrayList<Accion> */Object acc, final Item i) {
-    this.nombre = nombre;
-    this.esInicial = eI;
-    this.esFinal = eF;
-    this.acciones = acc;
-    this.item = i;
+  public Habitacion(final /* String */Object nombre, final boolean eI, final boolean eF, final Item i) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nArrayList cannot be resolved.");
+  }
+  
+  public Object agregarAccion(final Accion acc) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field getAcciones is undefined for the type Habitacion"
+      + "\nadd cannot be resolved");
+  }
+  
+  public Object quitarAccion(final Accion acc) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field getAcciones is undefined for the type Habitacion"
+      + "\nremove cannot be resolved");
   }
 }

@@ -9,6 +9,10 @@ public class Laberinto {
   
   private /* ArrayList<Habitacion> */Object habitaciones;
   
+  private Habitacion habitacionActual;
+  
+  private Habitacion habitacionNueva;
+  
   public Laberinto(final /* String */Object nombre, final /* ArrayList<Habitacion> */Object habitaciones) {
     this.nombre = nombre;
     this.habitaciones = habitaciones;

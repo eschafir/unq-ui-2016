@@ -10,8 +10,10 @@ public class Juego {
   
   private Laberinto laberinto;
   
+  private /* Estado */Object estado;
+  
   public Juego(final Jugador jugador, final Laberinto laberinto) {
-    this.jugador = jugador;
-    this.laberinto = laberinto;
+    throw new Error("Unresolved compilation problems:"
+      + "\nIniciado cannot be resolved.");
   }
 }

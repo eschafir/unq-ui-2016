@@ -17,8 +17,8 @@ class Usar extends Accion {
 	}
 
 	override ejecutar(Jugador jugador, Juego juego) {
-		
-		if(juego.getLaberinto().getHabitacionActual().getAcciones().contains(this)) {
+
+		if (juego.getLaberinto().getHabitacionActual().getAcciones().contains(this)) {
 			juego.getLaberinto().getHabitacionActual().quitarAccion(this)
 			juego.getLaberinto().getHabitacionActual().agregarAccion(getAccionConsecuencia)
 			jugador.quitarDelInventario(getItem)
