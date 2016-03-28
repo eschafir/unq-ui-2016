@@ -2,7 +2,6 @@ package unq_ciu.gatoEncerrado.acciones
 
 import unq_ciu.gatoEncerrado.Accion
 import org.eclipse.xtend.lib.annotations.Accessors
-import unq_ciu.gatoEncerrado.Jugador
 import unq_ciu.gatoEncerrado.Item
 import unq_ciu.gatoEncerrado.Juego
 
@@ -16,15 +15,14 @@ class Usar extends Accion {
 		this.accionConsecuencia = acc
 	}
 
-	override ejecutar(Jugador jugador, Juego juego) {
+	override ejecutar(Juego juego) {
 
-		if (juego.getLaberinto().getHabitacionActual().getAcciones().contains(this)) {
-			juego.getLaberinto().getHabitacionActual().quitarAccion(this)
-			juego.getLaberinto().getHabitacionActual().agregarAccion(getAccionConsecuencia)
-			jugador.quitarDelInventario(getItem)
+		if (juego.jugador.habitacion.getAcciones().contains(this)) {
+			juego.jugador.habitacion.quitarAccion(this)
+			juego.jugador.habitacion.agregarAccion(accionConsecuencia)
+			juego.jugador.quitarDelInventario(item)
 		} else {
 			println("Aun no tienes el item necesario")
 		}
 	}
-
 }

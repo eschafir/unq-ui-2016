@@ -25,6 +25,9 @@ class Jugador {
 		abandonados = abandonados + 1
 	}
 
+	/**
+	 * Muestra las estadísticas del jugador mostrando su nombre y la cantidad de juegos ganados y abandonados.
+	 */
 	def verEstadisticas() {
 		println("Estadísticas del jugador: " + getNombre)
 		println("Juegos ganados: " + ganados)
@@ -41,15 +44,26 @@ class Jugador {
 			}
 		}
 	}
-
+	
+	/**
+	 * Este método verifica si el inventario del Jugador esta lleno. 
+	 */
 	def puedeAgegar() {
 		return (getInventario.size < 15)
 	}
-
+	
+	/**
+	 * Agrega un item al inventario.
+	 * @param i el item a agregar.
+	 */
 	def agregarAlInventario(Item i) {
 		getInventario.add(i)
 	}
 
+	/**
+	 * Quita un item al inventario. Primero verifica si lo tiene en el inventario, luego lo quita.
+	 * @param i el item a quitar.
+	 */
 	def quitarDelInventario(Item i) {
 		if (getInventario.contains(i)) {
 			getInventario.remove(i)

@@ -7,8 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>xtend-quickstart</name>
 	<properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.7.3</xtend.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xtend.version>2.7.3</xtend.version>
 	</properties>
 	<build>
 		<plugins>
@@ -52,6 +52,12 @@
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<type>pom</type>
 		</dependency>
 	</dependencies>
 </project>

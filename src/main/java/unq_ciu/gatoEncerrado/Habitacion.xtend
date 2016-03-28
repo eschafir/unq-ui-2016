@@ -20,14 +20,23 @@ class Habitacion {
 		this.acciones = new ArrayList<Accion>
 	}
 
+	/**
+	 * Agrega una accion a la lista de acciones permitidas en la habitacion.
+	 */
 	def agregarAccion(Accion acc) {
 		getAcciones.add(acc)
 	}
 
+	/**
+	 * Quita una accion de la lista de acciones permitidas en la habitacion.
+	 */
 	def quitarAccion(Accion acc) {
 		getAcciones.remove(acc)
 	}
 
+	/**
+	 * Indica si la habitacion tiene un item disponible para agarrar.
+	 */
 	def boolean hayItem() {
 		return (item != null)
 	}
