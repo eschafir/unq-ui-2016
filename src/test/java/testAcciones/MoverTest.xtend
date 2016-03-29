@@ -155,7 +155,7 @@ class MoverTest {
 	}
 
 	@Test
-	def void testMover_da_OK() {
+	def void testMoverDaOK() {
 
 		moverA1.ejecutar(juego)
 		assertEquals(hab1, jugador.habitacion)
@@ -165,7 +165,7 @@ class MoverTest {
 	}
 
 	@Test
-	def void testMover_a_una_habitacion_no_contenida_en_sus_acciones_disponibles_no_hace_nada() {
+	def void testMoverAUnaHabitacionNoContenidaEnSusAccionesDisponiblesNoHaceNada() {
 		moverA5.ejecutar(juego)
 		assertEquals(hab0, jugador.habitacion)
 	}

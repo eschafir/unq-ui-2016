@@ -155,21 +155,21 @@ class AgarrarTest {
 	}
 
 	@Test
-	def void testComprobar_que_se_agrega_al_inventario() {
+	def void testComprobarQueSeAgregaAlInventario() {
 		assertEquals(0, jugador.inventario.size)
 		agarrar.ejecutar(juego)
 		assertEquals(1, jugador.inventario.size)
 	}
 
 	@Test
-	def void testEl_item_se_quita_de_la_habitacion() {
+	def void testElItemSeQuitaDeLaHabitacion() {
 		assertTrue(jugador.habitacion.hayItem)
 		agarrar.ejecutar(juego)
 		assertFalse(jugador.habitacion.hayItem)
 	}
 
 	@Test
-	def void testComprobar_item_agregado() {
+	def void testComprobarItemAgregado() {
 
 		val item = jugador.habitacion.item
 		assertFalse(jugador.inventario.contains(item))
@@ -178,9 +178,9 @@ class AgarrarTest {
 	}
 
 	@Test
-	def void testInventario_lleno() {
+	def void testInventarioLleno() {
 
-		for (i : 0 ..< 15) {
+		for (i : 0 .. 14) {
 			jugador.agregarAlInventario(Item.PALA)
 		}
 		agarrar.ejecutar(juego)
