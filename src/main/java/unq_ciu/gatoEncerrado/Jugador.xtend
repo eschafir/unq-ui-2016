@@ -44,19 +44,19 @@ class Jugador {
 			}
 		}
 	}
-	
+
 	/**
 	 * Este método verifica si el inventario del Jugador esta lleno. 
 	 */
 	def puedeAgegar() {
 		return (getInventario.size < 15)
 	}
-	
+
 	/**
 	 * Agrega un item al inventario.
 	 * @param i el item a agregar.
 	 */
-	def agregarAlInventario(Item i) {
+	def void agregarAlInventario(Item i) {
 		getInventario.add(i)
 	}
 
