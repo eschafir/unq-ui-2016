@@ -44,11 +44,18 @@ class AccionTest {
 		val jugador = new Jugador("Jugador", cocina)
 		val juego = new Juego(jugador, laberinto)
 		cocina.agregarAccion(mover)
-		val valorEsperado = living
-
+		
+		val valorEsperado1 = cocina
+		val valorEsperado2 = living
+		
+		//Testeo que tiene la habitación seteada inicialmente y su nombre
+		assertEquals(juego.jugador.habitacion, valorEsperado1)
+		assertEquals(juego.jugador.habitacion.nombre, valorEsperado1.nombre)
+		
 		mover.ejecutar(juego)
-
-		assertEquals(juego.jugador.habitacion, valorEsperado)
-		assertEquals(juego.jugador.habitacion.nombre, valorEsperado.nombre)
+		
+		//Luego de ejecutar la acción testeo que tiene la habitación siguiente y su nombre
+		assertEquals(juego.jugador.habitacion, valorEsperado2)
+		assertEquals(juego.jugador.habitacion.nombre, valorEsperado2.nombre)
 	}
 }
