@@ -179,21 +179,10 @@ class AgarrarTest {
 
 	@Test
 	def void testInventario_lleno() {
-		
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
-		jugador.agregarAlInventario(Item.PALA)
+
+		for (i : 0 ..< 15) {
+			jugador.agregarAlInventario(Item.PALA)
+		}
 		agarrar.ejecutar(juego)
 		assertTrue(jugador.habitacion.hayItem)
 	}
