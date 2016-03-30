@@ -56,7 +56,7 @@ class Jugador {
 	 * Agrega un item al inventario.
 	 * @param i el item a agregar.
 	 */
-	def agregarAlInventario(Item i) {
+	def void agregarAlInventario(Item i) {
 		getInventario.add(i)
 	}
 
