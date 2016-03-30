@@ -18,11 +18,13 @@ class Usar extends Accion {
 	override ejecutar(Juego juego) {
 
 		if (juego.jugador.habitacion.getAcciones().contains(this)) {
-			juego.jugador.habitacion.quitarAccion(this)
-			juego.jugador.habitacion.agregarAccion(accionConsecuencia)
-			juego.jugador.quitarDelInventario(item)
-		} else {
-			println("Aun no tienes el item necesario")
+			if (juego.jugador.tiene(item)) {
+				juego.jugador.habitacion.quitarAccion(this)
+				juego.jugador.habitacion.agregarAccion(accionConsecuencia)
+				juego.jugador.quitarDelInventario(item)
+			} else {
+				println("Aun no tienes el item necesario")
+			}
 		}
 	}
 }

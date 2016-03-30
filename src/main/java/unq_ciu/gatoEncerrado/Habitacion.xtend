@@ -2,6 +2,7 @@ package unq_ciu.gatoEncerrado
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
+import unq_ciu.gatoEncerrado.acciones.Agarrar
 
 @Accessors
 class Habitacion {
@@ -10,13 +11,11 @@ class Habitacion {
 	boolean esInicial
 	boolean esFinal
 	ArrayList<Accion> acciones
-	Item item
 
-	new(String nombre, boolean eI, boolean eF, Item i) {
+	new(String nombre, boolean eI, boolean eF) {
 		this.nombre = nombre
 		this.esInicial = eI
 		this.esFinal = eF
-		this.item = i
 		this.acciones = new ArrayList<Accion>
 	}
 
@@ -38,7 +37,9 @@ class Habitacion {
 	 * Indica si la habitacion tiene un item disponible para agarrar.
 	 */
 	def boolean hayItem() {
-		return (item != null)
+		val accionesAgarrar = acciones.filter(typeof(Agarrar))
+		accionesAgarrar.empty
+
 	}
 
 }
