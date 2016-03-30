@@ -38,7 +38,7 @@ class Habitacion {
 	 */
 	def boolean hayItem() {
 		val accionesAgarrar = acciones.filter(typeof(Agarrar))
-		accionesAgarrar.empty
+		return !accionesAgarrar.isEmpty
 
 	}
 
