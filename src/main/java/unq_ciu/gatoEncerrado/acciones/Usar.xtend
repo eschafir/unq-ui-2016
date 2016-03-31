@@ -19,7 +19,7 @@ class Usar extends Accion {
 
 	override ejecutar(Juego juego) {
 
-		if (juego.jugador.accionesPosibles().contains(this)) {
+		if (juego.accionesPosibles.contains(this)) {
 			if (juego.jugador.tiene(item)) {
 				juego.jugador.habitacion.quitarAccion(this)
 				juego.jugador.habitacion.agregarAccion(accionConsecuencia)

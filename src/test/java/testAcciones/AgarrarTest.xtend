@@ -199,7 +199,7 @@ class AgarrarTest {
 
 		jugador.habitacion = hab4
 		jugador.agregarAlInventario(Item.PIEDRA)
-		
+
 		// Verifico que la habitacion no tiene accion agarrar
 		assertFalse(jugador.habitacion.hayItem)
 
@@ -210,7 +210,7 @@ class AgarrarTest {
 		val accionesAgarrar = jugador.habitacion.acciones.filter(typeof(Agarrar))
 		val valor = accionesAgarrar.size
 		assertEquals(1, valor)
-		
+
 		//Verifico que el item para agarrar sea el correspondiente
 		val itemNuevo = accionesAgarrar.head.item
 		assertEquals(Item.LLAVE_MISTICA, itemNuevo)

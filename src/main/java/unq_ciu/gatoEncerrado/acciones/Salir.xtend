@@ -12,7 +12,7 @@ class Salir extends Accion {
 
 		if (juego.jugador.habitacion.isEsFinal) {
 			juego.jugador.ganados = juego.jugador.ganados + 1
-			println("Has Ganado") // USAR EXCEPTIONS
+			println("Has Ganado")
 		} else {
 			throw new NoHasGanadoException()
 		}

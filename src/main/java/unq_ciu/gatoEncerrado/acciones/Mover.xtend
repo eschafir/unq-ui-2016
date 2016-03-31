@@ -15,7 +15,7 @@ class Mover extends Accion {
 	}
 
 	override ejecutar(Juego juego) {
-		if (juego.jugador.habitacion.acciones.contains(this)) {
+		if (juego.accionesPosibles.contains(this)) {
 			juego.jugador.habitacion = destino
 		}
 		else {
