@@ -11,9 +11,9 @@ import unq_ciu.gatoEncerrado.Jugador
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.acciones.Agarrar
 import unq_ciu.gatoEncerrado.acciones.Mover
-import unq_ciu.gatoEncerrado.acciones.NoHasGanadoException
 import unq_ciu.gatoEncerrado.acciones.Salir
 import unq_ciu.gatoEncerrado.acciones.Usar
+import gatoEncerradoExcepciones.NoHasGanadoException
 
 @Accessors
 class SalirTest {

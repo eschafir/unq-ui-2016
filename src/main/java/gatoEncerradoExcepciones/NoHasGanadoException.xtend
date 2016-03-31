@@ -1,4 +1,4 @@
-package unq_ciu.gatoEncerrado.acciones
+package gatoEncerradoExcepciones
 
 import org.eclipse.xtend.lib.annotations.Accessors
 
