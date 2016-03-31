@@ -14,6 +14,7 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Test
 import static org.junit.Assert.*
+import gatoEncerradoExcepciones.NoSePuedeAgregarItemAlInventarioException
 
 @Accessors
 class AgarrarTest {
@@ -190,8 +191,11 @@ class AgarrarTest {
 		for (i : 0 .. 14) {
 			jugador.agregarAlInventario(Item.PALA)
 		}
-		agarrarManivela.ejecutar(juego)
-		assertTrue(jugador.habitacion.hayItem)
+		try {
+			agarrarManivela.ejecutar(juego)
+		} catch (NoSePuedeAgregarItemAlInventarioException e) {
+			assertTrue(jugador.habitacion.hayItem)
+		}
 	}
 
 	@Test

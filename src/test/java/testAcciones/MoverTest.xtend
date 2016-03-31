@@ -14,6 +14,7 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Test
 import static org.junit.Assert.*
+import gatoEncerradoExcepciones.NoEstaDisponibleEstaAccionException
 
 @Accessors
 class MoverTest {
@@ -174,8 +175,11 @@ class MoverTest {
 
 	@Test
 	def void testMoverAUnaHabitacionNoContenidaEnSusAccionesDisponiblesNoHaceNada() {
-		moverA5.ejecutar(juego)
-		assertEquals(hab0, jugador.habitacion)
+		try {
+			moverA5.ejecutar(juego)
+		} catch (NoEstaDisponibleEstaAccionException e) {
+			assertEquals(hab0, jugador.habitacion)
+		}
 	}
 
 }

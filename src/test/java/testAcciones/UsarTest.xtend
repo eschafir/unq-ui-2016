@@ -14,6 +14,7 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Test
 import static org.junit.Assert.*
+import gatoEncerradoExcepciones.NoEstaDisponibleEstaAccionException
 
 @Accessors
 class UsarTest {
@@ -166,16 +167,25 @@ class UsarTest {
 	}
 
 	@Test
-	def void testUnJugadorUsaAlgoCorrectamente() {
+	def void testUnJugadorUsaAlgoCorrectamenteYHabilitaAccionConsecuencia() {
 
 		//El jugador puede usar la manivela en la misma habitacion en la que empieza.
 		agarrarManivela.ejecutar(juego)
 
 		//Hasta aqui no puede moverse a la habitacion 5.
+		assertFalse(juego.accionesPosibles.contains(moverA5))
 		usarManivela.ejecutar(juego)
 
 		//Ahora deberia poder moverse
 		assertTrue(juego.accionesPosibles.contains(moverA5))
+	}
+
+	@Test
+	def void testAlUtilizarUnItemSeBorraDelInventario() {
+		agarrarManivela.ejecutar(juego)
+		usarManivela.ejecutar(juego)
+		assertEquals(0, jugador.inventario.size)
+		assertFalse(jugador.tiene(Item.MANIVELA))
 	}
 
 	@Test
@@ -187,8 +197,11 @@ class UsarTest {
 		//Me muevo a la habitacion 5
 		usarManivela.ejecutar(juego)
 		moverA5.ejecutar(juego)
-		usarManivela.ejecutar(juego)
 
-	//Deberia no estar en la habitacion indicada para hacer esto.		
+		try {
+			usarManivela.ejecutar(juego)
+		} catch (NoEstaDisponibleEstaAccionException e) {
+		}
+
 	}
 }
