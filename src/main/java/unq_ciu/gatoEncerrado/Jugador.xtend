@@ -79,4 +79,11 @@ class Jugador {
 	def boolean tiene(Item i) {
 		getInventario.contains(i)
 	}
+	
+	/**
+	 * Devuelve la lista de acciones posibles por el jugador en esta habitacion.
+	 */
+	 def accionesPosibles(){
+	 	this.habitacion.getAcciones
+	 }
 }

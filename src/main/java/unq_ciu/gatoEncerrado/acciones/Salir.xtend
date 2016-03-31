@@ -13,8 +13,7 @@ class Salir extends Accion {
 			juego.jugador.ganados = juego.jugador.ganados + 1
 			println("Has Ganado") // USAR EXCEPTIONS
 		} else {
-			println("No es la habitacion final")
+			throw new NoHasGanadoException("No es la habitacion final.")
 		}
 	}
-
 }
