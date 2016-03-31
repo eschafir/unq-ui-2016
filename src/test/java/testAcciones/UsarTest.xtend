@@ -15,9 +15,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Test
 import static org.junit.Assert.*
 
-@Accessors	
+@Accessors
 class UsarTest {
-		Juego juego
+	Juego juego
 	Juego juego2
 	Jugador jugador
 	Jugador jugador2
@@ -47,15 +47,16 @@ class UsarTest {
 	Agarrar agarrarPiedra
 	Agarrar agarrarClavos
 	Agarrar agarrarMadera
-	Salir salir				
+	Salir salir
 	Usar usarLlave
 	Usar usarPieda
 	Usar usarPala
 	Usar usarManivela
 	Usar usarMadera
-	
+
 	@Before
-	def void setUp(){
+	def void setUp() {
+
 		/*
 		 * Definicion de Habitaciones.
 		 */
@@ -69,7 +70,7 @@ class UsarTest {
 		hab7 = new Habitacion("hab7", false, false)
 		hab8 = new Habitacion("hab8", false, true)
 		hab9 = new Habitacion("hab9", false, false)
-		
+
 		/*
 		 * Creacion de Acciones
 		 */
@@ -156,32 +157,38 @@ class UsarTest {
 		 */
 		jugador = new Jugador("Jugador", hab0)
 		jugador2 = new Jugador("Jugador2", hab8)
-		
+
 		/*
 		 * Creacion de Juego
 		 */
 		juego = new Juego(jugador, laberinto)
 		juego2 = new Juego(jugador2, laberinto)
-	}	
-	
-	@Test 
-	def void testUnJugadorUsaAlgoCorrectamente(){
+	}
+
+	@Test
+	def void testUnJugadorUsaAlgoCorrectamente() {
+
 		//El jugador puede usar la manivela en la misma habitacion en la que empieza.
 		agarrarManivela.ejecutar(juego)
+
 		//Hasta aqui no puede moverse a la habitacion 5.
 		usarManivela.ejecutar(juego)
+
 		//Ahora deberia poder moverse
-		assertTrue(juego.jugador.accionesPosibles().contains(moverA5))
-		}
-	
-	@Test	
-	def void testNoPuedoUsarUnItemEnUnaHabitacionIncorrecta(){
+		assertTrue(juego.accionesPosibles.contains(moverA5))
+	}
+
+	@Test
+	def void testNoPuedoUsarUnItemEnUnaHabitacionIncorrecta() {
+
 		//El jugador puede usar la manivela en la misma habitacion en la que empieza.
 		agarrarManivela.ejecutar(juego)
+
 		//Me muevo a la habitacion 5
 		usarManivela.ejecutar(juego)
 		moverA5.ejecutar(juego)
 		usarManivela.ejecutar(juego)
-		//Deberia no estar en la habitacion indicada para hacer esto.		
+
+	//Deberia no estar en la habitacion indicada para hacer esto.		
 	}
 }
