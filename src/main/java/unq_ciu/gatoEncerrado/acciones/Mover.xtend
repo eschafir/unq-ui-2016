@@ -4,6 +4,7 @@ import unq_ciu.gatoEncerrado.Accion
 import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Habitacion
+import gatoEncerradoExcepciones.NoEstaDisponibleEstaAccionException
 
 @Accessors
 class Mover extends Accion {
@@ -16,6 +17,9 @@ class Mover extends Accion {
 	override ejecutar(Juego juego) {
 		if (juego.jugador.habitacion.acciones.contains(this)) {
 			juego.jugador.habitacion = destino
+		}
+		else {
+			throw new NoEstaDisponibleEstaAccionException()
 		}
 	}
 }

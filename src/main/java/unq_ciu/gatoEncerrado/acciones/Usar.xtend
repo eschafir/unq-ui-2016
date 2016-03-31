@@ -4,6 +4,8 @@ import unq_ciu.gatoEncerrado.Accion
 import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Item
 import unq_ciu.gatoEncerrado.Juego
+import gatoEncerradoExcepciones.NoHayItemNecesarioException
+import gatoEncerradoExcepciones.NoEstaDisponibleEstaAccionException
 
 @Accessors
 class Usar extends Accion {
@@ -23,10 +25,10 @@ class Usar extends Accion {
 				juego.jugador.habitacion.agregarAccion(accionConsecuencia)
 				juego.jugador.quitarDelInventario(item)
 			} else {
-				println("Aun no tienes el item necesario")
+				throw new NoHayItemNecesarioException()
 			}
 		} else {
-			println("No estas en la habitacion indicada para hacer esto.")
+			throw new NoEstaDisponibleEstaAccionException()
 		}
 	}
 }

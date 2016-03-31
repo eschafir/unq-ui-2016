@@ -4,6 +4,8 @@ import unq_ciu.gatoEncerrado.Accion
 import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Item
+import gatoEncerradoExcepciones.NoEstaDisponibleEstaAccionException
+import gatoEncerradoExcepciones.NoSePuedeAgregarItemAlInventarioException
 
 @Accessors
 class Agarrar extends Accion {
@@ -21,8 +23,11 @@ class Agarrar extends Accion {
 				juego.jugador.agregarAlInventario(item)
 				juego.jugador.habitacion.quitarAccion(this)
 			} else {
-				println("nada que agarrar") // REEMPLAZAR POR EXCEPCION
+				throw new NoSePuedeAgregarItemAlInventarioException()
 			}
+		}
+		else {
+			throw new NoEstaDisponibleEstaAccionException() 
 		}
 	}
 }
