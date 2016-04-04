@@ -2,6 +2,7 @@ package unq_ciu.gatoEncerrado;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -53,7 +54,7 @@ public class Jugador {
   public void ejecutarAcciones() {
     while ((!this.getHabitacion().isEsFinal())) {
       Habitacion _habitacion = this.getHabitacion();
-      ArrayList<Accion> _acciones = _habitacion.getAcciones();
+      List<Accion> _acciones = _habitacion.getAcciones();
       for (final Accion acc : _acciones) {
       }
     }

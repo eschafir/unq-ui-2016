@@ -1,17 +1,20 @@
 package unq_ciu.gatoEncerrado
 
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
+import java.util.List
 import java.util.ArrayList
 
 @Accessors
+@Observable
 class Laberinto {
 
 	String nombre
-	ArrayList<Habitacion> habitaciones
+	List<Habitacion> habitaciones
 
-	new(String nombre, ArrayList<Habitacion> habitaciones) {
+	new(String nombre) {
 		this.nombre = nombre
-		this.habitaciones = habitaciones
+		this.habitaciones = new ArrayList<Habitacion>
 	}
 
 	def agregarHabitacion(Habitacion h) {

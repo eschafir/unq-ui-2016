@@ -1,6 +1,6 @@
 package unq_ciu.gatoEncerrado.acciones;
 
-import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -23,7 +23,7 @@ public class Agarrar extends Accion {
   
   public void ejecutar(final Juego juego) {
     try {
-      ArrayList<Accion> _accionesPosibles = juego.accionesPosibles();
+      List<Accion> _accionesPosibles = juego.accionesPosibles();
       boolean _contains = _accionesPosibles.contains(this);
       if (_contains) {
         Jugador _jugador = juego.getJugador();

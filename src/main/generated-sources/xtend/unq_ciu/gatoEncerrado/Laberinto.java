@@ -2,34 +2,38 @@ package unq_ciu.gatoEncerrado;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
 
 @Accessors
+@Observable
 @SuppressWarnings("all")
 public class Laberinto {
   private String nombre;
   
-  private ArrayList<Habitacion> habitaciones;
+  private List<Habitacion> habitaciones;
   
-  public Laberinto(final String nombre, final ArrayList<Habitacion> habitaciones) {
+  public Laberinto(final String nombre) {
     this.nombre = nombre;
-    this.habitaciones = habitaciones;
+    ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
+    this.habitaciones = _arrayList;
   }
   
   public boolean agregarHabitacion(final Habitacion h) {
-    ArrayList<Habitacion> _habitaciones = this.getHabitaciones();
+    List<Habitacion> _habitaciones = this.getHabitaciones();
     return _habitaciones.add(h);
   }
   
   public Object eliminarHabitacion(final Habitacion h) {
     Object _xifexpression = null;
-    ArrayList<Habitacion> _habitaciones = this.getHabitaciones();
+    List<Habitacion> _habitaciones = this.getHabitaciones();
     boolean _contains = _habitaciones.contains(h);
     if (_contains) {
-      ArrayList<Habitacion> _habitaciones_1 = this.getHabitaciones();
+      List<Habitacion> _habitaciones_1 = this.getHabitaciones();
       _xifexpression = Boolean.valueOf(_habitaciones_1.remove(h));
     } else {
       String _nombre = h.getNombre();
@@ -49,11 +53,11 @@ public class Laberinto {
   }
   
   @Pure
-  public ArrayList<Habitacion> getHabitaciones() {
+  public List<Habitacion> getHabitaciones() {
     return this.habitaciones;
   }
   
-  public void setHabitaciones(final ArrayList<Habitacion> habitaciones) {
+  public void setHabitaciones(final List<Habitacion> habitaciones) {
     this.habitaciones = habitaciones;
   }
 }

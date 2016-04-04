@@ -2,13 +2,16 @@ package unq_ciu.gatoEncerrado;
 
 import com.google.common.collect.Iterables;
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.acciones.Agarrar;
 
 @Accessors
+@Observable
 @SuppressWarnings("all")
 public class Habitacion {
   private String nombre;
@@ -17,7 +20,7 @@ public class Habitacion {
   
   private boolean esFinal;
   
-  private ArrayList<Accion> acciones;
+  private List<Accion> acciones;
   
   public Habitacion(final String nombre, final boolean eI, final boolean eF) {
     this.nombre = nombre;
@@ -31,7 +34,7 @@ public class Habitacion {
    * Agrega una accion a la lista de acciones permitidas en la habitacion.
    */
   public boolean agregarAccion(final Accion acc) {
-    ArrayList<Accion> _acciones = this.getAcciones();
+    List<Accion> _acciones = this.getAcciones();
     return _acciones.add(acc);
   }
   
@@ -39,7 +42,7 @@ public class Habitacion {
    * Quita una accion de la lista de acciones permitidas en la habitacion.
    */
   public boolean quitarAccion(final Accion acc) {
-    ArrayList<Accion> _acciones = this.getAcciones();
+    List<Accion> _acciones = this.getAcciones();
     return _acciones.remove(acc);
   }
   
@@ -80,11 +83,11 @@ public class Habitacion {
   }
   
   @Pure
-  public ArrayList<Accion> getAcciones() {
+  public List<Accion> getAcciones() {
     return this.acciones;
   }
   
-  public void setAcciones(final ArrayList<Accion> acciones) {
+  public void setAcciones(final List<Accion> acciones) {
     this.acciones = acciones;
   }
 }

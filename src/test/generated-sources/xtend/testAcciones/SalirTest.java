@@ -1,6 +1,5 @@
 package testAcciones;
 
-import java.util.ArrayList;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -182,8 +181,7 @@ public class SalirTest {
     this.hab8.agregarAccion(this.salir);
     this.hab9.agregarAccion(this.moverA6);
     this.hab9.agregarAccion(this.usarMadera);
-    ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
-    Laberinto _laberinto = new Laberinto("Casa", _arrayList);
+    Laberinto _laberinto = new Laberinto("Casa");
     this.laberinto = _laberinto;
     this.laberinto.agregarHabitacion(this.hab0);
     this.laberinto.agregarHabitacion(this.hab1);

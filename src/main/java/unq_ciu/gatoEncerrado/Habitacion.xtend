@@ -3,14 +3,17 @@ package unq_ciu.gatoEncerrado
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
 import unq_ciu.gatoEncerrado.acciones.Agarrar
+import org.uqbar.commons.utils.Observable
+import java.util.List
 
 @Accessors
+@Observable
 class Habitacion {
 
 	String nombre
 	boolean esInicial
 	boolean esFinal
-	ArrayList<Accion> acciones
+	List<Accion> acciones
 
 	new(String nombre, boolean eI, boolean eF) {
 		this.nombre = nombre

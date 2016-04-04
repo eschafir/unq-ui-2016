@@ -2,6 +2,7 @@ package testAcciones;
 
 import com.google.common.collect.Iterables;
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
@@ -182,8 +183,7 @@ public class AgarrarTest {
     this.hab8.agregarAccion(this.salir);
     this.hab9.agregarAccion(this.moverA6);
     this.hab9.agregarAccion(this.usarMadera);
-    ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
-    Laberinto _laberinto = new Laberinto("Casa", _arrayList);
+    Laberinto _laberinto = new Laberinto("Casa");
     this.laberinto = _laberinto;
     this.laberinto.agregarHabitacion(this.hab0);
     this.laberinto.agregarHabitacion(this.hab1);
@@ -261,7 +261,7 @@ public class AgarrarTest {
     Assert.assertFalse(_hayItem);
     this.usarPiedra.ejecutar(this.juego);
     Habitacion _habitacion_1 = this.jugador.getHabitacion();
-    ArrayList<Accion> _acciones = _habitacion_1.getAcciones();
+    List<Accion> _acciones = _habitacion_1.getAcciones();
     final Iterable<Agarrar> accionesAgarrar = Iterables.<Agarrar>filter(_acciones, Agarrar.class);
     final int valor = IterableExtensions.size(accionesAgarrar);
     Assert.assertEquals(1, valor);

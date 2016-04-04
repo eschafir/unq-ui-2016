@@ -1,6 +1,6 @@
 package unq_ciu.gatoEncerrado;
 
-import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
@@ -30,7 +30,7 @@ public class Juego {
   /**
    * Devuelve la lista de acciones posibles dentro de la habitacion actual del juego.
    */
-  public ArrayList<Accion> accionesPosibles() {
+  public List<Accion> accionesPosibles() {
     Habitacion _habitacion = this.jugador.getHabitacion();
     return _habitacion.getAcciones();
   }

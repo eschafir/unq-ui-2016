@@ -1,6 +1,7 @@
 package testAcciones;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -183,8 +184,7 @@ public class UsarTest {
     this.hab8.agregarAccion(this.salir);
     this.hab9.agregarAccion(this.moverA6);
     this.hab9.agregarAccion(this.usarMadera);
-    ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
-    Laberinto _laberinto = new Laberinto("Casa", _arrayList);
+    Laberinto _laberinto = new Laberinto("Casa");
     this.laberinto = _laberinto;
     this.laberinto.agregarHabitacion(this.hab0);
     this.laberinto.agregarHabitacion(this.hab1);
@@ -209,11 +209,11 @@ public class UsarTest {
   @Test
   public void testUnJugadorUsaAlgoCorrectamenteYHabilitaAccionConsecuencia() {
     this.agarrarManivela.ejecutar(this.juego);
-    ArrayList<Accion> _accionesPosibles = this.juego.accionesPosibles();
+    List<Accion> _accionesPosibles = this.juego.accionesPosibles();
     boolean _contains = _accionesPosibles.contains(this.moverA5);
     Assert.assertFalse(_contains);
     this.usarManivela.ejecutar(this.juego);
-    ArrayList<Accion> _accionesPosibles_1 = this.juego.accionesPosibles();
+    List<Accion> _accionesPosibles_1 = this.juego.accionesPosibles();
     boolean _contains_1 = _accionesPosibles_1.contains(this.moverA5);
     Assert.assertTrue(_contains_1);
   }

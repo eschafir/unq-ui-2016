@@ -1,6 +1,5 @@
 package testAcciones
 
-import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Before
 import org.junit.Test
@@ -47,15 +46,16 @@ class SalirTest {
 	Agarrar agarrarPiedra
 	Agarrar agarrarClavos
 	Agarrar agarrarMadera
-	Salir salir				
+	Salir salir
 	Usar usarLlave
 	Usar usarPieda
 	Usar usarPala
 	Usar usarManivela
 	Usar usarMadera
-	
+
 	@Before
-	def void setUp(){
+	def void setUp() {
+
 		/*
 		 * Definicion de Habitaciones.
 		 */
@@ -69,7 +69,7 @@ class SalirTest {
 		hab7 = new Habitacion("hab7", false, false)
 		hab8 = new Habitacion("hab8", false, true)
 		hab9 = new Habitacion("hab9", false, false)
-		
+
 		/*
 		 * Creacion de Acciones
 		 */
@@ -139,7 +139,7 @@ class SalirTest {
 		/*
 		 * Creacion del laberinto
 		 */
-		laberinto = new Laberinto("Casa", new ArrayList<Habitacion>)
+		laberinto = new Laberinto("Casa")
 		laberinto.agregarHabitacion(hab0)
 		laberinto.agregarHabitacion(hab1)
 		laberinto.agregarHabitacion(hab2)
@@ -156,26 +156,27 @@ class SalirTest {
 		 */
 		jugador = new Jugador("Jugador", hab0)
 		jugador2 = new Jugador("Jugador2", hab8)
-		
+
 		/*
 		 * Creacion de Juego
 		 */
 		juego = new Juego(jugador, laberinto)
 		juego2 = new Juego(jugador2, laberinto)
 	}
-	
+
 	@Test
-	def void testSalirSiNoEsLaHabitacionFinalEsIncorrecto(){
-		try{
-		salir.ejecutar(juego)
-		}catch (NoHasGanadoException e){
+	def void testSalirSiNoEsLaHabitacionFinalEsIncorrecto() {
+		try {
+			salir.ejecutar(juego)
+		} catch (NoHasGanadoException e) {
 			println(e.message)
 		}
 	}
-	
+
 	@Test
-	def void testSalirEnLaHabitacionFinalEsCorrecto(){
+	def void testSalirEnLaHabitacionFinalEsCorrecto() {
 		salir.ejecutar(juego2)
-		//Esto imprime el mensaje "Has ganado"
-	}	
+
+	//Esto imprime el mensaje "Has ganado"
+	}
 }

@@ -10,7 +10,6 @@ import unq_ciu.gatoEncerrado.acciones.Salir
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Jugador
 import unq_ciu.gatoEncerrado.Juego
-import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Test
 import static org.junit.Assert.*
@@ -140,7 +139,7 @@ class MoverTest {
 		/*
 		 * Creacion del laberinto
 		 */
-		laberinto = new Laberinto("Casa", new ArrayList<Habitacion>)
+		laberinto = new Laberinto("Casa")
 		laberinto.agregarHabitacion(hab0)
 		laberinto.agregarHabitacion(hab1)
 		laberinto.agregarHabitacion(hab2)
