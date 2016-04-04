@@ -4,7 +4,7 @@ import unq_ciu.gatoEncerrado.Accion
 import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Habitacion
-import gatoEncerradoExcepciones.NoEstaDisponibleEstaAccionException
+import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException
 
 @Accessors
 class Mover extends Accion {

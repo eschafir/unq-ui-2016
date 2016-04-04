@@ -4,8 +4,8 @@ import unq_ciu.gatoEncerrado.Accion
 import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Item
-import gatoEncerradoExcepciones.NoEstaDisponibleEstaAccionException
-import gatoEncerradoExcepciones.NoSePuedeAgregarItemAlInventarioException
+import unq_ciu.gatoEncerrado.Excepciones.NoSePuedeAgregarItemAlInventarioException
+import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException
 
 @Accessors
 class Agarrar extends Accion {

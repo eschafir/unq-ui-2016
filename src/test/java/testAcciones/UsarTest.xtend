@@ -14,7 +14,7 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Test
 import static org.junit.Assert.*
-import gatoEncerradoExcepciones.NoEstaDisponibleEstaAccionException
+import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException
 
 @Accessors
 class UsarTest {

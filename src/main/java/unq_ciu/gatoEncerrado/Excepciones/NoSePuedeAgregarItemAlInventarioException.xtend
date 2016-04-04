@@ -1,4 +1,4 @@
-package gatoEncerradoExcepciones
+package unq_ciu.gatoEncerrado.Excepciones
 
 import java.lang.Exception
 

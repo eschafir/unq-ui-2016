@@ -13,7 +13,7 @@ import unq_ciu.gatoEncerrado.acciones.Agarrar
 import unq_ciu.gatoEncerrado.acciones.Mover
 import unq_ciu.gatoEncerrado.acciones.Salir
 import unq_ciu.gatoEncerrado.acciones.Usar
-import gatoEncerradoExcepciones.NoHasGanadoException
+import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException
 
 @Accessors
 class SalirTest {
