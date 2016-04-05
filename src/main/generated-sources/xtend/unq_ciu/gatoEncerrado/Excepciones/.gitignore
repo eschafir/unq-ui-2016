@@ -2,3 +2,7 @@
 /.NoHasGanadoException.java._trace
 /.NoHayItemNecesarioException.java._trace
 /.NoSePuedeAgregarItemAlInventarioException.java._trace
+/NoEstaDisponibleEstaAccionException.java
+/NoHasGanadoException.java
+/NoHayItemNecesarioException.java
+/NoSePuedeAgregarItemAlInventarioException.java
