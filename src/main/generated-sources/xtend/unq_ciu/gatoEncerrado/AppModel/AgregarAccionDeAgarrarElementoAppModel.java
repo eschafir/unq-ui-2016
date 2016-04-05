@@ -1,61 +1,48 @@
 package unq_ciu.gatoEncerrado.AppModel;
 
+import java.util.Arrays;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
-import unq_ciu.gatoEncerrado.Laberinto;
 
 @Accessors
 @Observable
 @SuppressWarnings("all")
 public class AgregarAccionDeAgarrarElementoAppModel {
-  private Habitacion habitacionActual;
+  private Habitacion habitacion;
   
-  private Habitacion habitacionSeleccionada;
+  private Item itemSeleccionado;
   
-  private Laberinto laberinto;
+  /**
+   * Ver si lleva contructor
+   */
+  public AgregarAccionDeAgarrarElementoAppModel(final Habitacion habitacion) {
+    this.habitacion = habitacion;
+  }
   
-  private Item item;
-  
-  public AgregarAccionDeAgarrarElementoAppModel(final Laberinto laberinto) {
-    this.laberinto = laberinto;
+  public List<Item> getItemsPosibles() {
+    Item[] _values = Item.values();
+    return Arrays.<Item>asList(_values);
   }
   
   @Pure
-  public Habitacion getHabitacionActual() {
-    return this.habitacionActual;
+  public Habitacion getHabitacion() {
+    return this.habitacion;
   }
   
-  public void setHabitacionActual(final Habitacion habitacionActual) {
-    this.habitacionActual = habitacionActual;
-  }
-  
-  @Pure
-  public Habitacion getHabitacionSeleccionada() {
-    return this.habitacionSeleccionada;
-  }
-  
-  public void setHabitacionSeleccionada(final Habitacion habitacionSeleccionada) {
-    this.habitacionSeleccionada = habitacionSeleccionada;
+  public void setHabitacion(final Habitacion habitacion) {
+    this.habitacion = habitacion;
   }
   
   @Pure
-  public Laberinto getLaberinto() {
-    return this.laberinto;
+  public Item getItemSeleccionado() {
+    return this.itemSeleccionado;
   }
   
-  public void setLaberinto(final Laberinto laberinto) {
-    this.laberinto = laberinto;
-  }
-  
-  @Pure
-  public Item getItem() {
-    return this.item;
-  }
-  
-  public void setItem(final Item item) {
-    this.item = item;
+  public void setItemSeleccionado(final Item itemSeleccionado) {
+    this.itemSeleccionado = itemSeleccionado;
   }
 }

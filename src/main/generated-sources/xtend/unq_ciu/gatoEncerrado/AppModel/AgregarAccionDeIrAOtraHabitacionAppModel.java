@@ -5,28 +5,34 @@ import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Laberinto;
+import unq_ciu.gatoEncerrado.acciones.Mover;
 
 @Accessors
 @Observable
 @SuppressWarnings("all")
 public class AgregarAccionDeIrAOtraHabitacionAppModel {
-  private Habitacion habitacionActual;
+  private Habitacion habitacion;
   
   private Habitacion habitacionSeleccionada;
   
   private Laberinto laberinto;
   
-  public AgregarAccionDeIrAOtraHabitacionAppModel(final Laberinto laberinto) {
-    this.laberinto = laberinto;
+  public AgregarAccionDeIrAOtraHabitacionAppModel(final Habitacion habitacion) {
+    this.habitacion = habitacion;
+  }
+  
+  public boolean agregarAccion() {
+    Mover _mover = new Mover(this.habitacionSeleccionada);
+    return this.habitacion.agregarAccion(_mover);
   }
   
   @Pure
-  public Habitacion getHabitacionActual() {
-    return this.habitacionActual;
+  public Habitacion getHabitacion() {
+    return this.habitacion;
   }
   
-  public void setHabitacionActual(final Habitacion habitacionActual) {
-    this.habitacionActual = habitacionActual;
+  public void setHabitacion(final Habitacion habitacion) {
+    this.habitacion = habitacion;
   }
   
   @Pure

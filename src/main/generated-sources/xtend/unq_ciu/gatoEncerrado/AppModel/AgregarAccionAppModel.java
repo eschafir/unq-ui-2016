@@ -1,10 +1,12 @@
 package unq_ciu.gatoEncerrado.AppModel;
 
+import java.util.Arrays;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
-import unq_ciu.gatoEncerrado.Laberinto;
+import unq_ciu.gatoEncerrado.Item;
 
 @Accessors
 @Observable
@@ -12,12 +14,9 @@ import unq_ciu.gatoEncerrado.Laberinto;
 public class AgregarAccionAppModel {
   private Habitacion habitacionActual;
   
-  private Habitacion habitacionSeleccionada;
-  
-  private Laberinto laberinto;
-  
-  public AgregarAccionAppModel(final Laberinto laberinto) {
-    this.laberinto = laberinto;
+  public List<Item> getItemsPosibles() {
+    Item[] _values = Item.values();
+    return Arrays.<Item>asList(_values);
   }
   
   @Pure
@@ -27,23 +26,5 @@ public class AgregarAccionAppModel {
   
   public void setHabitacionActual(final Habitacion habitacionActual) {
     this.habitacionActual = habitacionActual;
-  }
-  
-  @Pure
-  public Habitacion getHabitacionSeleccionada() {
-    return this.habitacionSeleccionada;
-  }
-  
-  public void setHabitacionSeleccionada(final Habitacion habitacionSeleccionada) {
-    this.habitacionSeleccionada = habitacionSeleccionada;
-  }
-  
-  @Pure
-  public Laberinto getLaberinto() {
-    return this.laberinto;
-  }
-  
-  public void setLaberinto(final Laberinto laberinto) {
-    this.laberinto = laberinto;
   }
 }
