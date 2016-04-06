@@ -11,6 +11,10 @@ import unq_ciu.gatoEncerrado.Habitacion;
 public class AgregarAccionAppModel {
   private Habitacion habitacionActual;
   
+  public AgregarAccionAppModel(final Habitacion habitacion) {
+    this.habitacionActual = habitacion;
+  }
+  
   @Pure
   public Habitacion getHabitacionActual() {
     return this.habitacionActual;

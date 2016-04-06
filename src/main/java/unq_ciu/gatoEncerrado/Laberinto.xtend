@@ -28,4 +28,10 @@ class Laberinto {
 			println("No se encuentra la habitacion " + h.nombre)
 		}
 	}
+
+	def itemsDisponibles() {
+		/**
+		 * TODO
+		 */
+	}
 }

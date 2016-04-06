@@ -10,4 +10,8 @@ class AgregarAccionAppModel {
 
 	Habitacion habitacionActual
 
+	new(Habitacion habitacion) {
+		habitacionActual = habitacion
+	}
+
 }

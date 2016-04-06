@@ -5,24 +5,29 @@ import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
-import unq_ciu.gatoEncerrado.acciones.Agarrar;
+import unq_ciu.gatoEncerrado.Laberinto;
 
 @Accessors
 @Observable
 @SuppressWarnings("all")
-public class AgregarAccionDeAgarrarElementoAppModel {
+public class AgregarAccionDeUsarElementoAppModel {
+  private Laberinto laberinto;
+  
   private Habitacion habitacion;
   
-  private Item item;
+  private Item itemSeleccinado;
   
-  public AgregarAccionDeAgarrarElementoAppModel(final Habitacion habitacion) {
+  public AgregarAccionDeUsarElementoAppModel(final Habitacion habitacion) {
     this.habitacion = habitacion;
   }
   
-  public boolean agregarAcccionAgarrar() {
-    Habitacion _habitacion = this.getHabitacion();
-    Agarrar _agarrar = new Agarrar(this.item);
-    return _habitacion.agregarAccion(_agarrar);
+  @Pure
+  public Laberinto getLaberinto() {
+    return this.laberinto;
+  }
+  
+  public void setLaberinto(final Laberinto laberinto) {
+    this.laberinto = laberinto;
   }
   
   @Pure
@@ -35,11 +40,11 @@ public class AgregarAccionDeAgarrarElementoAppModel {
   }
   
   @Pure
-  public Item getItem() {
-    return this.item;
+  public Item getItemSeleccinado() {
+    return this.itemSeleccinado;
   }
   
-  public void setItem(final Item item) {
-    this.item = item;
+  public void setItemSeleccinado(final Item itemSeleccinado) {
+    this.itemSeleccinado = itemSeleccinado;
   }
 }

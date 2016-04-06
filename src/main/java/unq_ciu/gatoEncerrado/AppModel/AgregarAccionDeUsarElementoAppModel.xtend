@@ -1,24 +1,21 @@
 package unq_ciu.gatoEncerrado.AppModel
 
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.utils.Observable
+import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Item
-import unq_ciu.gatoEncerrado.acciones.Agarrar
+import org.uqbar.commons.utils.Observable
 
 @Accessors
 @Observable
-class AgregarAccionDeAgarrarElementoAppModel {
+class AgregarAccionDeUsarElementoAppModel {
 
+	Laberinto laberinto
 	Habitacion habitacion
-	Item item
+	Item itemSeleccinado
 
 	new(Habitacion habitacion) {
 		this.habitacion = habitacion
-	}
-
-	def agregarAcccionAgarrar() {
-		getHabitacion.agregarAccion(new Agarrar(item))
 	}
 
 }

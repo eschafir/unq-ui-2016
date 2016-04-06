@@ -43,6 +43,10 @@ public class Laberinto {
     return ((Serializable)_xifexpression);
   }
   
+  public Object itemsDisponibles() {
+    return null;
+  }
+  
   @Pure
   public String getNombre() {
     return this.nombre;

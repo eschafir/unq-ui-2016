@@ -10,12 +10,11 @@ import unq_ciu.gatoEncerrado.acciones.Mover
 @Observable
 class AgregarAccionDeIrAOtraHabitacionAppModel {
 
-	//VER EJEMPLO DE AGREGARNOTA
 	Habitacion habitacion
 	Habitacion habitacionSeleccionada
 	Laberinto laberinto
-	
-	new (Habitacion habitacion){
+
+	new(Habitacion habitacion) {
 		this.habitacion = habitacion
 	}
 
