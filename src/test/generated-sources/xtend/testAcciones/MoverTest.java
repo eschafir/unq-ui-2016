@@ -78,9 +78,21 @@ public class MoverTest {
   
   private Salir salir;
   
+  private Item manivela;
+  
+  private Item llave;
+  
+  private Item clavos;
+  
+  private Item piedra;
+  
+  private Item pala;
+  
+  private Item madera;
+  
   private Usar usarLlave;
   
-  private Usar usarPieda;
+  private Usar usarPiedra;
   
   private Usar usarPala;
   
@@ -130,25 +142,37 @@ public class MoverTest {
     this.moverA8 = _mover_8;
     Mover _mover_9 = new Mover(this.hab9);
     this.moverA9 = _mover_9;
-    Agarrar _agarrar = new Agarrar(Item.MANIVELA);
+    Item _item = new Item("Manivela");
+    this.manivela = _item;
+    Item _item_1 = new Item("Llave");
+    this.llave = _item_1;
+    Item _item_2 = new Item("Piedra");
+    this.piedra = _item_2;
+    Item _item_3 = new Item("Clavos");
+    this.clavos = _item_3;
+    Item _item_4 = new Item("Madera");
+    this.madera = _item_4;
+    Item _item_5 = new Item("Pala");
+    this.pala = _item_5;
+    Agarrar _agarrar = new Agarrar(this.manivela);
     this.agarrarManivela = _agarrar;
-    Agarrar _agarrar_1 = new Agarrar(Item.LLAVE_MISTICA);
+    Agarrar _agarrar_1 = new Agarrar(this.llave);
     this.agarrarLlave = _agarrar_1;
-    Agarrar _agarrar_2 = new Agarrar(Item.PIEDRA);
+    Agarrar _agarrar_2 = new Agarrar(this.piedra);
     this.agarrarPiedra = _agarrar_2;
-    Agarrar _agarrar_3 = new Agarrar(Item.CLAVOS);
+    Agarrar _agarrar_3 = new Agarrar(this.clavos);
     this.agarrarClavos = _agarrar_3;
-    Agarrar _agarrar_4 = new Agarrar(Item.MADERA);
+    Agarrar _agarrar_4 = new Agarrar(this.madera);
     this.agarrarMadera = _agarrar_4;
-    Usar _usar = new Usar(Item.LLAVE_MISTICA, this.moverA4);
+    Usar _usar = new Usar(this.llave, this.moverA4);
     this.usarLlave = _usar;
-    Usar _usar_1 = new Usar(Item.PIEDRA, this.agarrarLlave);
-    this.usarPieda = _usar_1;
-    Usar _usar_2 = new Usar(Item.PALA, this.moverA9);
+    Usar _usar_1 = new Usar(this.piedra, this.agarrarLlave);
+    this.usarPiedra = _usar_1;
+    Usar _usar_2 = new Usar(this.pala, this.moverA9);
     this.usarPala = _usar_2;
-    Usar _usar_3 = new Usar(Item.MANIVELA, this.moverA5);
+    Usar _usar_3 = new Usar(this.manivela, this.moverA5);
     this.usarManivela = _usar_3;
-    Usar _usar_4 = new Usar(Item.MADERA, this.moverA8);
+    Usar _usar_4 = new Usar(this.madera, this.moverA8);
     this.usarMadera = _usar_4;
     Salir _salir = new Salir();
     this.salir = _salir;
@@ -165,7 +189,7 @@ public class MoverTest {
     this.hab3.agregarAccion(this.usarLlave);
     this.hab4.agregarAccion(this.moverA3);
     this.hab4.agregarAccion(this.moverA7);
-    this.hab4.agregarAccion(this.usarPieda);
+    this.hab4.agregarAccion(this.usarPiedra);
     this.hab5.agregarAccion(this.moverA6);
     this.hab5.agregarAccion(this.agarrarClavos);
     this.hab6.agregarAccion(this.moverA3);
@@ -482,6 +506,60 @@ public class MoverTest {
   }
   
   @Pure
+  public Item getManivela() {
+    return this.manivela;
+  }
+  
+  public void setManivela(final Item manivela) {
+    this.manivela = manivela;
+  }
+  
+  @Pure
+  public Item getLlave() {
+    return this.llave;
+  }
+  
+  public void setLlave(final Item llave) {
+    this.llave = llave;
+  }
+  
+  @Pure
+  public Item getClavos() {
+    return this.clavos;
+  }
+  
+  public void setClavos(final Item clavos) {
+    this.clavos = clavos;
+  }
+  
+  @Pure
+  public Item getPiedra() {
+    return this.piedra;
+  }
+  
+  public void setPiedra(final Item piedra) {
+    this.piedra = piedra;
+  }
+  
+  @Pure
+  public Item getPala() {
+    return this.pala;
+  }
+  
+  public void setPala(final Item pala) {
+    this.pala = pala;
+  }
+  
+  @Pure
+  public Item getMadera() {
+    return this.madera;
+  }
+  
+  public void setMadera(final Item madera) {
+    this.madera = madera;
+  }
+  
+  @Pure
   public Usar getUsarLlave() {
     return this.usarLlave;
   }
@@ -491,12 +569,12 @@ public class MoverTest {
   }
   
   @Pure
-  public Usar getUsarPieda() {
-    return this.usarPieda;
+  public Usar getUsarPiedra() {
+    return this.usarPiedra;
   }
   
-  public void setUsarPieda(final Usar usarPieda) {
-    this.usarPieda = usarPieda;
+  public void setUsarPiedra(final Usar usarPiedra) {
+    this.usarPiedra = usarPiedra;
   }
   
   @Pure

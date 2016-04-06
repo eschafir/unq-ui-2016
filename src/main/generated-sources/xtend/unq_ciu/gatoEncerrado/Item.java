@@ -1,18 +1,25 @@
 package unq_ciu.gatoEncerrado;
 
+import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.utils.Observable;
+
+@Accessors
+@Observable
 @SuppressWarnings("all")
-public enum Item {
-  PALA,
+public class Item {
+  private String nombre;
   
-  MARTILLO,
+  public Item(final String nombre) {
+    this.nombre = nombre;
+  }
   
-  CLAVOS,
+  @Pure
+  public String getNombre() {
+    return this.nombre;
+  }
   
-  LLAVE_MISTICA,
-  
-  MANIVELA,
-  
-  PIEDRA,
-  
-  MADERA;
+  public void setNombre(final String nombre) {
+    this.nombre = nombre;
+  }
 }

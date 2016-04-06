@@ -47,8 +47,14 @@ class MoverTest {
 	Agarrar agarrarClavos
 	Agarrar agarrarMadera
 	Salir salir
+	Item manivela
+	Item llave
+	Item clavos
+	Item piedra
+	Item pala
+	Item madera
 	Usar usarLlave
-	Usar usarPieda
+	Usar usarPiedra
 	Usar usarPala
 	Usar usarManivela
 	Usar usarMadera
@@ -84,17 +90,24 @@ class MoverTest {
 		moverA8 = new Mover(hab8)
 		moverA9 = new Mover(hab9)
 
-		agarrarManivela = new Agarrar(Item.MANIVELA)
-		agarrarLlave = new Agarrar(Item.LLAVE_MISTICA)
-		agarrarPiedra = new Agarrar(Item.PIEDRA)
-		agarrarClavos = new Agarrar(Item.CLAVOS)
-		agarrarMadera = new Agarrar(Item.MADERA)
+		manivela = new Item("Manivela")
+		llave = new Item("Llave")
+		piedra = new Item("Piedra")
+		clavos = new Item("Clavos")
+		madera = new Item("Madera")
+		pala = new Item("Pala")
 
-		usarLlave = new Usar(Item.LLAVE_MISTICA, moverA4)
-		usarPieda = new Usar(Item.PIEDRA, agarrarLlave) // ATENCION
-		usarPala = new Usar(Item.PALA, moverA9)
-		usarManivela = new Usar(Item.MANIVELA, moverA5)
-		usarMadera = new Usar(Item.MADERA, moverA8)
+		agarrarManivela = new Agarrar(manivela)
+		agarrarLlave = new Agarrar(llave)
+		agarrarPiedra = new Agarrar(piedra)
+		agarrarClavos = new Agarrar(clavos)
+		agarrarMadera = new Agarrar(madera)
+
+		usarLlave = new Usar(llave, moverA4)
+		usarPiedra = new Usar(piedra, agarrarLlave) // ATENCION
+		usarPala = new Usar(pala, moverA9)
+		usarManivela = new Usar(manivela, moverA5)
+		usarMadera = new Usar(madera, moverA8)
 
 		salir = new Salir()
 
@@ -118,7 +131,7 @@ class MoverTest {
 
 		hab4.agregarAccion(moverA3)
 		hab4.agregarAccion(moverA7)
-		hab4.agregarAccion(usarPieda)
+		hab4.agregarAccion(usarPiedra)
 
 		hab5.agregarAccion(moverA6)
 		hab5.agregarAccion(agarrarClavos)

@@ -47,6 +47,12 @@ class AgarrarTest {
 	Agarrar agarrarClavos
 	Agarrar agarrarMadera
 	Salir salir
+	Item manivela
+	Item llave
+	Item clavos
+	Item piedra
+	Item pala
+	Item madera
 	Usar usarLlave
 	Usar usarPiedra
 	Usar usarPala
@@ -83,18 +89,25 @@ class AgarrarTest {
 		moverA7 = new Mover(hab7)
 		moverA8 = new Mover(hab8)
 		moverA9 = new Mover(hab9)
+		
+		manivela = new Item("Manivela")
+		llave = new Item("Llave")
+		piedra = new Item("Piedra")
+		clavos = new Item("Clavos")
+		madera = new Item("Madera")
+		pala = new Item("Pala")
 
-		agarrarManivela = new Agarrar(Item.MANIVELA)
-		agarrarLlave = new Agarrar(Item.LLAVE_MISTICA)
-		agarrarPiedra = new Agarrar(Item.PIEDRA)
-		agarrarClavos = new Agarrar(Item.CLAVOS)
-		agarrarMadera = new Agarrar(Item.MADERA)
+		agarrarManivela = new Agarrar(manivela)
+		agarrarLlave = new Agarrar(llave)
+		agarrarPiedra = new Agarrar(piedra)
+		agarrarClavos = new Agarrar(clavos)
+		agarrarMadera = new Agarrar(madera)
 
-		usarLlave = new Usar(Item.LLAVE_MISTICA, moverA4)
-		usarPiedra = new Usar(Item.PIEDRA, agarrarLlave) // ATENCION
-		usarPala = new Usar(Item.PALA, moverA9)
-		usarManivela = new Usar(Item.MANIVELA, moverA5)
-		usarMadera = new Usar(Item.MADERA, moverA8)
+		usarLlave = new Usar(llave, moverA4)
+		usarPiedra = new Usar(piedra, agarrarLlave) // ATENCION
+		usarPala = new Usar(pala, moverA9)
+		usarManivela = new Usar(manivela, moverA5)
+		usarMadera = new Usar(madera, moverA8)
 
 		salir = new Salir()
 
@@ -179,16 +192,16 @@ class AgarrarTest {
 	@Test
 	def void testComprobarItemAgregado() {
 
-		assertFalse(jugador.tiene(Item.MANIVELA))
+		assertFalse(jugador.tiene(manivela))
 		agarrarManivela.ejecutar(juego)
-		assertTrue(jugador.tiene(Item.MANIVELA))
+		assertTrue(jugador.tiene(manivela))
 	}
 
 	@Test
 	def void testInventarioLleno() {
 
 		for (i : 0 .. 14) {
-			jugador.agregarAlInventario(Item.PALA)
+			jugador.agregarAlInventario(pala)
 		}
 		try {
 			agarrarManivela.ejecutar(juego)
@@ -201,7 +214,7 @@ class AgarrarTest {
 	def void testAgarrarItemHabilitadoPorAccionConsecuencia() {
 
 		jugador.habitacion = hab4
-		jugador.agregarAlInventario(Item.PIEDRA)
+		jugador.agregarAlInventario(piedra)
 
 		// Verifico que la habitacion no tiene accion agarrar
 		assertFalse(jugador.habitacion.hayItem)
@@ -216,7 +229,7 @@ class AgarrarTest {
 
 		//Verifico que el item para agarrar sea el correspondiente
 		val itemNuevo = accionesAgarrar.head.item
-		assertEquals(Item.LLAVE_MISTICA, itemNuevo)
+		assertEquals(llave, itemNuevo)
 
 	}
 
