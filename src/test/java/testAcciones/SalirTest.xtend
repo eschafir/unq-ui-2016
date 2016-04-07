@@ -63,7 +63,7 @@ class SalirTest {
 	def void setUp() {
 
 		/*
-		 * Definicion de Habitaciones.
+		 * Creación de Habitaciones.
 		 */
 		hab0 = new Habitacion("hab0", true, false)
 		hab1 = new Habitacion("hab1", false, false)
@@ -77,7 +77,7 @@ class SalirTest {
 		hab9 = new Habitacion("hab9", false, false)
 
 		/*
-		 * Creacion de Acciones
+		 * Creación de Acciones
 		 */
 		moverA0 = new Mover(hab0)
 		moverA1 = new Mover(hab1)
@@ -112,7 +112,7 @@ class SalirTest {
 		salir = new Salir()
 
 		/*
-		 * Asignacion de acciones a Habitaciones
+		 * Asignación de acciones a Habitaciones
 		 */
 		hab0.agregarAccion(moverA1)
 		hab0.agregarAccion(moverA2)
@@ -150,7 +150,7 @@ class SalirTest {
 		hab9.agregarAccion(usarMadera)
 
 		/*
-		 * Creacion del laberinto
+		 * Creación del laberinto
 		 */
 		laberinto = new Laberinto("Casa")
 		laberinto.agregarHabitacion(hab0)
@@ -165,13 +165,13 @@ class SalirTest {
 		laberinto.agregarHabitacion(hab9)
 
 		/*
-		 * Creacion de Jugador
+		 * Creación de Jugador
 		 */
 		jugador = new Jugador("Jugador", hab0)
 		jugador2 = new Jugador("Jugador2", hab8)
 
 		/*
-		 * Creacion de Juego
+		 * Creación de Juego
 		 */
 		juego = new Juego(jugador, laberinto)
 		juego2 = new Juego(jugador2, laberinto)

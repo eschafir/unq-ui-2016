@@ -7,7 +7,9 @@ import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException
 
 @Accessors
 class Salir extends Accion {
-
+	
+	new(){}
+	
 	override ejecutar(Juego juego) {
 
 		if (juego.jugador.habitacion.isEsFinal) {

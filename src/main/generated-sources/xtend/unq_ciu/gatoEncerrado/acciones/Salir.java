@@ -12,6 +12,9 @@ import unq_ciu.gatoEncerrado.Jugador;
 @Accessors
 @SuppressWarnings("all")
 public class Salir extends Accion {
+  public Salir() {
+  }
+  
   public void ejecutar(final Juego juego) {
     try {
       Jugador _jugador = juego.getJugador();

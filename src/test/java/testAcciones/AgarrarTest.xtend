@@ -77,7 +77,7 @@ class AgarrarTest {
 		hab9 = new Habitacion("hab9", false, false)
 
 		/*
-		 * Creacion de Acciones
+		 * Creación de Acciones
 		 */
 		moverA0 = new Mover(hab0)
 		moverA1 = new Mover(hab1)
@@ -112,7 +112,7 @@ class AgarrarTest {
 		salir = new Salir()
 
 		/*
-		 * Asignacion de acciones a Habitaciones
+		 * Asignación de acciones a Habitaciones
 		 */
 		hab0.agregarAccion(moverA1)
 		hab0.agregarAccion(moverA2)
@@ -150,7 +150,7 @@ class AgarrarTest {
 		hab9.agregarAccion(usarMadera)
 
 		/*
-		 * Creacion del laberinto
+		 * Creación del laberinto
 		 */
 		laberinto = new Laberinto("Casa")
 		laberinto.agregarHabitacion(hab0)
@@ -165,12 +165,12 @@ class AgarrarTest {
 		laberinto.agregarHabitacion(hab9)
 
 		/*
-		 * Creacion de Jugador
+		 * Creación de Jugador
 		 */
 		jugador = new Jugador("Jugador", hab0)
 
 		/*
-		 * Creacion de Juego
+		 * Creación de Juego
 		 */
 		juego = new Juego(jugador, laberinto)
 	}
@@ -216,18 +216,18 @@ class AgarrarTest {
 		jugador.habitacion = hab4
 		jugador.agregarAlInventario(piedra)
 
-		// Verifico que la habitacion no tiene accion agarrar
+		// Verifico que la habitación no tiene acción agarrar
 		assertFalse(jugador.habitacion.hayItem)
 
-		// Al usar la piedra, se habilita la accion agarrar llave mistica
+		// Al usar la piedra, se habilita la acción agarrar llave mística
 		usarPiedra.ejecutar(juego)
 
-		//Filtro las acciones Agarrar que tiene la habitacion. Debe tener una sola accion Agarrar.
+		//Filtro las acciones Agarrar que tiene la habitación. Debe tener una sola acción Agarrar.
 		val accionesAgarrar = jugador.habitacion.acciones.filter(typeof(Agarrar))
 		val valor = accionesAgarrar.size
 		assertEquals(1, valor)
 
-		//Verifico que el item para agarrar sea el correspondiente
+		//Verifico que el ítem para agarrar sea el correspondiente
 		val itemNuevo = accionesAgarrar.head.item
 		assertEquals(llave, itemNuevo)
 

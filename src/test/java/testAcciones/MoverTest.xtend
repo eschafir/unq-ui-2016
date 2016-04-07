@@ -63,7 +63,7 @@ class MoverTest {
 	def void setUp() {
 
 		/*
-		 * Definicion de Habitaciones.
+		 * Definición de Habitaciones.
 		 */
 		hab0 = new Habitacion("hab0", true, false)
 		hab1 = new Habitacion("hab1", false, false)
@@ -112,7 +112,7 @@ class MoverTest {
 		salir = new Salir()
 
 		/*
-		 * Asignacion de acciones a Habitaciones
+		 * Asignación de acciones a Habitaciones
 		 */
 		hab0.agregarAccion(moverA1)
 		hab0.agregarAccion(moverA2)
@@ -150,7 +150,7 @@ class MoverTest {
 		hab9.agregarAccion(usarMadera)
 
 		/*
-		 * Creacion del laberinto
+		 * Creación del laberinto
 		 */
 		laberinto = new Laberinto("Casa")
 		laberinto.agregarHabitacion(hab0)
@@ -165,12 +165,12 @@ class MoverTest {
 		laberinto.agregarHabitacion(hab9)
 
 		/*
-		 * Creacion de Jugador
+		 * Creación de Jugador
 		 */
 		jugador = new Jugador("Jugador", hab0)
 
 		/*
-		 * Creacion de Juego
+		 * Creación de Juego
 		 */
 		juego = new Juego(jugador, laberinto)
 	}
