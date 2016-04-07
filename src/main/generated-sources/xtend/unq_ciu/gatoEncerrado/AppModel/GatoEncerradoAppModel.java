@@ -1,0 +1,54 @@
+package unq_ciu.gatoEncerrado.AppModel;
+
+import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.utils.Observable;
+import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Juego;
+import unq_ciu.gatoEncerrado.Laberinto;
+
+@Accessors
+@Observable
+@SuppressWarnings("all")
+public class GatoEncerradoAppModel {
+  private Juego juego;
+  
+  private Laberinto laberintoSeleccionado;
+  
+  private Habitacion habitacionSeleccionada;
+  
+  public GatoEncerradoAppModel(final Juego juego) {
+    this.juego = juego;
+  }
+  
+  public boolean eliminarLaberinto() {
+    return this.juego.quitarLaberinto(this.laberintoSeleccionado);
+  }
+  
+  @Pure
+  public Juego getJuego() {
+    return this.juego;
+  }
+  
+  public void setJuego(final Juego juego) {
+    this.juego = juego;
+  }
+  
+  @Pure
+  public Laberinto getLaberintoSeleccionado() {
+    return this.laberintoSeleccionado;
+  }
+  
+  public void setLaberintoSeleccionado(final Laberinto laberintoSeleccionado) {
+    this.laberintoSeleccionado = laberintoSeleccionado;
+  }
+  
+  @Pure
+  public Habitacion getHabitacionSeleccionada() {
+    return this.habitacionSeleccionada;
+  }
+  
+  public void setHabitacionSeleccionada(final Habitacion habitacionSeleccionada) {
+    this.habitacionSeleccionada = habitacionSeleccionada;
+  }
+}

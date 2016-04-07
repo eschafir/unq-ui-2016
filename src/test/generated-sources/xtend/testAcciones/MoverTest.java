@@ -215,8 +215,9 @@ public class MoverTest {
     this.laberinto.agregarHabitacion(this.hab9);
     Jugador _jugador = new Jugador("Jugador", this.hab0);
     this.jugador = _jugador;
-    Juego _juego = new Juego(this.jugador, this.laberinto);
+    Juego _juego = new Juego(this.jugador);
     this.juego = _juego;
+    this.juego.agregarLaberinto(this.laberinto);
   }
   
   @Test

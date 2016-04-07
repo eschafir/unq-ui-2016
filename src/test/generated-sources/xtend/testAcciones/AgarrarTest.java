@@ -1,7 +1,6 @@
 package testAcciones;
 
 import com.google.common.collect.Iterables;
-import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
@@ -221,17 +220,18 @@ public class AgarrarTest {
     this.laberinto.agregarHabitacion(this.hab9);
     Jugador _jugador = new Jugador("Jugador", this.hab0);
     this.jugador = _jugador;
-    Juego _juego = new Juego(this.jugador, this.laberinto);
+    Juego _juego = new Juego(this.jugador);
     this.juego = _juego;
+    this.juego.agregarLaberinto(this.laberinto);
   }
   
   @Test
   public void testComprobarQueSeAgregaAlInventario() {
-    ArrayList<Item> _inventario = this.jugador.getInventario();
+    List<Item> _inventario = this.jugador.getInventario();
     int _size = _inventario.size();
     Assert.assertEquals(0, _size);
     this.agarrarManivela.ejecutar(this.juego);
-    ArrayList<Item> _inventario_1 = this.jugador.getInventario();
+    List<Item> _inventario_1 = this.jugador.getInventario();
     int _size_1 = _inventario_1.size();
     Assert.assertEquals(1, _size_1);
   }

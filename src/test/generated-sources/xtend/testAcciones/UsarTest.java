@@ -1,6 +1,5 @@
 package testAcciones;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
@@ -224,10 +223,9 @@ public class UsarTest {
     this.jugador = _jugador;
     Jugador _jugador_1 = new Jugador("Jugador2", this.hab8);
     this.jugador2 = _jugador_1;
-    Juego _juego = new Juego(this.jugador, this.laberinto);
+    Juego _juego = new Juego(this.jugador);
     this.juego = _juego;
-    Juego _juego_1 = new Juego(this.jugador2, this.laberinto);
-    this.juego2 = _juego_1;
+    this.juego.agregarLaberinto(this.laberinto);
   }
   
   @Test
@@ -246,7 +244,7 @@ public class UsarTest {
   public void testAlUtilizarUnItemSeBorraDelInventario() {
     this.agarrarManivela.ejecutar(this.juego);
     this.usarManivela.ejecutar(this.juego);
-    ArrayList<Item> _inventario = this.jugador.getInventario();
+    List<Item> _inventario = this.jugador.getInventario();
     int _size = _inventario.size();
     Assert.assertEquals(0, _size);
     boolean _tiene = this.jugador.tiene(this.manivela);

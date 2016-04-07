@@ -221,10 +221,9 @@ public class SalirTest {
     this.jugador = _jugador;
     Jugador _jugador_1 = new Jugador("Jugador2", this.hab8);
     this.jugador2 = _jugador_1;
-    Juego _juego = new Juego(this.jugador, this.laberinto);
+    Juego _juego = new Juego(this.jugador);
     this.juego = _juego;
-    Juego _juego_1 = new Juego(this.jugador2, this.laberinto);
-    this.juego2 = _juego_1;
+    this.juego.agregarLaberinto(this.laberinto);
   }
   
   @Test

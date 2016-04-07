@@ -173,8 +173,8 @@ class SalirTest {
 		/*
 		 * Creación de Juego
 		 */
-		juego = new Juego(jugador, laberinto)
-		juego2 = new Juego(jugador2, laberinto)
+		juego = new Juego(jugador)
+		juego.agregarLaberinto(laberinto)
 	}
 
 	@Test

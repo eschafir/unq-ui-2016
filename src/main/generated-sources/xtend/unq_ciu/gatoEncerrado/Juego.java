@@ -1,7 +1,9 @@
 package unq_ciu.gatoEncerrado;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
@@ -15,16 +17,15 @@ import unq_ciu.gatoEncerrado.Laberinto;
 public class Juego {
   private Jugador jugador;
   
-  private Laberinto laberinto;
-  
-  private Habitacion habitacionSeleccionada;
+  private List<Laberinto> laberintos;
   
   public Juego() {
   }
   
-  public Juego(final Jugador jugador, final Laberinto laberinto) {
+  public Juego(final Jugador jugador) {
     this.jugador = jugador;
-    this.laberinto = laberinto;
+    ArrayList<Laberinto> _newArrayList = CollectionLiterals.<Laberinto>newArrayList();
+    this.laberintos = _newArrayList;
   }
   
   /**
@@ -33,6 +34,28 @@ public class Juego {
   public List<Accion> accionesPosibles() {
     Habitacion _habitacion = this.jugador.getHabitacion();
     return _habitacion.getAcciones();
+  }
+  
+  /**
+   * Agrega un laberinto al juego.
+   * @params lab : laberinto a agregar.
+   */
+  public boolean agregarLaberinto(final Laberinto lab) {
+    List<Laberinto> _laberintos = this.getLaberintos();
+    return _laberintos.add(lab);
+  }
+  
+  /**
+   * Remueve un laberinto del juego.
+   * @params lab : laberinto a quitar.
+   */
+  public boolean quitarLaberinto(final Laberinto lab) {
+    boolean _xifexpression = false;
+    boolean _contains = this.laberintos.contains(lab);
+    if (_contains) {
+      _xifexpression = this.laberintos.remove(lab);
+    }
+    return _xifexpression;
   }
   
   @Pure
@@ -45,20 +68,11 @@ public class Juego {
   }
   
   @Pure
-  public Laberinto getLaberinto() {
-    return this.laberinto;
+  public List<Laberinto> getLaberintos() {
+    return this.laberintos;
   }
   
-  public void setLaberinto(final Laberinto laberinto) {
-    this.laberinto = laberinto;
-  }
-  
-  @Pure
-  public Habitacion getHabitacionSeleccionada() {
-    return this.habitacionSeleccionada;
-  }
-  
-  public void setHabitacionSeleccionada(final Habitacion habitacionSeleccionada) {
-    this.habitacionSeleccionada = habitacionSeleccionada;
+  public void setLaberintos(final List<Laberinto> laberintos) {
+    this.laberintos = laberintos;
   }
 }

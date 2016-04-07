@@ -14,7 +14,7 @@ class Juego {
 	new() {
 	}
 
-	new(Jugador jugador, Laberinto laberinto) {
+	new(Jugador jugador) {
 		this.jugador = jugador
 		laberintos = newArrayList
 	}
@@ -26,7 +26,21 @@ class Juego {
 		this.jugador.habitacion.acciones
 	}
 
+	/**
+	 * Agrega un laberinto al juego.
+	 * @params lab : laberinto a agregar.
+	 */
 	def agregarLaberinto(Laberinto lab) {
-		laberintos.add(lab)
+		getLaberintos.add(lab)
+	}
+
+	/**
+	 * Remueve un laberinto del juego.
+	 * @params lab : laberinto a quitar.
+	 */
+	def quitarLaberinto(Laberinto lab) {
+		if (laberintos.contains(lab)) {
+			laberintos.remove(lab)
+		}
 	}
 }

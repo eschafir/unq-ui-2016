@@ -27,8 +27,8 @@ public class Agarrar extends Accion {
       boolean _contains = _accionesPosibles.contains(this);
       if (_contains) {
         Jugador _jugador = juego.getJugador();
-        boolean _puedeAgegar = _jugador.puedeAgegar();
-        if (_puedeAgegar) {
+        boolean _puedeAgregar = _jugador.puedeAgregar();
+        if (_puedeAgregar) {
           Jugador _jugador_1 = juego.getJugador();
           _jugador_1.agregarAlInventario(this.item);
           Jugador _jugador_2 = juego.getJugador();

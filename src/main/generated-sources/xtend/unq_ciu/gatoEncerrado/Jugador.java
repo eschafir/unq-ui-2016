@@ -15,7 +15,7 @@ import unq_ciu.gatoEncerrado.Item;
 public class Jugador {
   private String nombre;
   
-  private ArrayList<Item> inventario;
+  private List<Item> inventario;
   
   private Habitacion habitacion;
   
@@ -63,8 +63,8 @@ public class Jugador {
   /**
    * Este método verifica si el inventario del Jugador esta lleno.
    */
-  public boolean puedeAgegar() {
-    ArrayList<Item> _inventario = this.getInventario();
+  public boolean puedeAgregar() {
+    List<Item> _inventario = this.getInventario();
     int _size = _inventario.size();
     return (_size < 15);
   }
@@ -74,7 +74,7 @@ public class Jugador {
    * @param i el item a agregar.
    */
   public void agregarAlInventario(final Item i) {
-    ArrayList<Item> _inventario = this.getInventario();
+    List<Item> _inventario = this.getInventario();
     _inventario.add(i);
   }
   
@@ -84,10 +84,10 @@ public class Jugador {
    */
   public Object quitarDelInventario(final Item i) {
     Object _xifexpression = null;
-    ArrayList<Item> _inventario = this.getInventario();
+    List<Item> _inventario = this.getInventario();
     boolean _contains = _inventario.contains(i);
     if (_contains) {
-      ArrayList<Item> _inventario_1 = this.getInventario();
+      List<Item> _inventario_1 = this.getInventario();
       _xifexpression = Boolean.valueOf(_inventario_1.remove(i));
     } else {
       _xifexpression = InputOutput.<String>println((("No se encuentra el item " + i) + " en el inventario."));
@@ -100,7 +100,7 @@ public class Jugador {
    * @param i : el item que verifica si tiene en el inventario.
    */
   public boolean tiene(final Item i) {
-    ArrayList<Item> _inventario = this.getInventario();
+    List<Item> _inventario = this.getInventario();
     return _inventario.contains(i);
   }
   
@@ -114,11 +114,11 @@ public class Jugador {
   }
   
   @Pure
-  public ArrayList<Item> getInventario() {
+  public List<Item> getInventario() {
     return this.inventario;
   }
   
-  public void setInventario(final ArrayList<Item> inventario) {
+  public void setInventario(final List<Item> inventario) {
     this.inventario = inventario;
   }
   

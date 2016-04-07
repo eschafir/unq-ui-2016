@@ -172,7 +172,8 @@ class AgarrarTest {
 		/*
 		 * Creación de Juego
 		 */
-		juego = new Juego(jugador, laberinto)
+		juego = new Juego(jugador)
+		juego.agregarLaberinto(laberinto)
 	}
 
 	@Test
