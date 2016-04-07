@@ -1,11 +1,12 @@
 package unq_ciu.gatoEncerrado
 
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.utils.Observable
 import java.util.List
+import org.uqbar.commons.utils.TransactionalAndObservable
+import java.util.ArrayList
 
 @Accessors
-@Observable
+@TransactionalAndObservable
 class Juego {
 
 	Jugador jugador
@@ -16,7 +17,7 @@ class Juego {
 
 	new(Jugador jugador) {
 		this.jugador = jugador
-		laberintos = newArrayList
+		this.laberintos = new ArrayList<Laberinto>
 	}
 
 	/**

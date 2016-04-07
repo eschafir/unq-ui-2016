@@ -12,6 +12,8 @@ class Laberinto {
 	String nombre
 	List<Habitacion> habitaciones
 
+	new(){}
+	
 	new(String nombre) {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>

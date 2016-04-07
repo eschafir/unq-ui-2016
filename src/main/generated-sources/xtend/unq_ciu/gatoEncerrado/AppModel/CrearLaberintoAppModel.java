@@ -16,6 +16,8 @@ public class CrearLaberintoAppModel {
   
   public CrearLaberintoAppModel(final Juego juego) {
     this.juego = juego;
+    Laberinto _laberinto = new Laberinto();
+    this.laberinto = _laberinto;
   }
   
   public boolean agregarLaberinto() {

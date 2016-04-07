@@ -17,6 +17,9 @@ public class Laberinto {
   
   private List<Habitacion> habitaciones;
   
+  public Laberinto() {
+  }
+  
   public Laberinto(final String nombre) {
     this.nombre = nombre;
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();

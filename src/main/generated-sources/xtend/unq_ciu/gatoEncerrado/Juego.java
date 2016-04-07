@@ -3,16 +3,15 @@ package unq_ciu.gatoEncerrado;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Pure;
-import org.uqbar.commons.utils.Observable;
+import org.uqbar.commons.utils.TransactionalAndObservable;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Jugador;
 import unq_ciu.gatoEncerrado.Laberinto;
 
 @Accessors
-@Observable
+@TransactionalAndObservable
 @SuppressWarnings("all")
 public class Juego {
   private Jugador jugador;
@@ -24,8 +23,8 @@ public class Juego {
   
   public Juego(final Jugador jugador) {
     this.jugador = jugador;
-    ArrayList<Laberinto> _newArrayList = CollectionLiterals.<Laberinto>newArrayList();
-    this.laberintos = _newArrayList;
+    ArrayList<Laberinto> _arrayList = new ArrayList<Laberinto>();
+    this.laberintos = _arrayList;
   }
   
   /**
