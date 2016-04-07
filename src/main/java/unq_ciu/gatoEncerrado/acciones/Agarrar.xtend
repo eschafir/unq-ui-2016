@@ -19,15 +19,14 @@ class Agarrar extends Accion {
 	override ejecutar(Juego juego) {
 
 		if (juego.accionesPosibles.contains(this)) {
-			if (juego.jugador.puedeAgegar) {
+			if (juego.jugador.puedeAgregar) {
 				juego.jugador.agregarAlInventario(item)
 				juego.jugador.habitacion.quitarAccion(this)
 			} else {
 				throw new NoSePuedeAgregarItemAlInventarioException()
 			}
-		}
-		else {
-			throw new NoEstaDisponibleEstaAccionException() 
+		} else {
+			throw new NoEstaDisponibleEstaAccionException()
 		}
 	}
 }

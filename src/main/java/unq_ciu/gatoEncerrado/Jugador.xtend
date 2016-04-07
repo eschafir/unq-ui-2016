@@ -2,11 +2,12 @@ package unq_ciu.gatoEncerrado
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
+import java.util.List
 
 @Accessors
 class Jugador {
 	String nombre
-	ArrayList<Item> inventario
+	List<Item> inventario
 	Habitacion habitacion
 	int ganados
 	int abandonados
@@ -48,7 +49,7 @@ class Jugador {
 	/**
 	 * Este método verifica si el inventario del Jugador esta lleno. 
 	 */
-	def puedeAgegar() {
+	def puedeAgregar() {
 		return (getInventario.size < 15)
 	}
 
