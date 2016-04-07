@@ -20,7 +20,7 @@ class Laberinto {
 	}
 
 	def agregarHabitacion(Habitacion h) {
-		getHabitaciones.add(h)
+		habitaciones.add(h)
 	}
 
 	def eliminarHabitacion(Habitacion h) {

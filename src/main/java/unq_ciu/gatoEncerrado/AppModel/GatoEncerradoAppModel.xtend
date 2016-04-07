@@ -13,13 +13,20 @@ class GatoEncerradoAppModel {
 	Juego juego
 	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
-	
-	new(Juego juego){
+
+	new(Juego juego) {
 		this.juego = juego
 	}
-	
-	def eliminarLaberinto(){
+
+	new() {
+	}
+
+	def eliminarLaberinto() {
 		juego.quitarLaberinto(laberintoSeleccionado)
+	}
+
+	def eliminarHabitacion() {
+		laberintoSeleccionado.eliminarHabitacion(habitacionSeleccionada)
 	}
 
 }
