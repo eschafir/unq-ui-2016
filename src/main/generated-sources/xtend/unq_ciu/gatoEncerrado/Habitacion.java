@@ -22,6 +22,9 @@ public class Habitacion {
   
   private List<Accion> acciones;
   
+  public Habitacion() {
+  }
+  
   public Habitacion(final String nombre, final boolean eI, final boolean eF) {
     this.nombre = nombre;
     this.esInicial = eI;

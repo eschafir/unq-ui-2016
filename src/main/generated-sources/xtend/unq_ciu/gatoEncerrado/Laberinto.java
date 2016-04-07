@@ -18,6 +18,8 @@ public class Laberinto {
   private List<Habitacion> habitaciones;
   
   public Laberinto() {
+    ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
+    this.habitaciones = _arrayList;
   }
   
   public Laberinto(final String nombre) {
@@ -27,8 +29,7 @@ public class Laberinto {
   }
   
   public boolean agregarHabitacion(final Habitacion h) {
-    List<Habitacion> _habitaciones = this.getHabitaciones();
-    return _habitaciones.add(h);
+    return this.habitaciones.add(h);
   }
   
   public Object eliminarHabitacion(final Habitacion h) {

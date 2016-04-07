@@ -12,8 +12,10 @@ class Laberinto {
 	String nombre
 	List<Habitacion> habitaciones
 
-	new(){}
-	
+	new() {
+		this.habitaciones = new ArrayList<Habitacion>
+	}
+
 	new(String nombre) {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>

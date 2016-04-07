@@ -21,8 +21,15 @@ public class GatoEncerradoAppModel {
     this.juego = juego;
   }
   
+  public GatoEncerradoAppModel() {
+  }
+  
   public boolean eliminarLaberinto() {
     return this.juego.quitarLaberinto(this.laberintoSeleccionado);
+  }
+  
+  public Object eliminarHabitacion() {
+    return this.laberintoSeleccionado.eliminarHabitacion(this.habitacionSeleccionada);
   }
   
   @Pure
