@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Laberinto;
 
 @Accessors
 @Observable
@@ -11,7 +12,10 @@ import unq_ciu.gatoEncerrado.Habitacion;
 public class AgregarAccionAppModel {
   private Habitacion habitacionActual;
   
-  public AgregarAccionAppModel(final Habitacion habitacion) {
+  private Laberinto laberinto;
+  
+  public AgregarAccionAppModel(final Laberinto laberinto, final Habitacion habitacion) {
+    this.laberinto = laberinto;
     this.habitacionActual = habitacion;
   }
   
@@ -22,5 +26,14 @@ public class AgregarAccionAppModel {
   
   public void setHabitacionActual(final Habitacion habitacionActual) {
     this.habitacionActual = habitacionActual;
+  }
+  
+  @Pure
+  public Laberinto getLaberinto() {
+    return this.laberinto;
+  }
+  
+  public void setLaberinto(final Laberinto laberinto) {
+    this.laberinto = laberinto;
   }
 }

@@ -14,7 +14,8 @@ class AgregarAccionDeIrAOtraHabitacionAppModel {
 	Habitacion habitacionSeleccionada
 	Laberinto laberinto
 
-	new(Habitacion habitacion) {
+	new(Laberinto laberinto, Habitacion habitacion) {
+		this.laberinto = laberinto
 		this.habitacion = habitacion
 	}
 

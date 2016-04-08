@@ -16,6 +16,7 @@ class Habitacion {
 	List<Accion> acciones
 
 	new() {
+		acciones = new ArrayList<Accion>
 	}
 
 	new(String nombre, boolean eI, boolean eF) {

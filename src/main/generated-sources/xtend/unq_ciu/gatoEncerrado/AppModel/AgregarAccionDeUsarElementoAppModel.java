@@ -17,7 +17,8 @@ public class AgregarAccionDeUsarElementoAppModel {
   
   private Item itemSeleccinado;
   
-  public AgregarAccionDeUsarElementoAppModel(final Habitacion habitacion) {
+  public AgregarAccionDeUsarElementoAppModel(final Laberinto lab, final Habitacion habitacion) {
+    this.laberinto = lab;
     this.habitacion = habitacion;
   }
   

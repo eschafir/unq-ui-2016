@@ -17,7 +17,8 @@ public class AgregarAccionDeIrAOtraHabitacionAppModel {
   
   private Laberinto laberinto;
   
-  public AgregarAccionDeIrAOtraHabitacionAppModel(final Habitacion habitacion) {
+  public AgregarAccionDeIrAOtraHabitacionAppModel(final Laberinto laberinto, final Habitacion habitacion) {
+    this.laberinto = laberinto;
     this.habitacion = habitacion;
   }
   

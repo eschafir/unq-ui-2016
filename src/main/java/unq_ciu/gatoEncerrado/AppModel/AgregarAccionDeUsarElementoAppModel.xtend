@@ -14,7 +14,8 @@ class AgregarAccionDeUsarElementoAppModel {
 	Habitacion habitacion
 	Item itemSeleccinado
 
-	new(Habitacion habitacion) {
+	new(Laberinto lab, Habitacion habitacion) {
+		laberinto = lab
 		this.habitacion = habitacion
 	}
 

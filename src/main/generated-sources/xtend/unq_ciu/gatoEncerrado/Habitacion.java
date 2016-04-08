@@ -23,6 +23,8 @@ public class Habitacion {
   private List<Accion> acciones;
   
   public Habitacion() {
+    ArrayList<Accion> _arrayList = new ArrayList<Accion>();
+    this.acciones = _arrayList;
   }
   
   public Habitacion(final String nombre, final boolean eI, final boolean eF) {
