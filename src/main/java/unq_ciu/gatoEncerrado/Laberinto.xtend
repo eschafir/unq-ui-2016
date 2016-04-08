@@ -11,6 +11,7 @@ class Laberinto {
 
 	String nombre
 	List<Habitacion> habitaciones
+	Boolean tieneHabInicial
 
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>

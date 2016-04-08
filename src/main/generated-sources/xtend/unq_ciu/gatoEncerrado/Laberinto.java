@@ -17,6 +17,8 @@ public class Laberinto {
   
   private List<Habitacion> habitaciones;
   
+  private Boolean tieneHabInicial;
+  
   public Laberinto() {
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
@@ -67,5 +69,14 @@ public class Laberinto {
   
   public void setHabitaciones(final List<Habitacion> habitaciones) {
     this.habitaciones = habitaciones;
+  }
+  
+  @Pure
+  public Boolean getTieneHabInicial() {
+    return this.tieneHabInicial;
+  }
+  
+  public void setTieneHabInicial(final Boolean tieneHabInicial) {
+    this.tieneHabInicial = tieneHabInicial;
   }
 }
