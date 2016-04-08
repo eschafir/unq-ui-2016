@@ -23,6 +23,13 @@ public class Jugador {
   
   private int abandonados;
   
+  public Jugador() {
+    this.nombre = "";
+    ArrayList<Item> _arrayList = new ArrayList<Item>();
+    this.inventario = _arrayList;
+    this.habitacion = null;
+  }
+  
   public Jugador(final String n, final Habitacion h) {
     this.nombre = n;
     this.habitacion = h;

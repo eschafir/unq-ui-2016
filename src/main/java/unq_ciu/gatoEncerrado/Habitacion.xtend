@@ -37,7 +37,9 @@ class Habitacion {
 	 * Quita una accion de la lista de acciones permitidas en la habitacion.
 	 */
 	def quitarAccion(Accion acc) {
-		getAcciones.remove(acc)
+		if (getAcciones.contains(acc)) {
+			getAcciones.remove(acc)
+		}
 	}
 
 	/**

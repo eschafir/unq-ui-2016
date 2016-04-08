@@ -24,14 +24,20 @@ public class DummyData {
     Juego _juego = new Juego();
     final Procedure1<Juego> _function = new Procedure1<Juego>() {
       public void apply(final Juego it) {
-        final Habitacion living = new Habitacion("Living", true, false);
+        final Habitacion entrada = new Habitacion("Entrada principal", true, false);
         final Habitacion cocina = new Habitacion("Cocina", false, false);
-        final Habitacion patio = new Habitacion("Patio", false, false);
+        final Habitacion comedor = new Habitacion("Comedor", false, false);
+        final Habitacion pasillo = new Habitacion("Pasillo", false, false);
+        final Habitacion sotano = new Habitacion("Sótano", false, false);
+        final Habitacion patio = new Habitacion("Patio", false, true);
         final Laberinto laberinto = new Laberinto("Casa Abandonada");
-        Jugador _jugador = new Jugador("Esteban", living);
+        Jugador _jugador = new Jugador("Esteban", entrada);
         it.setJugador(_jugador);
-        laberinto.agregarHabitacion(living);
+        laberinto.agregarHabitacion(entrada);
         laberinto.agregarHabitacion(cocina);
+        laberinto.agregarHabitacion(comedor);
+        laberinto.agregarHabitacion(pasillo);
+        laberinto.agregarHabitacion(sotano);
         laberinto.agregarHabitacion(patio);
         it.agregarLaberinto(laberinto);
       }

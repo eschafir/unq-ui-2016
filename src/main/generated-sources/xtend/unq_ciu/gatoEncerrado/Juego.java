@@ -19,6 +19,10 @@ public class Juego {
   private List<Laberinto> laberintos;
   
   public Juego() {
+    Jugador _jugador = new Jugador();
+    this.jugador = _jugador;
+    ArrayList<Laberinto> _arrayList = new ArrayList<Laberinto>();
+    this.laberintos = _arrayList;
   }
   
   public Juego(final Jugador jugador) {

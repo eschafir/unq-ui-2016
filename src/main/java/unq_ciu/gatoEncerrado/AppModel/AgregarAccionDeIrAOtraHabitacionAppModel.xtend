@@ -22,4 +22,5 @@ class AgregarAccionDeIrAOtraHabitacionAppModel {
 	def agregarAccion() {
 		habitacion.agregarAccion(new Mover(habitacionSeleccionada))
 	}
+
 }

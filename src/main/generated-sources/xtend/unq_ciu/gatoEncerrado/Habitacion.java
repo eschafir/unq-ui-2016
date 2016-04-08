@@ -47,8 +47,14 @@ public class Habitacion {
    * Quita una accion de la lista de acciones permitidas en la habitacion.
    */
   public boolean quitarAccion(final Accion acc) {
+    boolean _xifexpression = false;
     List<Accion> _acciones = this.getAcciones();
-    return _acciones.remove(acc);
+    boolean _contains = _acciones.contains(acc);
+    if (_contains) {
+      List<Accion> _acciones_1 = this.getAcciones();
+      _xifexpression = _acciones_1.remove(acc);
+    }
+    return _xifexpression;
   }
   
   /**

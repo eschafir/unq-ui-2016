@@ -16,19 +16,24 @@ import org.uqbar.commons.utils.Observable
  * Es solo UNA forma de crearlos.
  * 
  */
- 
- @Observable
+@Observable
 class DummyData {
 
 	def crearJuegoDummy() {
 		new Juego => [
-			val living = new Habitacion("Living", true, false)
+			val entrada = new Habitacion("Entrada principal", true, false)
 			val cocina = new Habitacion("Cocina", false, false)
-			val patio = new Habitacion("Patio", false, false)
+			val comedor = new Habitacion("Comedor", false, false)
+			val pasillo = new Habitacion("Pasillo", false, false)
+			val sotano = new Habitacion("Sótano", false, false)
+			val patio = new Habitacion("Patio", false, true)
 			val laberinto = new Laberinto("Casa Abandonada")
-			jugador = new Jugador("Esteban", living)
-			laberinto.agregarHabitacion(living)
+			jugador = new Jugador("Esteban", entrada)
+			laberinto.agregarHabitacion(entrada)
 			laberinto.agregarHabitacion(cocina)
+			laberinto.agregarHabitacion(comedor)
+			laberinto.agregarHabitacion(pasillo)
+			laberinto.agregarHabitacion(sotano)
 			laberinto.agregarHabitacion(patio)
 			agregarLaberinto(laberinto)
 		]

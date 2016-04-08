@@ -30,8 +30,8 @@ class GatoEncerradoAppModel {
 	def eliminarHabitacion() {
 		laberintoSeleccionado.eliminarHabitacion(habitacionSeleccionada)
 	}
-	
-	def quitarAccion(){
+
+	def quitarAccion() {
 		habitacionSeleccionada.quitarAccion(accionSeleccionada)
 	}
 

@@ -13,6 +13,8 @@ class Juego {
 	List<Laberinto> laberintos
 
 	new() {
+		this.jugador = new Jugador()
+		this.laberintos = new ArrayList<Laberinto>
 	}
 
 	new(Jugador jugador) {
