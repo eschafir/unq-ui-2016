@@ -8,6 +8,10 @@ import org.uqbar.commons.utils.Observable
 class Item {
 
 	String nombre
+	
+	new(){
+		this.nombre = ""
+	}
 
 	new(String nombre) {
 		this.nombre = nombre

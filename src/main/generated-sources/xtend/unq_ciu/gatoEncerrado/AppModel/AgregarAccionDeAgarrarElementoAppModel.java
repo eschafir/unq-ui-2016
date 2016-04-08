@@ -17,12 +17,13 @@ public class AgregarAccionDeAgarrarElementoAppModel {
   
   public AgregarAccionDeAgarrarElementoAppModel(final Habitacion habitacion) {
     this.habitacion = habitacion;
+    Item _item = new Item();
+    this.item = _item;
   }
   
   public boolean agregarAcccionAgarrar() {
-    Habitacion _habitacion = this.getHabitacion();
     Agarrar _agarrar = new Agarrar(this.item);
-    return _habitacion.agregarAccion(_agarrar);
+    return this.habitacion.agregarAccion(_agarrar);
   }
   
   @Pure

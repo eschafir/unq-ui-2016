@@ -10,6 +10,10 @@ import org.uqbar.commons.utils.Observable;
 public class Item {
   private String nombre;
   
+  public Item() {
+    this.nombre = "";
+  }
+  
   public Item(final String nombre) {
     this.nombre = nombre;
   }

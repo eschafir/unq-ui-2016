@@ -6,14 +6,18 @@ import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Item
 import unq_ciu.gatoEncerrado.Excepciones.NoSePuedeAgregarItemAlInventarioException
 import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException
+import org.uqbar.commons.utils.Observable
 
 @Accessors
+@Observable
 class Agarrar extends Accion {
-
+	
+	String nombre
 	Item item
 
 	new(Item item) {
 		this.item = item
+		this.nombre = "Agarrar " + item.nombre
 	}
 
 	override ejecutar(Juego juego) {
