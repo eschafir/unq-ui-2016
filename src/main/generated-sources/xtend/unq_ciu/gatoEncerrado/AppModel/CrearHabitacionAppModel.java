@@ -20,7 +20,7 @@ public class CrearHabitacionAppModel {
     this.habitacion = _habitacion;
   }
   
-  public boolean agregarHabitacion() {
+  public Boolean agregarHabitacion() {
     return this.laberinto.agregarHabitacion(this.habitacion);
   }
   

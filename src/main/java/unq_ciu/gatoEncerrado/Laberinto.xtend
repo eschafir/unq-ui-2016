@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import java.util.List
 import java.util.ArrayList
+import unq_ciu.gatoEncerrado.Excepciones.YaHayUnaHabitacionInicialEnElLaberinto
 
 @Accessors
 @Observable
@@ -15,22 +16,36 @@ class Laberinto {
 
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>
+		this.tieneHabInicial = false
 	}
 
 	new(String nombre) {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>
+		this.tieneHabInicial = false
 	}
 
 	def agregarHabitacion(Habitacion h) {
-		habitaciones.add(h)
+		if (h.isEsInicial) {
+			if (getTieneHabInicial) {
+				throw new YaHayUnaHabitacionInicialEnElLaberinto()
+			} else {
+				getHabitaciones.add(h)
+				tieneHabInicial = true
+			}
+		} else {
+			getHabitaciones.add(h)
+		}
 	}
 
 	def eliminarHabitacion(Habitacion h) {
 		if (getHabitaciones.contains(h)) {
-			getHabitaciones.remove(h)
-		} else {
-			println("No se encuentra la habitacion " + h.nombre)
+			if (h.isEsInicial) {
+				getHabitaciones.remove(h)
+				tieneHabInicial = false
+			} else {
+				getHabitaciones.remove(h)
+			}
 		}
 	}
 
