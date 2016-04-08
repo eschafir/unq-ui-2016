@@ -14,8 +14,9 @@ class Habitacion {
 	boolean esInicial
 	boolean esFinal
 	List<Accion> acciones
-	
-	new(){}
+
+	new() {
+	}
 
 	new(String nombre, boolean eI, boolean eF) {
 		this.nombre = nombre

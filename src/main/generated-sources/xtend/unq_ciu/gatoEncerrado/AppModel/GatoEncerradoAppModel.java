@@ -3,6 +3,7 @@ package unq_ciu.gatoEncerrado.AppModel;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
+import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Juego;
 import unq_ciu.gatoEncerrado.Laberinto;
@@ -17,6 +18,8 @@ public class GatoEncerradoAppModel {
   
   private Habitacion habitacionSeleccionada;
   
+  private Accion accionSeleccionada;
+  
   public GatoEncerradoAppModel(final Juego juego) {
     this.juego = juego;
   }
@@ -30,6 +33,10 @@ public class GatoEncerradoAppModel {
   
   public Object eliminarHabitacion() {
     return this.laberintoSeleccionado.eliminarHabitacion(this.habitacionSeleccionada);
+  }
+  
+  public boolean quitarAccion() {
+    return this.habitacionSeleccionada.quitarAccion(this.accionSeleccionada);
   }
   
   @Pure
@@ -57,5 +64,14 @@ public class GatoEncerradoAppModel {
   
   public void setHabitacionSeleccionada(final Habitacion habitacionSeleccionada) {
     this.habitacionSeleccionada = habitacionSeleccionada;
+  }
+  
+  @Pure
+  public Accion getAccionSeleccionada() {
+    return this.accionSeleccionada;
+  }
+  
+  public void setAccionSeleccionada(final Accion accionSeleccionada) {
+    this.accionSeleccionada = accionSeleccionada;
   }
 }

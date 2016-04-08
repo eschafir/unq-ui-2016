@@ -5,6 +5,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Juego
+import unq_ciu.gatoEncerrado.Accion
 
 @Accessors
 @Observable
@@ -13,6 +14,7 @@ class GatoEncerradoAppModel {
 	Juego juego
 	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
+	Accion accionSeleccionada
 
 	new(Juego juego) {
 		this.juego = juego
@@ -27,6 +29,10 @@ class GatoEncerradoAppModel {
 
 	def eliminarHabitacion() {
 		laberintoSeleccionado.eliminarHabitacion(habitacionSeleccionada)
+	}
+	
+	def quitarAccion(){
+		habitacionSeleccionada.quitarAccion(accionSeleccionada)
 	}
 
 }
