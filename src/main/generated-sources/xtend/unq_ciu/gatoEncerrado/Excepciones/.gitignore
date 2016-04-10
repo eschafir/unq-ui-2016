@@ -7,3 +7,6 @@
 /NoHayItemNecesarioException.java
 /NoSePuedeAgregarItemAlInventarioException.java
 /.YaHayUnaHabitacionInicialEnElLaberinto.java._trace
+/YaHayUnaHabitacionInicialEnElLaberinto.java
+/.NoSePuedeIngresarUnNombreDeHabitacionVacia.java._trace
+/.IngresarNombreException.java._trace
