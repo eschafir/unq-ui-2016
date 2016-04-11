@@ -24,8 +24,8 @@ class GatoEncerradoAppModel {
 
 	new() {
 	}
-	
-	def void setHabitacionSeleccionada(Habitacion h){
+
+	def void setHabitacionSeleccionada(Habitacion h) {
 		habitacionSeleccionada = h
 		ObservableUtils.firePropertyChanged(this, "nombreHabitacion")
 	}
@@ -41,18 +41,18 @@ class GatoEncerradoAppModel {
 	def quitarAccion() {
 		habitacionSeleccionada.quitarAccion(accionSeleccionada)
 	}
-	
+
 	def verificar() {
-		if (habitacionSeleccionada == null){
+		if (habitacionSeleccionada == null) {
 			throw new UserException("Por favor seleccione una habitación.")
 		}
 	}
-	
-	def String getNombreHabitacion(){
+
+	def String getNombreHabitacion() {
 		this.habitacionSeleccionada.nombre
 	}
-	
-	def void setNombreHabitacion(String nuevoNombre){
+
+	def void setNombreHabitacion(String nuevoNombre) {
 		this.laberintoSeleccionado.validarNombre(nuevoNombre)
 		this.habitacionSeleccionada.nombre = nuevoNombre
 	}

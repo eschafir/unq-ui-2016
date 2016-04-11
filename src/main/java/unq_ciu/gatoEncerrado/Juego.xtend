@@ -35,7 +35,7 @@ class Juego {
 	 * @params lab : laberinto a agregar.
 	 */
 	def agregarLaberinto(Laberinto lab) {
-		validarNombre(lab)
+		validarNombre(lab.nombre)
 		getLaberintos.add(lab)
 	}
 
@@ -53,17 +53,10 @@ class Juego {
 	 * Valida si el nombre de un laberinto ya se encuentra en uso en la lista de laberintos del juego.
 	 * @params laberinto : el laberinto al cual se va a verificar el nombre. 
 	 */
-	def validarNombre(Laberinto laberinto) {
+	def validarNombre(String nuevoNombre) {
 
-		/**
-		 * Seguramente se puede hacer con la sentencia forEach.
-		 */
-		val nombresLaberintos = new ArrayList
-		for (Laberinto l : laberintos) {
-			nombresLaberintos.add(l.nombre)
-		}
-		if (nombresLaberintos.contains(laberinto.nombre)) {
-			throw new UserException("Ya existe un laberinto con el nombre " + laberinto.nombre)
-		}
+		if(laberintos.exists[it.nombre.equals(nuevoNombre)]){
+			throw new UserException("Ya existe un laberinto con el nombre " + nuevoNombre)
+		 }
 	}
 }

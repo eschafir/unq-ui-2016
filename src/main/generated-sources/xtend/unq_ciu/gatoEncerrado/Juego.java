@@ -3,6 +3,8 @@ package unq_ciu.gatoEncerrado;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.TransactionalAndObservable;
@@ -47,7 +49,8 @@ public class Juego {
   public boolean agregarLaberinto(final Laberinto lab) {
     boolean _xblockexpression = false;
     {
-      this.validarNombre(lab);
+      String _nombre = lab.getNombre();
+      this.validarNombre(_nombre);
       List<Laberinto> _laberintos = this.getLaberintos();
       _xblockexpression = _laberintos.add(lab);
     }
@@ -71,18 +74,16 @@ public class Juego {
    * Valida si el nombre de un laberinto ya se encuentra en uso en la lista de laberintos del juego.
    * @params laberinto : el laberinto al cual se va a verificar el nombre.
    */
-  public void validarNombre(final Laberinto laberinto) {
-    final ArrayList<String> nombresLaberintos = new ArrayList<String>();
-    for (final Laberinto l : this.laberintos) {
-      String _nombre = l.getNombre();
-      nombresLaberintos.add(_nombre);
-    }
-    String _nombre_1 = laberinto.getNombre();
-    boolean _contains = nombresLaberintos.contains(_nombre_1);
-    if (_contains) {
-      String _nombre_2 = laberinto.getNombre();
-      String _plus = ("Ya existe un laberinto con el nombre " + _nombre_2);
-      throw new UserException(_plus);
+  public void validarNombre(final String nuevoNombre) {
+    final Function1<Laberinto, Boolean> _function = new Function1<Laberinto, Boolean>() {
+      public Boolean apply(final Laberinto it) {
+        String _nombre = it.getNombre();
+        return Boolean.valueOf(_nombre.equals(nuevoNombre));
+      }
+    };
+    boolean _exists = IterableExtensions.<Laberinto>exists(this.laberintos, _function);
+    if (_exists) {
+      throw new UserException(("Ya existe un laberinto con el nombre " + nuevoNombre));
     }
   }
   
