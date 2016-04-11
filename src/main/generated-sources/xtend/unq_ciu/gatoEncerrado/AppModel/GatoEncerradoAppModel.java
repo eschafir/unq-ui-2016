@@ -35,6 +35,11 @@ public class GatoEncerradoAppModel {
     ObservableUtils.firePropertyChanged(this, "nombreHabitacion");
   }
   
+  public void setLaberintoSeleccionado(final Laberinto l) {
+    this.laberintoSeleccionado = l;
+    ObservableUtils.firePropertyChanged(this, "nombreLaberinto");
+  }
+  
   public boolean eliminarLaberinto() {
     return this.juego.quitarLaberinto(this.laberintoSeleccionado);
   }
@@ -63,6 +68,15 @@ public class GatoEncerradoAppModel {
     this.habitacionSeleccionada.setNombre(nuevoNombre);
   }
   
+  public String getNombreLaberinto() {
+    return this.laberintoSeleccionado.getNombre();
+  }
+  
+  public void setNombreLaberinto(final String nuevoNombre) {
+    this.juego.validarNombre(nuevoNombre);
+    this.laberintoSeleccionado.setNombre(nuevoNombre);
+  }
+  
   @Pure
   public Juego getJuego() {
     return this.juego;
@@ -75,10 +89,6 @@ public class GatoEncerradoAppModel {
   @Pure
   public Laberinto getLaberintoSeleccionado() {
     return this.laberintoSeleccionado;
-  }
-  
-  public void setLaberintoSeleccionado(final Laberinto laberintoSeleccionado) {
-    this.laberintoSeleccionado = laberintoSeleccionado;
   }
   
   @Pure

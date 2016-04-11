@@ -1,5 +1,6 @@
 package unq_ciu.gatoEncerrado;
 
+import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
@@ -84,6 +85,10 @@ public class Juego {
     boolean _exists = IterableExtensions.<Laberinto>exists(this.laberintos, _function);
     if (_exists) {
       throw new UserException(("Ya existe un laberinto con el nombre " + nuevoNombre));
+    }
+    boolean _equals = Objects.equal(nuevoNombre, "");
+    if (_equals) {
+      throw new UserException("Ingrese un nombre para el laberinto.");
     }
   }
   

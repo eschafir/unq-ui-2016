@@ -58,5 +58,8 @@ class Juego {
 		if(laberintos.exists[it.nombre.equals(nuevoNombre)]){
 			throw new UserException("Ya existe un laberinto con el nombre " + nuevoNombre)
 		 }
+		 if (nuevoNombre == ""){
+		 	throw new UserException("Ingrese un nombre para el laberinto.")
+		 }
 	}
 }

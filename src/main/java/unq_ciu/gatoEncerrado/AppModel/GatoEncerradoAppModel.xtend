@@ -30,6 +30,11 @@ class GatoEncerradoAppModel {
 		ObservableUtils.firePropertyChanged(this, "nombreHabitacion")
 	}
 
+	def void setLaberintoSeleccionado(Laberinto l) {
+		laberintoSeleccionado = l
+		ObservableUtils.firePropertyChanged(this, "nombreLaberinto")
+	}
+
 	def eliminarLaberinto() {
 		juego.quitarLaberinto(laberintoSeleccionado)
 	}
@@ -55,6 +60,15 @@ class GatoEncerradoAppModel {
 	def void setNombreHabitacion(String nuevoNombre) {
 		this.laberintoSeleccionado.validarNombre(nuevoNombre)
 		this.habitacionSeleccionada.nombre = nuevoNombre
+	}
+
+	def String getNombreLaberinto() {
+		this.laberintoSeleccionado.nombre
+	}
+
+	def void setNombreLaberinto(String nuevoNombre) {
+		this.juego.validarNombre(nuevoNombre)
+		this.laberintoSeleccionado.nombre = nuevoNombre
 	}
 
 }
