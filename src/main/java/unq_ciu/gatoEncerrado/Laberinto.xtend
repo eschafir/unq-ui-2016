@@ -5,6 +5,7 @@ import org.uqbar.commons.utils.Observable
 import java.util.List
 import java.util.ArrayList
 import org.uqbar.commons.model.UserException
+import unq_ciu.gatoEncerrado.acciones.Agarrar
 
 @Accessors
 @Observable
@@ -51,9 +52,16 @@ class Laberinto {
 		}
 	}
 
-	def itemsDisponibles() {
+		def getItemsDisponibles() {
 		/**
-		 * TODO
+		 * Guarda en un ArrayList de todas las habitaciones los items disponibles
 		 */
-	}
+		 
+		var List<Agarrar> accionesDisponibles = new ArrayList<Agarrar>()
+		var List<Item> items= new ArrayList<Item>()
+		
+		 accionesDisponibles.addAll(getHabitaciones.filter(typeof(Agarrar)))
+		//items.addAll(accionesDisponibles.filter(typeof(Item))
+		
+	}	
 }

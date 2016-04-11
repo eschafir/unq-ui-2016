@@ -1,5 +1,6 @@
 package unq_ciu.gatoEncerrado;
 
+import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
@@ -9,6 +10,8 @@ import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Item;
+import unq_ciu.gatoEncerrado.acciones.Agarrar;
 
 @Accessors
 @Observable
@@ -92,8 +95,16 @@ public class Laberinto {
     return _xifexpression;
   }
   
-  public Object itemsDisponibles() {
-    return null;
+  public boolean getItemsDisponibles() {
+    boolean _xblockexpression = false;
+    {
+      List<Agarrar> accionesDisponibles = new ArrayList<Agarrar>();
+      List<Item> items = new ArrayList<Item>();
+      List<Habitacion> _habitaciones = this.getHabitaciones();
+      Iterable<Agarrar> _filter = Iterables.<Agarrar>filter(_habitaciones, Agarrar.class);
+      _xblockexpression = Iterables.<Agarrar>addAll(accionesDisponibles, _filter);
+    }
+    return _xblockexpression;
   }
   
   @Pure
