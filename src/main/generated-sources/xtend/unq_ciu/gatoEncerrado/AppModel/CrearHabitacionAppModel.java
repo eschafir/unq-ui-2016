@@ -22,8 +22,8 @@ public class CrearHabitacionAppModel {
     this.habitacion = _habitacion;
   }
   
-  public Boolean agregarHabitacion() {
-    Boolean _xifexpression = null;
+  public boolean agregarHabitacion() {
+    boolean _xifexpression = false;
     String _nombre = this.habitacion.getNombre();
     boolean _equals = Objects.equal(_nombre, null);
     if (_equals) {

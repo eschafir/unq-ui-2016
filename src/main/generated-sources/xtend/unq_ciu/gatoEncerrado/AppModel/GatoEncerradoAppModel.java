@@ -3,6 +3,7 @@ package unq_ciu.gatoEncerrado.AppModel;
 import com.google.common.base.Objects;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.ObservableUtils;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
@@ -29,11 +30,16 @@ public class GatoEncerradoAppModel {
   public GatoEncerradoAppModel() {
   }
   
+  public void setHabitacionSeleccionada(final Habitacion h) {
+    this.habitacionSeleccionada = h;
+    ObservableUtils.firePropertyChanged(this, "nombreHabitacion");
+  }
+  
   public boolean eliminarLaberinto() {
     return this.juego.quitarLaberinto(this.laberintoSeleccionado);
   }
   
-  public Boolean eliminarHabitacion() {
+  public boolean eliminarHabitacion() {
     return this.laberintoSeleccionado.eliminarHabitacion(this.habitacionSeleccionada);
   }
   
@@ -46,6 +52,15 @@ public class GatoEncerradoAppModel {
     if (_equals) {
       throw new UserException("Por favor seleccione una habitación.");
     }
+  }
+  
+  public String getNombreHabitacion() {
+    return this.habitacionSeleccionada.getNombre();
+  }
+  
+  public void setNombreHabitacion(final String nuevoNombre) {
+    this.laberintoSeleccionado.validarNombre(nuevoNombre);
+    this.habitacionSeleccionada.setNombre(nuevoNombre);
   }
   
   @Pure
@@ -69,10 +84,6 @@ public class GatoEncerradoAppModel {
   @Pure
   public Habitacion getHabitacionSeleccionada() {
     return this.habitacionSeleccionada;
-  }
-  
-  public void setHabitacionSeleccionada(final Habitacion habitacionSeleccionada) {
-    this.habitacionSeleccionada = habitacionSeleccionada;
   }
   
   @Pure

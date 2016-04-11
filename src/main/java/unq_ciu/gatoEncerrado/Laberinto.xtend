@@ -12,52 +12,39 @@ class Laberinto {
 
 	String nombre
 	List<Habitacion> habitaciones
-	Boolean tieneHabInicial
 
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>
-		this.tieneHabInicial = false
 	}
 
 	new(String nombre) {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>
-		this.tieneHabInicial = false
 	}
 
 	def agregarHabitacion(Habitacion h) {
-		if (h.isEsInicial) {
-			if (getTieneHabInicial) {
-				throw new UserException("Ya existe una habitacion inicial en este laberinto.")
-			} else {
-				validarNombre(h)
-				getHabitaciones.add(h)
-				tieneHabInicial = true
-			}
-		} else {
-			validarNombre(h)
-			getHabitaciones.add(h)
+		if (h.isEsInicial && tieneHabInicial) {
+			throw new UserException("Ya existe una habitacion inicial en este laberinto.")
 		}
+		
+		validarNombre(h.nombre)
+		getHabitaciones.add(h)
 	}
 
-	def validarNombre(Habitacion habitacion) {
-		/**
-		 * Seguramente se puede hacer con la sentencia forEach.
-		 */
-		val nombresHabitaciones = new ArrayList
-		for (Habitacion h : habitaciones) {
-			nombresHabitaciones.add(h.nombre)
-		}
-		if (nombresHabitaciones.contains(habitacion.nombre)) {
-			throw new UserException("Ya existe una habitacion con el nombre " + habitacion.nombre)
-		}
+	def Boolean getTieneHabInicial() {
+		habitaciones.exists[it.esInicial]
+	}
+
+	def validarNombre(String nuevoNombre) {
+		 if(habitaciones.exists[it.nombre.equals(nuevoNombre)]){
+			throw new UserException("Ya existe una habitacion con el nombre " + nuevoNombre)
+		 }
 	}
 
 	def eliminarHabitacion(Habitacion h) {
 		if (getHabitaciones.contains(h)) {
 			if (h.isEsInicial) {
 				getHabitaciones.remove(h)
-				tieneHabInicial = false
 			} else {
 				getHabitaciones.remove(h)
 			}

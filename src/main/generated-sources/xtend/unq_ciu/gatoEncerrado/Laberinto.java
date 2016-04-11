@@ -3,6 +3,8 @@ package unq_ciu.gatoEncerrado;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
@@ -16,85 +18,74 @@ public class Laberinto {
   
   private List<Habitacion> habitaciones;
   
-  private Boolean tieneHabInicial;
-  
   public Laberinto() {
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
-    this.tieneHabInicial = Boolean.valueOf(false);
   }
   
   public Laberinto(final String nombre) {
     this.nombre = nombre;
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
-    this.tieneHabInicial = Boolean.valueOf(false);
   }
   
-  public Boolean agregarHabitacion(final Habitacion h) {
-    Boolean _xifexpression = null;
-    boolean _isEsInicial = h.isEsInicial();
-    if (_isEsInicial) {
-      Boolean _xifexpression_1 = null;
-      Boolean _tieneHabInicial = this.getTieneHabInicial();
-      if ((_tieneHabInicial).booleanValue()) {
-        throw new UserException("Ya existe una habitacion inicial en este laberinto.");
+  public boolean agregarHabitacion(final Habitacion h) {
+    boolean _xblockexpression = false;
+    {
+      boolean _and = false;
+      boolean _isEsInicial = h.isEsInicial();
+      if (!_isEsInicial) {
+        _and = false;
       } else {
-        Boolean _xblockexpression = null;
-        {
-          this.validarNombre(h);
-          List<Habitacion> _habitaciones = this.getHabitaciones();
-          _habitaciones.add(h);
-          _xblockexpression = this.tieneHabInicial = Boolean.valueOf(true);
-        }
-        _xifexpression_1 = _xblockexpression;
+        Boolean _tieneHabInicial = this.getTieneHabInicial();
+        _and = (_tieneHabInicial).booleanValue();
       }
-      _xifexpression = _xifexpression_1;
-    } else {
-      boolean _xblockexpression_1 = false;
-      {
-        this.validarNombre(h);
-        List<Habitacion> _habitaciones = this.getHabitaciones();
-        _xblockexpression_1 = _habitaciones.add(h);
+      if (_and) {
+        throw new UserException("Ya existe una habitacion inicial en este laberinto.");
       }
-      _xifexpression = Boolean.valueOf(_xblockexpression_1);
-    }
-    return _xifexpression;
-  }
-  
-  public void validarNombre(final Habitacion habitacion) {
-    final ArrayList<String> nombresHabitaciones = new ArrayList<String>();
-    for (final Habitacion h : this.habitaciones) {
       String _nombre = h.getNombre();
-      nombresHabitaciones.add(_nombre);
+      this.validarNombre(_nombre);
+      List<Habitacion> _habitaciones = this.getHabitaciones();
+      _xblockexpression = _habitaciones.add(h);
     }
-    String _nombre_1 = habitacion.getNombre();
-    boolean _contains = nombresHabitaciones.contains(_nombre_1);
-    if (_contains) {
-      String _nombre_2 = habitacion.getNombre();
-      String _plus = ("Ya existe una habitacion con el nombre " + _nombre_2);
-      throw new UserException(_plus);
+    return _xblockexpression;
+  }
+  
+  public Boolean getTieneHabInicial() {
+    final Function1<Habitacion, Boolean> _function = new Function1<Habitacion, Boolean>() {
+      public Boolean apply(final Habitacion it) {
+        return Boolean.valueOf(it.isEsInicial());
+      }
+    };
+    return Boolean.valueOf(IterableExtensions.<Habitacion>exists(this.habitaciones, _function));
+  }
+  
+  public void validarNombre(final String nuevoNombre) {
+    final Function1<Habitacion, Boolean> _function = new Function1<Habitacion, Boolean>() {
+      public Boolean apply(final Habitacion it) {
+        String _nombre = it.getNombre();
+        return Boolean.valueOf(_nombre.equals(nuevoNombre));
+      }
+    };
+    boolean _exists = IterableExtensions.<Habitacion>exists(this.habitaciones, _function);
+    if (_exists) {
+      throw new UserException(("Ya existe una habitacion con el nombre " + nuevoNombre));
     }
   }
   
-  public Boolean eliminarHabitacion(final Habitacion h) {
-    Boolean _xifexpression = null;
+  public boolean eliminarHabitacion(final Habitacion h) {
+    boolean _xifexpression = false;
     List<Habitacion> _habitaciones = this.getHabitaciones();
     boolean _contains = _habitaciones.contains(h);
     if (_contains) {
-      Boolean _xifexpression_1 = null;
+      boolean _xifexpression_1 = false;
       boolean _isEsInicial = h.isEsInicial();
       if (_isEsInicial) {
-        Boolean _xblockexpression = null;
-        {
-          List<Habitacion> _habitaciones_1 = this.getHabitaciones();
-          _habitaciones_1.remove(h);
-          _xblockexpression = this.tieneHabInicial = Boolean.valueOf(false);
-        }
-        _xifexpression_1 = _xblockexpression;
-      } else {
         List<Habitacion> _habitaciones_1 = this.getHabitaciones();
-        _xifexpression_1 = Boolean.valueOf(_habitaciones_1.remove(h));
+        _xifexpression_1 = _habitaciones_1.remove(h);
+      } else {
+        List<Habitacion> _habitaciones_2 = this.getHabitaciones();
+        _xifexpression_1 = _habitaciones_2.remove(h);
       }
       _xifexpression = _xifexpression_1;
     }
@@ -121,14 +112,5 @@ public class Laberinto {
   
   public void setHabitaciones(final List<Habitacion> habitaciones) {
     this.habitaciones = habitaciones;
-  }
-  
-  @Pure
-  public Boolean getTieneHabInicial() {
-    return this.tieneHabInicial;
-  }
-  
-  public void setTieneHabInicial(final Boolean tieneHabInicial) {
-    this.tieneHabInicial = tieneHabInicial;
   }
 }
