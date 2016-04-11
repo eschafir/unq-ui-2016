@@ -1,7 +1,9 @@
 package unq_ciu.gatoEncerrado.AppModel;
 
+import com.google.common.base.Objects;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
@@ -22,8 +24,16 @@ public class AgregarAccionDeAgarrarElementoAppModel {
   }
   
   public boolean agregarAcccionAgarrar() {
-    Agarrar _agarrar = new Agarrar(this.item);
-    return this.habitacion.agregarAccion(_agarrar);
+    boolean _xifexpression = false;
+    String _nombre = this.item.getNombre();
+    boolean _equals = Objects.equal(_nombre, null);
+    if (_equals) {
+      throw new UserException("Por favor ingrese un nombre para el elemento.");
+    } else {
+      Agarrar _agarrar = new Agarrar(this.item);
+      _xifexpression = this.habitacion.agregarAccion(_agarrar);
+    }
+    return _xifexpression;
   }
   
   @Pure

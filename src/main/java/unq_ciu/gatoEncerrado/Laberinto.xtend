@@ -4,7 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import java.util.List
 import java.util.ArrayList
-import unq_ciu.gatoEncerrado.Excepciones.YaHayUnaHabitacionInicialEnElLaberinto
+import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
@@ -28,7 +28,7 @@ class Laberinto {
 	def agregarHabitacion(Habitacion h) {
 		if (h.isEsInicial) {
 			if (getTieneHabInicial) {
-				throw new YaHayUnaHabitacionInicialEnElLaberinto()
+				throw new UserException("Ya hay establecida una habitacion inicial en este laberinto.")
 			} else {
 				getHabitaciones.add(h)
 				tieneHabInicial = true

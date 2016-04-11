@@ -1,7 +1,9 @@
 package unq_ciu.gatoEncerrado.AppModel;
 
+import com.google.common.base.Objects;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Laberinto;
@@ -23,8 +25,15 @@ public class AgregarAccionDeIrAOtraHabitacionAppModel {
   }
   
   public boolean agregarAccion() {
-    Mover _mover = new Mover(this.habitacionSeleccionada);
-    return this.habitacion.agregarAccion(_mover);
+    boolean _xifexpression = false;
+    boolean _equals = Objects.equal(this.habitacionSeleccionada, null);
+    if (_equals) {
+      throw new UserException("Por favor seleccione una habitación.");
+    } else {
+      Mover _mover = new Mover(this.habitacionSeleccionada);
+      _xifexpression = this.habitacion.agregarAccion(_mover);
+    }
+    return _xifexpression;
   }
   
   @Pure

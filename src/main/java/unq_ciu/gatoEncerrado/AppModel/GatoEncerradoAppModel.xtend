@@ -6,6 +6,7 @@ import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Accion
+import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
@@ -33,6 +34,12 @@ class GatoEncerradoAppModel {
 
 	def quitarAccion() {
 		habitacionSeleccionada.quitarAccion(accionSeleccionada)
+	}
+	
+	def verificar() {
+		if (habitacionSeleccionada == null){
+			throw new UserException("Por favor seleccione una habitación.")
+		}
 	}
 
 }

@@ -3,10 +3,9 @@ package unq_ciu.gatoEncerrado;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
-import unq_ciu.gatoEncerrado.Excepciones.YaHayUnaHabitacionInicialEnElLaberinto;
 import unq_ciu.gatoEncerrado.Habitacion;
 
 @Accessors
@@ -33,32 +32,28 @@ public class Laberinto {
   }
   
   public Boolean agregarHabitacion(final Habitacion h) {
-    try {
-      Boolean _xifexpression = null;
-      boolean _isEsInicial = h.isEsInicial();
-      if (_isEsInicial) {
-        Boolean _xifexpression_1 = null;
-        Boolean _tieneHabInicial = this.getTieneHabInicial();
-        if ((_tieneHabInicial).booleanValue()) {
-          throw new YaHayUnaHabitacionInicialEnElLaberinto();
-        } else {
-          Boolean _xblockexpression = null;
-          {
-            List<Habitacion> _habitaciones = this.getHabitaciones();
-            _habitaciones.add(h);
-            _xblockexpression = this.tieneHabInicial = Boolean.valueOf(true);
-          }
-          _xifexpression_1 = _xblockexpression;
-        }
-        _xifexpression = _xifexpression_1;
+    Boolean _xifexpression = null;
+    boolean _isEsInicial = h.isEsInicial();
+    if (_isEsInicial) {
+      Boolean _xifexpression_1 = null;
+      Boolean _tieneHabInicial = this.getTieneHabInicial();
+      if ((_tieneHabInicial).booleanValue()) {
+        throw new UserException("Ya hay establecida una habitacion inicial en este laberinto.");
       } else {
-        List<Habitacion> _habitaciones = this.getHabitaciones();
-        _xifexpression = Boolean.valueOf(_habitaciones.add(h));
+        Boolean _xblockexpression = null;
+        {
+          List<Habitacion> _habitaciones = this.getHabitaciones();
+          _habitaciones.add(h);
+          _xblockexpression = this.tieneHabInicial = Boolean.valueOf(true);
+        }
+        _xifexpression_1 = _xblockexpression;
       }
-      return _xifexpression;
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
+      _xifexpression = _xifexpression_1;
+    } else {
+      List<Habitacion> _habitaciones = this.getHabitaciones();
+      _xifexpression = Boolean.valueOf(_habitaciones.add(h));
     }
+    return _xifexpression;
   }
   
   public Boolean eliminarHabitacion(final Habitacion h) {

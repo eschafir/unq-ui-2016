@@ -5,6 +5,7 @@ import org.uqbar.commons.utils.Observable
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Item
 import unq_ciu.gatoEncerrado.acciones.Agarrar
+import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
@@ -19,7 +20,10 @@ class AgregarAccionDeAgarrarElementoAppModel {
 	}
 
 	def agregarAcccionAgarrar() {
-		habitacion.agregarAccion(new Agarrar(item))
+		if (item.nombre == null) {
+			throw new UserException("Por favor ingrese un nombre para el elemento.")
+		} else {
+			habitacion.agregarAccion(new Agarrar(item))
+		}
 	}
-
 }

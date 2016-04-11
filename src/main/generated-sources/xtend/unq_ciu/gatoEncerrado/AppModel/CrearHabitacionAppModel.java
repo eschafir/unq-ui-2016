@@ -2,10 +2,9 @@ package unq_ciu.gatoEncerrado.AppModel;
 
 import com.google.common.base.Objects;
 import org.eclipse.xtend.lib.annotations.Accessors;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
-import unq_ciu.gatoEncerrado.Excepciones.IngresarNombreException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Laberinto;
 
@@ -24,18 +23,21 @@ public class CrearHabitacionAppModel {
   }
   
   public Boolean agregarHabitacion() {
-    try {
-      Boolean _xifexpression = null;
-      String _nombre = this.habitacion.getNombre();
-      boolean _equals = Objects.equal(_nombre, null);
-      if (_equals) {
-        throw new IngresarNombreException();
-      } else {
-        _xifexpression = this.laberinto.agregarHabitacion(this.habitacion);
-      }
-      return _xifexpression;
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
+    Boolean _xifexpression = null;
+    String _nombre = this.habitacion.getNombre();
+    boolean _equals = Objects.equal(_nombre, null);
+    if (_equals) {
+      throw new UserException("Debe ingresar un nombre para la habitación.");
+    } else {
+      _xifexpression = this.laberinto.agregarHabitacion(this.habitacion);
+    }
+    return _xifexpression;
+  }
+  
+  public void verificar() {
+    boolean _equals = Objects.equal(this.laberinto, null);
+    if (_equals) {
+      throw new UserException("Por favor seleccione un laberinto.");
     }
   }
   

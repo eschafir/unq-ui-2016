@@ -1,7 +1,9 @@
 package unq_ciu.gatoEncerrado.AppModel;
 
+import com.google.common.base.Objects;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
@@ -37,6 +39,13 @@ public class GatoEncerradoAppModel {
   
   public boolean quitarAccion() {
     return this.habitacionSeleccionada.quitarAccion(this.accionSeleccionada);
+  }
+  
+  public void verificar() {
+    boolean _equals = Objects.equal(this.habitacionSeleccionada, null);
+    if (_equals) {
+      throw new UserException("Por favor seleccione una habitación.");
+    }
   }
   
   @Pure

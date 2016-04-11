@@ -11,7 +11,7 @@ public class Item {
   private String nombre;
   
   public Item() {
-    this.nombre = "";
+    this.nombre = null;
   }
   
   public Item(final String nombre) {

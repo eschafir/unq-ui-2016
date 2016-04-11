@@ -4,7 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Juego
 import org.uqbar.commons.utils.Observable
-import unq_ciu.gatoEncerrado.Excepciones.IngresarNombreException
+import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
@@ -20,11 +20,9 @@ class CrearLaberintoAppModel {
 
 	def agregarLaberinto() {
 		if (laberinto.nombre == null) {
-			throw new IngresarNombreException()
+			throw new UserException("Debe ingresar un nombre para el laberinto.")
 		} else {
 			juego.agregarLaberinto(laberinto)
 		}
-
 	}
-
 }

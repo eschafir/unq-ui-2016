@@ -10,7 +10,7 @@ class Item {
 	String nombre
 	
 	new(){
-		this.nombre = ""
+		this.nombre = null
 	}
 
 	new(String nombre) {

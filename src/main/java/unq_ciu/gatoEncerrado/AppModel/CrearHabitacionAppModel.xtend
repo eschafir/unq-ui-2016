@@ -4,7 +4,7 @@ import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Habitacion
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-import unq_ciu.gatoEncerrado.Excepciones.IngresarNombreException
+import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
@@ -20,11 +20,17 @@ class CrearHabitacionAppModel {
 
 	def agregarHabitacion() {
 		if (habitacion.nombre == null) {
-			throw new IngresarNombreException()
+			throw new UserException("Debe ingresar un nombre para la habitación.")
 		} else {
 			laberinto.agregarHabitacion(habitacion)
 		}
 
+	}
+	
+	def verificar() {
+		if (laberinto == null){
+			throw new UserException("Por favor seleccione un laberinto.")
+		}
 	}
 
 }
