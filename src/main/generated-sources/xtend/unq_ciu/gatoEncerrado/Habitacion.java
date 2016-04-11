@@ -4,10 +4,13 @@ import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
+import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.acciones.Agarrar;
 
 @Accessors
@@ -64,6 +67,15 @@ public class Habitacion {
     final Iterable<Agarrar> accionesAgarrar = Iterables.<Agarrar>filter(this.acciones, Agarrar.class);
     boolean _isEmpty = IterableExtensions.isEmpty(accionesAgarrar);
     return (!_isEmpty);
+  }
+  
+  public List<Item> getItems() {
+    final Function1<Accion, Item> _function = new Function1<Accion, Item>() {
+      public Item apply(final Accion it) {
+        return it.getItem();
+      }
+    };
+    return ListExtensions.<Accion, Item>map(this.acciones, _function);
   }
   
   @Pure

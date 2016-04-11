@@ -1,15 +1,18 @@
 package unq_ciu.gatoEncerrado;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Item;
 
 @Accessors
 @Observable
@@ -100,8 +103,16 @@ public class Laberinto {
   /**
    * Guarda en un ArrayList de todas las habitaciones los items disponibles
    */
-  public Object getItemsDisponibles() {
-    return null;
+  public List<Item> getItemsDisponibles() {
+    List<Habitacion> _habitaciones = this.getHabitaciones();
+    final Function1<Habitacion, List<Item>> _function = new Function1<Habitacion, List<Item>>() {
+      public List<Item> apply(final Habitacion h) {
+        return h.getItems();
+      }
+    };
+    List<List<Item>> _map = ListExtensions.<Habitacion, List<Item>>map(_habitaciones, _function);
+    Iterable<Item> _flatten = Iterables.<Item>concat(_map);
+    return IterableExtensions.<Item>toList(_flatten);
   }
   
   @Pure

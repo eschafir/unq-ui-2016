@@ -6,8 +6,10 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 @Observable
 abstract class Accion {
-	
+
 	String nombre
 
 	def void ejecutar(Juego juego) {}
+
+	def Item getItem() {}
 }

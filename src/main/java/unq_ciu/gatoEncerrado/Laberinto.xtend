@@ -57,9 +57,7 @@ class Laberinto {
 	/**
 	* Guarda en un ArrayList de todas las habitaciones los items disponibles
 	*/
-	def getItemsDisponibles() {
-		/*
-		 * TODO
-		 */
+	def List<Item> getItemsDisponibles() {
+		getHabitaciones.map[Habitacion h|h.items].flatten.toList
 	}
 }

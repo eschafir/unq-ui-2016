@@ -10,16 +10,17 @@ import unq_ciu.gatoEncerrado.Laberinto;
 @Accessors
 @Observable
 @SuppressWarnings("all")
-public class AgregarAccionDeUsarElementoAppModel {
+public class AgregarAccionConsecuenciaAppModel {
   private Laberinto laberinto;
   
   private Habitacion habitacion;
   
-  private Item itemSeleccionado;
+  private Item item;
   
-  public AgregarAccionDeUsarElementoAppModel(final Laberinto lab, final Habitacion habitacion) {
-    this.laberinto = lab;
-    this.habitacion = habitacion;
+  public AgregarAccionConsecuenciaAppModel(final Laberinto l, final Habitacion h, final Item i) {
+    this.laberinto = l;
+    this.habitacion = h;
+    this.item = i;
   }
   
   @Pure
@@ -41,11 +42,11 @@ public class AgregarAccionDeUsarElementoAppModel {
   }
   
   @Pure
-  public Item getItemSeleccionado() {
-    return this.itemSeleccionado;
+  public Item getItem() {
+    return this.item;
   }
   
-  public void setItemSeleccionado(final Item itemSeleccionado) {
-    this.itemSeleccionado = itemSeleccionado;
+  public void setItem(final Item item) {
+    this.item = item;
   }
 }

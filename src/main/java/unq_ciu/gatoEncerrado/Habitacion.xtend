@@ -49,4 +49,8 @@ class Habitacion {
 		val accionesAgarrar = acciones.filter(typeof(Agarrar))
 		return !accionesAgarrar.isEmpty
 	}
+	
+	def getItems(){
+		this.acciones.map[it.item]
+	}
 }

@@ -3,6 +3,7 @@ package unq_ciu.gatoEncerrado;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
+import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Juego;
 
 @Accessors
@@ -12,6 +13,10 @@ public abstract class Accion {
   private String nombre;
   
   public void ejecutar(final Juego juego) {
+  }
+  
+  public Item getItem() {
+    return null;
   }
   
   @Pure
