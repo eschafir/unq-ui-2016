@@ -3,6 +3,7 @@ package unq_ciu.gatoEncerrado
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
 import java.util.List
+import org.uqbar.commons.model.UserException
 
 @Accessors
 class Jugador {
@@ -11,10 +12,10 @@ class Jugador {
 	Habitacion habitacion
 	int ganados
 	int abandonados
-	
-	new(){
+
+	new() {
 		this.nombre = ""
-		this.inventario =  new ArrayList<Item>()
+		this.inventario = new ArrayList<Item>()
 		this.habitacion = null
 	}
 
@@ -75,8 +76,7 @@ class Jugador {
 		if (getInventario.contains(i)) {
 			getInventario.remove(i)
 		} else {
-			//Deberia ser una exception?
-			println("No se encuentra el item " + i + " en el inventario.")
+			throw new UserException("No se encuentra el item " + i + " en el inventario.")
 		}
 	}
 

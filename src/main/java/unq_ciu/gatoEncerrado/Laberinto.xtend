@@ -28,7 +28,7 @@ class Laberinto {
 	def agregarHabitacion(Habitacion h) {
 		if (h.isEsInicial) {
 			if (getTieneHabInicial) {
-				throw new UserException("Ya hay establecida una habitacion inicial en este laberinto.")
+				throw new UserException("Ya existe una habitacion inicial en este laberinto.")
 			} else {
 				validarNombre(h)
 				getHabitaciones.add(h)

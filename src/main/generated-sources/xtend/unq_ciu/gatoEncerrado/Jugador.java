@@ -1,11 +1,11 @@
 package unq_ciu.gatoEncerrado;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
@@ -89,17 +89,17 @@ public class Jugador {
    * Quita un item al inventario. Primero verifica si lo tiene en el inventario, luego lo quita.
    * @param i el item a quitar.
    */
-  public Object quitarDelInventario(final Item i) {
-    Object _xifexpression = null;
+  public boolean quitarDelInventario(final Item i) {
+    boolean _xifexpression = false;
     List<Item> _inventario = this.getInventario();
     boolean _contains = _inventario.contains(i);
     if (_contains) {
       List<Item> _inventario_1 = this.getInventario();
-      _xifexpression = Boolean.valueOf(_inventario_1.remove(i));
+      _xifexpression = _inventario_1.remove(i);
     } else {
-      _xifexpression = InputOutput.<String>println((("No se encuentra el item " + i) + " en el inventario."));
+      throw new UserException((("No se encuentra el item " + i) + " en el inventario."));
     }
-    return ((Serializable)_xifexpression);
+    return _xifexpression;
   }
   
   /**

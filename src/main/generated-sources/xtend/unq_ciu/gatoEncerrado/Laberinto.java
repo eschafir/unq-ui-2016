@@ -38,7 +38,7 @@ public class Laberinto {
       Boolean _xifexpression_1 = null;
       Boolean _tieneHabInicial = this.getTieneHabInicial();
       if ((_tieneHabInicial).booleanValue()) {
-        throw new UserException("Ya hay establecida una habitacion inicial en este laberinto.");
+        throw new UserException("Ya existe una habitacion inicial en este laberinto.");
       } else {
         Boolean _xblockexpression = null;
         {
