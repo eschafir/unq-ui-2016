@@ -30,11 +30,26 @@ class Laberinto {
 			if (getTieneHabInicial) {
 				throw new UserException("Ya hay establecida una habitacion inicial en este laberinto.")
 			} else {
+				validarNombre(h)
 				getHabitaciones.add(h)
 				tieneHabInicial = true
 			}
 		} else {
+			validarNombre(h)
 			getHabitaciones.add(h)
+		}
+	}
+
+	def validarNombre(Habitacion habitacion) {
+		/**
+		 * Seguramente se puede hacer con la sentencia forEach.
+		 */
+		val nombresHabitaciones = new ArrayList
+		for (Habitacion h : habitaciones) {
+			nombresHabitaciones.add(h.nombre)
+		}
+		if (nombresHabitaciones.contains(habitacion.nombre)) {
+			throw new UserException("Ya existe una habitacion con el nombre " + habitacion.nombre)
 		}
 	}
 

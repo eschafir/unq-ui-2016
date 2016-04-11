@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.TransactionalAndObservable;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
@@ -44,8 +45,13 @@ public class Juego {
    * @params lab : laberinto a agregar.
    */
   public boolean agregarLaberinto(final Laberinto lab) {
-    List<Laberinto> _laberintos = this.getLaberintos();
-    return _laberintos.add(lab);
+    boolean _xblockexpression = false;
+    {
+      this.validarNombre(lab);
+      List<Laberinto> _laberintos = this.getLaberintos();
+      _xblockexpression = _laberintos.add(lab);
+    }
+    return _xblockexpression;
   }
   
   /**
@@ -59,6 +65,25 @@ public class Juego {
       _xifexpression = this.laberintos.remove(lab);
     }
     return _xifexpression;
+  }
+  
+  /**
+   * Valida si el nombre de un laberinto ya se encuentra en uso en la lista de laberintos del juego.
+   * @params laberinto : el laberinto al cual se va a verificar el nombre.
+   */
+  public void validarNombre(final Laberinto laberinto) {
+    final ArrayList<String> nombresLaberintos = new ArrayList<String>();
+    for (final Laberinto l : this.laberintos) {
+      String _nombre = l.getNombre();
+      nombresLaberintos.add(_nombre);
+    }
+    String _nombre_1 = laberinto.getNombre();
+    boolean _contains = nombresLaberintos.contains(_nombre_1);
+    if (_contains) {
+      String _nombre_2 = laberinto.getNombre();
+      String _plus = ("Ya existe un laberinto con el nombre " + _nombre_2);
+      throw new UserException(_plus);
+    }
   }
   
   @Pure

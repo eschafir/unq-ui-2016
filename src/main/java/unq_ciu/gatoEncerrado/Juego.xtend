@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 import org.uqbar.commons.utils.TransactionalAndObservable
 import java.util.ArrayList
+import org.uqbar.commons.model.UserException
 
 @Accessors
 @TransactionalAndObservable
@@ -34,6 +35,7 @@ class Juego {
 	 * @params lab : laberinto a agregar.
 	 */
 	def agregarLaberinto(Laberinto lab) {
+		validarNombre(lab)
 		getLaberintos.add(lab)
 	}
 
@@ -44,6 +46,24 @@ class Juego {
 	def quitarLaberinto(Laberinto lab) {
 		if (laberintos.contains(lab)) {
 			laberintos.remove(lab)
+		}
+	}
+
+	/**
+	 * Valida si el nombre de un laberinto ya se encuentra en uso en la lista de laberintos del juego.
+	 * @params laberinto : el laberinto al cual se va a verificar el nombre. 
+	 */
+	def validarNombre(Laberinto laberinto) {
+
+		/**
+		 * Seguramente se puede hacer con la sentencia forEach.
+		 */
+		val nombresLaberintos = new ArrayList
+		for (Laberinto l : laberintos) {
+			nombresLaberintos.add(l.nombre)
+		}
+		if (nombresLaberintos.contains(laberinto.nombre)) {
+			throw new UserException("Ya existe un laberinto con el nombre " + laberinto.nombre)
 		}
 	}
 }

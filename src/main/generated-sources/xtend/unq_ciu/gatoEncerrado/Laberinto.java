@@ -42,6 +42,7 @@ public class Laberinto {
       } else {
         Boolean _xblockexpression = null;
         {
+          this.validarNombre(h);
           List<Habitacion> _habitaciones = this.getHabitaciones();
           _habitaciones.add(h);
           _xblockexpression = this.tieneHabInicial = Boolean.valueOf(true);
@@ -50,10 +51,30 @@ public class Laberinto {
       }
       _xifexpression = _xifexpression_1;
     } else {
-      List<Habitacion> _habitaciones = this.getHabitaciones();
-      _xifexpression = Boolean.valueOf(_habitaciones.add(h));
+      boolean _xblockexpression_1 = false;
+      {
+        this.validarNombre(h);
+        List<Habitacion> _habitaciones = this.getHabitaciones();
+        _xblockexpression_1 = _habitaciones.add(h);
+      }
+      _xifexpression = Boolean.valueOf(_xblockexpression_1);
     }
     return _xifexpression;
+  }
+  
+  public void validarNombre(final Habitacion habitacion) {
+    final ArrayList<String> nombresHabitaciones = new ArrayList<String>();
+    for (final Habitacion h : this.habitaciones) {
+      String _nombre = h.getNombre();
+      nombresHabitaciones.add(_nombre);
+    }
+    String _nombre_1 = habitacion.getNombre();
+    boolean _contains = nombresHabitaciones.contains(_nombre_1);
+    if (_contains) {
+      String _nombre_2 = habitacion.getNombre();
+      String _plus = ("Ya existe una habitacion con el nombre " + _nombre_2);
+      throw new UserException(_plus);
+    }
   }
   
   public Boolean eliminarHabitacion(final Habitacion h) {
