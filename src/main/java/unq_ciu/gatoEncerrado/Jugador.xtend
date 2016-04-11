@@ -75,6 +75,7 @@ class Jugador {
 		if (getInventario.contains(i)) {
 			getInventario.remove(i)
 		} else {
+			//Deberia ser una exception?
 			println("No se encuentra el item " + i + " en el inventario.")
 		}
 	}

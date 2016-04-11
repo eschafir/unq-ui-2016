@@ -87,16 +87,14 @@ public class JugadorTest {
     List<Item> _inventario = this.jugador.getInventario();
     int _size = _inventario.size();
     Assert.assertEquals(resultadoEsperado1, _size);
-    List<Item> _inventario_1 = this.jugador.getInventario();
-    boolean _contains = _inventario_1.contains(clavos);
-    Assert.assertFalse(_contains);
+    boolean _tiene = this.jugador.tiene(clavos);
+    Assert.assertFalse(_tiene);
     this.jugador.agregarAlInventario(clavos);
-    List<Item> _inventario_2 = this.jugador.getInventario();
-    int _size_1 = _inventario_2.size();
+    List<Item> _inventario_1 = this.jugador.getInventario();
+    int _size_1 = _inventario_1.size();
     Assert.assertEquals(resultadoEsperado2, _size_1);
-    List<Item> _inventario_3 = this.jugador.getInventario();
-    boolean _contains_1 = _inventario_3.contains(clavos);
-    Assert.assertTrue(_contains_1);
+    boolean _tiene_1 = this.jugador.tiene(clavos);
+    Assert.assertTrue(_tiene_1);
   }
   
   @Test
@@ -106,16 +104,16 @@ public class JugadorTest {
     int resultadoEsperado2 = 0;
     this.jugador.agregarAlInventario(llave);
     List<Item> _inventario = this.jugador.getInventario();
-    Assert.assertEquals(Integer.valueOf(resultadoEsperado1), _inventario);
-    List<Item> _inventario_1 = this.jugador.getInventario();
-    boolean _contains = _inventario_1.contains(llave);
-    Assert.assertTrue(_contains);
+    int _size = _inventario.size();
+    Assert.assertEquals(resultadoEsperado1, _size);
+    boolean _tiene = this.jugador.tiene(llave);
+    Assert.assertTrue(_tiene);
     this.jugador.quitarDelInventario(llave);
-    List<Item> _inventario_2 = this.jugador.getInventario();
-    Assert.assertEquals(Integer.valueOf(resultadoEsperado2), _inventario_2);
-    List<Item> _inventario_3 = this.jugador.getInventario();
-    boolean _contains_1 = _inventario_3.contains(llave);
-    Assert.assertTrue(_contains_1);
+    List<Item> _inventario_1 = this.jugador.getInventario();
+    int _size_1 = _inventario_1.size();
+    Assert.assertEquals(resultadoEsperado2, _size_1);
+    boolean _tiene_1 = this.jugador.tiene(llave);
+    Assert.assertFalse(_tiene_1);
   }
   
   @Test

@@ -36,15 +36,14 @@ class JugadorTest {
 		assertEquals(resultadoEsperado3, jugador.abandonados)
 	}
 	
-	
 	@Test
 	def void testVerEstadisticas() {
 		//Hay que ver si esto hay que testearlo
 	}
-	
-	
+		
 	@Test
 	def void testPuedoAgregar() {
+		//se crean 15 items
 		var Item pala1 = new Item("pala1")
 		var Item pala2 = new Item("pala2")
 		var Item pala3 = new Item("pala3")
@@ -60,9 +59,11 @@ class JugadorTest {
 		var Item piedra3 = new Item("piedra3")
 		var Item piedra4 = new Item("piedra4")
 		var Item piedra5 = new Item("piedra5")
-			
+		
+		//tamaño del inventario: 0. 
 		assertEquals(true, jugador.puedeAgregar())
 		
+		//agrego 15 items
 		jugador.agregarAlInventario(pala1)
 		jugador.agregarAlInventario(pala2)
 		jugador.agregarAlInventario(pala3)
@@ -79,9 +80,9 @@ class JugadorTest {
 		jugador.agregarAlInventario(piedra4)
 		jugador.agregarAlInventario(piedra5)
 		
+		//el jugador esta lleno
 		assertEquals(false, jugador.puedeAgregar())
 	}
-	
 	
 	@Test
 	def void testAgregarAlInventario() {
@@ -91,14 +92,13 @@ class JugadorTest {
 		var resultadoEsperado2 = 1
 		
 		assertEquals(resultadoEsperado1, jugador.inventario.size)
-		assertFalse(jugador.inventario.contains(clavos))
+		assertFalse(jugador.tiene(clavos))
 		
 		jugador.agregarAlInventario(clavos)
 		
 		assertEquals(resultadoEsperado2, jugador.inventario.size)
-		assertTrue(jugador.inventario.contains(clavos))
+		assertTrue(jugador.tiene(clavos))
 	}
-	
 	
 	@Test
 	def void testQuitarDelInventario() {
@@ -109,16 +109,15 @@ class JugadorTest {
 		
 		jugador.agregarAlInventario(llave)
 		
-		assertEquals(resultadoEsperado1, jugador.inventario)
-		assertTrue(jugador.inventario.contains(llave))
+		assertEquals(resultadoEsperado1, jugador.inventario.size)
+		assertTrue(jugador.tiene(llave))
 		
 		jugador.quitarDelInventario(llave)
 		
-		assertEquals(resultadoEsperado2, jugador.inventario)
-		assertTrue(jugador.inventario.contains(llave))
+		assertEquals(resultadoEsperado2, jugador.inventario.size)
+		assertFalse(jugador.tiene(llave))
 	}
-	
-	
+		
 	@Test
 	def void testTiene() {
 		var piedra = new Item("piedra")
@@ -129,5 +128,4 @@ class JugadorTest {
 		
 		assertTrue(jugador.tiene(piedra))
 	}
-	
 }
