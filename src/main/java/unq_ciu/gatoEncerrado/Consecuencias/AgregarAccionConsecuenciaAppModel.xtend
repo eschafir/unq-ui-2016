@@ -1,4 +1,4 @@
-package unq_ciu.gatoEncerrado.AppModel
+package unq_ciu.gatoEncerrado.Consecuencias
 
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Habitacion

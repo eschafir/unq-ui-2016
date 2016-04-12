@@ -15,11 +15,19 @@ import unq_ciu.gatoEncerrado.Jugador;
 @Accessors
 @SuppressWarnings("all")
 public class Usar extends Accion {
+  private String nombre;
+  
   private Item item;
   
   private Accion accionConsecuencia;
   
   public Usar(final Item i, final Accion acc) {
+    String _nombre = i.getNombre();
+    String _plus = ("Usar " + _nombre);
+    String _plus_1 = (_plus + " habilita ");
+    String _nombre_1 = acc.getNombre();
+    String _plus_2 = (_plus_1 + _nombre_1);
+    this.nombre = _plus_2;
     this.item = i;
     this.accionConsecuencia = acc;
   }
@@ -49,6 +57,15 @@ public class Usar extends Accion {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  @Pure
+  public String getNombre() {
+    return this.nombre;
+  }
+  
+  public void setNombre(final String nombre) {
+    this.nombre = nombre;
   }
   
   @Pure

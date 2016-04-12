@@ -1,4 +1,4 @@
-package unq_ciu.gatoEncerrado.AppModel;
+package unq_ciu.gatoEncerrado.Consecuencias;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
