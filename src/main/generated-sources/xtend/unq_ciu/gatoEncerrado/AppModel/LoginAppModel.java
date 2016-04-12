@@ -18,6 +18,8 @@ public class LoginAppModel {
   
   public LoginAppModel(final Login l) {
     this.login = l;
+    Usuario _usuario = new Usuario();
+    this.usuario = _usuario;
   }
   
   public boolean validaUsuario() {

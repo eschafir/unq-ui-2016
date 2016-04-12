@@ -2,7 +2,9 @@ package unq_ciu.gatoEncerrado.Login;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.utils.Observable;
 
+@Observable
 @Accessors
 @SuppressWarnings("all")
 public class Usuario {
@@ -13,6 +15,9 @@ public class Usuario {
   public Usuario(final String u, final String p) {
     this.username = u;
     this.password = p;
+  }
+  
+  public Usuario() {
   }
   
   @Pure
