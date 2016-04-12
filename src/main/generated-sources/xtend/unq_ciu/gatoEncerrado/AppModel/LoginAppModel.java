@@ -20,7 +20,7 @@ public class LoginAppModel {
     this.login = l;
   }
   
-  public boolean validarUsuario() {
+  public boolean validaUsuario() {
     boolean _xifexpression = false;
     boolean _or = false;
     String _username = this.usuario.getUsername();

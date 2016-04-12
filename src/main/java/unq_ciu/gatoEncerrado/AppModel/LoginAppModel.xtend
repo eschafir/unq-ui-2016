@@ -17,7 +17,7 @@ class LoginAppModel {
 		this.login = l
 	}
 	
-	def validarUsuario() {
+	def validaUsuario() {
 		
 		if (usuario.username == null || usuario.password == null) {
 			
