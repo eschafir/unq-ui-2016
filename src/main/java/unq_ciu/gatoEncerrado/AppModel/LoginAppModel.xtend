@@ -13,7 +13,9 @@ class LoginAppModel {
 	Login login
 	Usuario usuario
 
-	new() {}
+	new(Login l) {
+		this.login = l
+	}
 	
 	def validarUsuario() {
 		

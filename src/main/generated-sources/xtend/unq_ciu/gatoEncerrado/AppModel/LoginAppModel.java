@@ -16,7 +16,8 @@ public class LoginAppModel {
   
   private Usuario usuario;
   
-  public LoginAppModel() {
+  public LoginAppModel(final Login l) {
+    this.login = l;
   }
   
   public boolean validarUsuario() {
