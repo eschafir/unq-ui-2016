@@ -1,6 +1,10 @@
 package unq_ciu.gatoEncerrado.AppModel;
 
+import com.google.common.base.Objects;
+import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
@@ -20,6 +24,19 @@ public class AgregarAccionDeUsarElementoAppModel {
   public AgregarAccionDeUsarElementoAppModel(final Laberinto lab, final Habitacion habitacion) {
     this.laberinto = lab;
     this.habitacion = habitacion;
+  }
+  
+  public List<Item> getItemsDisponibles() {
+    final ArrayList<Item> lista = CollectionLiterals.<Item>newArrayList();
+    List<Item> _itemsDisponibles = this.laberinto.getItemsDisponibles();
+    for (final Item i : _itemsDisponibles) {
+      String _nombre = i.getNombre();
+      boolean _notEquals = (!Objects.equal(_nombre, null));
+      if (_notEquals) {
+        lista.add(i);
+      }
+    }
+    return lista;
   }
   
   @Pure
