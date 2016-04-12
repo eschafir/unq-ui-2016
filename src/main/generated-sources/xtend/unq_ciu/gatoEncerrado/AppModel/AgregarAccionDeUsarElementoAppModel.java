@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
@@ -24,6 +25,13 @@ public class AgregarAccionDeUsarElementoAppModel {
   public AgregarAccionDeUsarElementoAppModel(final Laberinto lab, final Habitacion habitacion) {
     this.laberinto = lab;
     this.habitacion = habitacion;
+  }
+  
+  public void validarItem() {
+    boolean _equals = Objects.equal(this.itemSeleccionado, null);
+    if (_equals) {
+      throw new UserException("Por favor seleccione un item.");
+    }
   }
   
   public List<Item> getItemsDisponibles() {
