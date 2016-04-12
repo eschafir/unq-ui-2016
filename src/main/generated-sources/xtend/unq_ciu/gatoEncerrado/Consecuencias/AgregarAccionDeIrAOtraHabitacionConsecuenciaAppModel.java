@@ -1,7 +1,10 @@
 package unq_ciu.gatoEncerrado.Consecuencias;
 
 import com.google.common.base.Objects;
+import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
@@ -40,6 +43,18 @@ public class AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel {
       _xifexpression = this.habitacion.agregarAccion(_usar);
     }
     return _xifexpression;
+  }
+  
+  public List<Habitacion> getHabitacionesDisponibles() {
+    final ArrayList<Habitacion> lista = CollectionLiterals.<Habitacion>newArrayList();
+    List<Habitacion> _habitaciones = this.laberinto.getHabitaciones();
+    for (final Habitacion h : _habitaciones) {
+      boolean _notEquals = (!Objects.equal(h, this.habitacion));
+      if (_notEquals) {
+        lista.add(h);
+      }
+    }
+    return lista;
   }
   
   @Pure

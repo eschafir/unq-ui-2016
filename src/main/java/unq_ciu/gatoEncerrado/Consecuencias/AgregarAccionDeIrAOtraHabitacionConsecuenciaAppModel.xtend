@@ -8,6 +8,7 @@ import unq_ciu.gatoEncerrado.Item
 import org.uqbar.commons.model.UserException
 import unq_ciu.gatoEncerrado.acciones.Mover
 import unq_ciu.gatoEncerrado.acciones.Usar
+import java.util.List
 
 @Accessors
 @Observable
@@ -30,6 +31,16 @@ class AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel {
 		} else {
 			habitacion.agregarAccion(new Usar(item, new Mover(habitacionSeleccionada)))
 		}
+	}
+
+	def List<Habitacion> getHabitacionesDisponibles() {
+		val lista = newArrayList()
+		for (Habitacion h : laberinto.habitaciones) {
+			if (h != habitacion) {
+				lista.add(h)
+			}
+		}
+		return lista
 	}
 
 }

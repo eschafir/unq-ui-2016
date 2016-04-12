@@ -6,6 +6,8 @@ import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException
 import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.UserException
+import unq_ciu.gatoEncerrado.Item
 
 @Accessors
 @Observable
@@ -21,9 +23,12 @@ class Mover extends Accion {
 	override ejecutar(Juego juego) {
 		if (juego.accionesPosibles.contains(this)) {
 			juego.jugador.habitacion = destino
-		}
-		else {
+		} else {
 			throw new NoEstaDisponibleEstaAccionException()
 		}
+	}
+
+	override getItem() {
+		new Item()
 	}
 }

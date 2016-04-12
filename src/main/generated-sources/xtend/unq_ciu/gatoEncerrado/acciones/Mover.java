@@ -8,6 +8,7 @@ import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Juego;
 import unq_ciu.gatoEncerrado.Jugador;
 
@@ -39,6 +40,10 @@ public class Mover extends Accion {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  public Item getItem() {
+    return new Item();
   }
   
   @Pure
