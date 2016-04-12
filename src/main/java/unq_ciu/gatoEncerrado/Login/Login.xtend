@@ -15,6 +15,7 @@ class Login {
 	
 	def validarUsuario(String usernameIngresado, String passwordIngresado){
 		
+		
 		//Valida que el usuario y la contraseña sean correctos
 		return (this.usuarios.exists[(it.username.equals(usernameIngresado)) && (it.password.equals(passwordIngresado))])	
 	}

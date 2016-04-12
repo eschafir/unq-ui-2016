@@ -8,7 +8,6 @@ class Usuario {
 	String username
 	String password
 	
-	
 	new(String u, String p){
 		
 		this.username = u
