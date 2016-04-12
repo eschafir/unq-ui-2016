@@ -1,6 +1,7 @@
 package unq_ciu.gatoEncerrado.Login;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -12,9 +13,11 @@ import unq_ciu.gatoEncerrado.Login.Usuario;
 @Observable
 @SuppressWarnings("all")
 public class Login {
-  private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+  private List<Usuario> usuarios;
   
   public Login() {
+    ArrayList<Usuario> _arrayList = new ArrayList<Usuario>();
+    this.usuarios = _arrayList;
   }
   
   public boolean validarUsuario(final String usernameIngresado, final String passwordIngresado) {
@@ -37,11 +40,11 @@ public class Login {
   }
   
   @Pure
-  public ArrayList<Usuario> getUsuarios() {
+  public List<Usuario> getUsuarios() {
     return this.usuarios;
   }
   
-  public void setUsuarios(final ArrayList<Usuario> usuarios) {
+  public void setUsuarios(final List<Usuario> usuarios) {
     this.usuarios = usuarios;
   }
 }

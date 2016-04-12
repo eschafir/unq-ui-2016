@@ -19,7 +19,7 @@ public class LoginAppModel {
   public LoginAppModel() {
   }
   
-  public boolean validarUsuario(final String usernameIngresado, final String passwordIngresado) {
+  public boolean validarUsuario() {
     boolean _xifexpression = false;
     boolean _or = false;
     String _username = this.usuario.getUsername();
@@ -34,7 +34,9 @@ public class LoginAppModel {
     if (_or) {
       throw new UserException("Debe ingresar un nombre de usuario");
     } else {
-      _xifexpression = this.login.validarUsuario(usernameIngresado, passwordIngresado);
+      String _username_1 = this.usuario.getUsername();
+      String _password_1 = this.usuario.getPassword();
+      _xifexpression = this.login.validarUsuario(_username_1, _password_1);
     }
     return _xifexpression;
   }

@@ -2,6 +2,7 @@ package unq_ciu.gatoEncerrado.Login
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
+import java.util.List
 import java.util.ArrayList
 
 @Accessors
@@ -9,9 +10,11 @@ import java.util.ArrayList
 class Login {
 	
 	//Lista de usuarios
-	ArrayList<Usuario> usuarios = new ArrayList<Usuario>()
+	List<Usuario> usuarios
 
-	new() {}
+	new() {
+		this.usuarios = new ArrayList<Usuario>
+	}
 	
 	def validarUsuario(String usernameIngresado, String passwordIngresado){
 		

@@ -15,14 +15,14 @@ class LoginAppModel {
 
 	new() {}
 	
-	def validarUsuario(String usernameIngresado, String passwordIngresado) {
+	def validarUsuario() {
 		
 		if (usuario.username == null || usuario.password == null) {
 			
 			throw new UserException("Debe ingresar un nombre de usuario")
 		} 
 		else {
-				login.validarUsuario(usernameIngresado, passwordIngresado)
+				login.validarUsuario(usuario.username, usuario.password)
 			}	
 	}
 }
