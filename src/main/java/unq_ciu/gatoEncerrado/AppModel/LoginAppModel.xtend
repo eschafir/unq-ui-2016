@@ -9,7 +9,7 @@ import org.uqbar.commons.model.UserException
 @Accessors
 @Observable
 class LoginAppModel {
-	
+
 	Login login
 	Usuario usuario
 
@@ -17,15 +17,22 @@ class LoginAppModel {
 		this.login = l
 		this.usuario = new Usuario()
 	}
-	
+
 	def validaUsuario() {
-		
-		if (usuario.username == null || usuario.password == null) {
+
+		if (usuario.username == null && usuario.password == null) {
+
+			throw new UserException("Debe ingresar el usuario y la contraseña")
 			
-			throw new UserException("Debe ingresar un nombre de usuario")
-		} 
-		else {
-				login.validarUsuario(usuario.username, usuario.password)
-			}	
+		} else if (usuario.username == null && usuario.password != null) {
+
+			throw new UserException("Debe ingresar el usuario")
+
+		} else if (usuario.username != null && usuario.password == null) {
+
+			throw new UserException("Debe ingresar el password")
+		} else {
+			login.validarUsuario(usuario.username, usuario.password)
+		}
 	}
 }

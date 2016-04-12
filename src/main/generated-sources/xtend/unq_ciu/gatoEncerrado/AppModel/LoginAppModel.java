@@ -24,22 +24,54 @@ public class LoginAppModel {
   
   public boolean validaUsuario() {
     boolean _xifexpression = false;
-    boolean _or = false;
+    boolean _and = false;
     String _username = this.usuario.getUsername();
     boolean _equals = Objects.equal(_username, null);
-    if (_equals) {
-      _or = true;
+    if (!_equals) {
+      _and = false;
     } else {
       String _password = this.usuario.getPassword();
       boolean _equals_1 = Objects.equal(_password, null);
-      _or = _equals_1;
+      _and = _equals_1;
     }
-    if (_or) {
-      throw new UserException("Debe ingresar un nombre de usuario");
+    if (_and) {
+      throw new UserException("Debe ingresar el usuario y la contraseña");
     } else {
+      boolean _xifexpression_1 = false;
+      boolean _and_1 = false;
       String _username_1 = this.usuario.getUsername();
-      String _password_1 = this.usuario.getPassword();
-      _xifexpression = this.login.validarUsuario(_username_1, _password_1);
+      boolean _equals_2 = Objects.equal(_username_1, null);
+      if (!_equals_2) {
+        _and_1 = false;
+      } else {
+        String _password_1 = this.usuario.getPassword();
+        boolean _notEquals = (!Objects.equal(_password_1, null));
+        _and_1 = _notEquals;
+      }
+      if (_and_1) {
+        throw new UserException("Debe ingresar el usuario");
+      } else {
+        boolean _xifexpression_2 = false;
+        boolean _and_2 = false;
+        String _username_2 = this.usuario.getUsername();
+        boolean _notEquals_1 = (!Objects.equal(_username_2, null));
+        if (!_notEquals_1) {
+          _and_2 = false;
+        } else {
+          String _password_2 = this.usuario.getPassword();
+          boolean _equals_3 = Objects.equal(_password_2, null);
+          _and_2 = _equals_3;
+        }
+        if (_and_2) {
+          throw new UserException("Debe ingresar el password");
+        } else {
+          String _username_3 = this.usuario.getUsername();
+          String _password_3 = this.usuario.getPassword();
+          _xifexpression_2 = this.login.validarUsuario(_username_3, _password_3);
+        }
+        _xifexpression_1 = _xifexpression_2;
+      }
+      _xifexpression = _xifexpression_1;
     }
     return _xifexpression;
   }
