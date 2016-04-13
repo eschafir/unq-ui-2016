@@ -2,7 +2,6 @@ package unq_ciu.gatoEncerrado.AppModel;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
-import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Login.Login;
 import unq_ciu.gatoEncerrado.Login.Usuario;
@@ -22,14 +21,6 @@ public class LoginAppModel {
     Usuario _usuario = new Usuario();
     this.usuarioIngresado = _usuario;
     this.claveIngresada = null;
-  }
-  
-  public void validarCamposVacios() {
-    String _username = this.usuarioIngresado.getUsername();
-    boolean _isEmpty = _username.isEmpty();
-    if (_isEmpty) {
-      throw new UserException("Complete el campo usuario");
-    }
   }
   
   public void validarUsuarioYClave() {

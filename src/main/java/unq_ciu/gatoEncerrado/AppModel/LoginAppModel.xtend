@@ -4,7 +4,6 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import unq_ciu.gatoEncerrado.Login.Login
 import unq_ciu.gatoEncerrado.Login.Usuario
-import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
@@ -18,15 +17,6 @@ class LoginAppModel {
 		this.login = l
 		this.usuarioIngresado = new Usuario()
 		this.claveIngresada = null
-	}
-
-	def validarCamposVacios() {
-
-		if (usuarioIngresado.username.empty) {
-
-			throw new UserException("Complete el campo usuario")
-		}
-
 	}
 
 	def validarUsuarioYClave() {

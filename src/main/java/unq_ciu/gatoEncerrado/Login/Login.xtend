@@ -17,6 +17,10 @@ class Login {
 
 	}
 
+	def agregarUsuario(Usuario user) {
+		usuarios.add(user)
+	}
+
 	def validarUsuarioYClave(String usernameIngresado, String clave) {
 		for (Usuario u : usuarios) {
 			if (u.username != usernameIngresado) {
@@ -28,14 +32,10 @@ class Login {
 	}
 
 	def validarCamposVacios(String usuarioIngresado, String claveIngresada) {
-
-		if (usuarioIngresado == null || claveIngresada == null) {
-
-			throw new UserException("Debe ingresar el usuario y la contraseña")
+		if (usuarioIngresado == null) {
+			throw new UserException("Ingrese el usuario.")
+		} else if (claveIngresada == null) {
+			throw new UserException("Ingrese la contraseña.")
 		}
-	}
-
-	def agregarUsuario(Usuario user) {
-		usuarios.add(user)
 	}
 }
