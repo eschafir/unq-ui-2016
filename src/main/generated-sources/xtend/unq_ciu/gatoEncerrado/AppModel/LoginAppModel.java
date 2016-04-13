@@ -14,22 +14,20 @@ import unq_ciu.gatoEncerrado.Login.Usuario;
 public class LoginAppModel {
   private Login login;
   
-  private Usuario usuario;
+  private Usuario usuarioIngresado;
   
   private String claveIngresada;
   
   public LoginAppModel(final Login l) {
     this.login = l;
     Usuario _usuario = new Usuario();
-    this.usuario = _usuario;
-    this.claveIngresada = "";
+    this.usuarioIngresado = _usuario;
+    this.claveIngresada = null;
   }
   
-  public Object validaUsuario() {
-    Object _xifexpression = null;
+  public void validaUsuario() {
     boolean _and = false;
-    String _username = this.usuario.getUsername();
-    boolean _equals = Objects.equal(_username, null);
+    boolean _equals = Objects.equal(this.usuarioIngresado, null);
     if (!_equals) {
       _and = false;
     } else {
@@ -39,41 +37,24 @@ public class LoginAppModel {
     if (_and) {
       throw new UserException("Debe ingresar el usuario y la contraseña");
     } else {
-      Object _xifexpression_1 = null;
-      boolean _and_1 = false;
-      String _username_1 = this.usuario.getUsername();
-      boolean _equals_2 = Objects.equal(_username_1, null);
-      if (!_equals_2) {
-        _and_1 = false;
-      } else {
-        boolean _notEquals = (!Objects.equal(this.claveIngresada, null));
-        _and_1 = _notEquals;
-      }
-      if (_and_1) {
+      boolean _equals_2 = Objects.equal(this.usuarioIngresado, null);
+      if (_equals_2) {
         throw new UserException("Debe ingresar el usuario");
       } else {
-        Object _xifexpression_2 = null;
-        boolean _and_2 = false;
-        String _username_2 = this.usuario.getUsername();
-        boolean _notEquals_1 = (!Objects.equal(_username_2, null));
-        if (!_notEquals_1) {
-          _and_2 = false;
+        boolean _equals_3 = Objects.equal(this.claveIngresada, null);
+        if (_equals_3) {
+          throw new UserException("Ingrese la clave");
         } else {
-          boolean _equals_3 = Objects.equal(this.claveIngresada, null);
-          _and_2 = _equals_3;
+          String _username = this.usuarioIngresado.getUsername();
+          this.login.validarUsuario(_username);
         }
-        if (_and_2) {
-          throw new UserException("Entra por aca");
-        } else {
-          String _username_3 = this.usuario.getUsername();
-          String _password = this.usuario.getPassword();
-          _xifexpression_2 = this.login.validarUsuario(_username_3, _password);
-        }
-        _xifexpression_1 = _xifexpression_2;
       }
-      _xifexpression = _xifexpression_1;
     }
-    return _xifexpression;
+  }
+  
+  public void validarClave() {
+    String _username = this.usuarioIngresado.getUsername();
+    this.login.validarClave(_username, this.claveIngresada);
   }
   
   @Pure
@@ -86,12 +67,12 @@ public class LoginAppModel {
   }
   
   @Pure
-  public Usuario getUsuario() {
-    return this.usuario;
+  public Usuario getUsuarioIngresado() {
+    return this.usuarioIngresado;
   }
   
-  public void setUsuario(final Usuario usuario) {
-    this.usuario = usuario;
+  public void setUsuarioIngresado(final Usuario usuarioIngresado) {
+    this.usuarioIngresado = usuarioIngresado;
   }
   
   @Pure

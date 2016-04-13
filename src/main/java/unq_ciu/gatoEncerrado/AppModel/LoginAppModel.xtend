@@ -11,32 +11,35 @@ import org.uqbar.commons.model.UserException
 class LoginAppModel {
 
 	Login login
-	Usuario usuario
+	Usuario usuarioIngresado
 	String claveIngresada
 
 	new(Login l) {
 		this.login = l
-		this.usuario = new Usuario()
-		this.claveIngresada = ""
+		this.usuarioIngresado = new Usuario()
+		this.claveIngresada = null
 	}
 
 	def validaUsuario() {
 
-		if (usuario.username == null && claveIngresada == null) {
+		if (usuarioIngresado == null && claveIngresada == null) {
 
 			throw new UserException("Debe ingresar el usuario y la contraseña")
-			
-		} else if (usuario.username == null && claveIngresada != null) {
+
+		} else if (usuarioIngresado == null) {
 
 			throw new UserException("Debe ingresar el usuario")
 
-		} else if (usuario.username != null && claveIngresada == null) {
+		} else if (claveIngresada == null) {
 
-			throw new UserException("Entra por aca")
-		
+			throw new UserException("Ingrese la clave")
+
+		} else {
+			login.validarUsuario(usuarioIngresado.username)
 		}
-		 else {
-			login.validarUsuario(usuario.username, usuario.password)
-		}
+	}
+
+	def validarClave() {
+		login.validarClave(usuarioIngresado.username, claveIngresada)
 	}
 }

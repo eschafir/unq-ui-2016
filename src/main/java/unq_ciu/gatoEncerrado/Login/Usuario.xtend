@@ -16,5 +16,8 @@ class Usuario {
 		this.password = p
 	}
 	
-	new(){}
+	new(){
+		username = null
+		password = null
+	}
 }

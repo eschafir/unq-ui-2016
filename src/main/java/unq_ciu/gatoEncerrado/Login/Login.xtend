@@ -12,34 +12,30 @@ class Login {
 
 	//Lista de usuarios
 	List<Usuario> usuarios
-	val Usuario ui = new Usuario("ui2016", "123456")
 
 	new() {
 		this.usuarios = new ArrayList<Usuario>
-		this.usuarios.add(ui)
 
 	}
 
-	def validarUsuario(String usernameIngresado, String passwordIngresado) {
+	def validarUsuario(String usernameIngresado) {
 
-		//Valida que el usuario y la contraseña sean correctos
-		//return (this.usuarios.exists[(it.username.equals(usernameIngresado)) && (it.password.equals(passwordIngresado))])
-		if (this.usuarios.exists[(it.username.equals(usernameIngresado))]) {
-			//Aca tiene que levantar una ventana
-			//throw new UserException("Se ha logueado correctamente")
-			
-		 //var Usuario user = this.usuarios.filter[it.username.equals(usernameIngresado)]
-					
-		} else  {
+		if (!this.usuarios.exists[(it.username.equals(usernameIngresado))]) {
 			throw new UserException("Usuario inexistente")
 		}
-		
-		//if(this.) {
-			
+	}
+
+	def validarClave(String usernameIngresado, String clave) {
+		for (Usuario u : usuarios) {
+			if (u.username == usernameIngresado) {
+				if (u.password != clave) {
+					throw new UserException("Clave Incorrecta")
+				}
+			}
 		}
 	}
 
-
-
-
-
+	def agregarUsuario(Usuario user) {
+		usuarios.add(user)
+	}
+}

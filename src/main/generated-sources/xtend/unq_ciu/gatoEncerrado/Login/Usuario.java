@@ -18,6 +18,8 @@ public class Usuario {
   }
   
   public Usuario() {
+    this.username = null;
+    this.password = null;
   }
   
   @Pure
