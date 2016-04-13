@@ -8,18 +8,21 @@ import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Accion
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.model.ObservableUtils
+import unq_ciu.gatoEncerrado.Login.Usuario
 
 @Accessors
 @Observable
 class GatoEncerradoAppModel {
 
 	Juego juego
+	Usuario usuario
 	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
 	Accion accionSeleccionada
 
-	new(Juego juego) {
+	new(Juego juego, Usuario usuario) {
 		this.juego = juego
+		this.usuario = usuario
 	}
 
 	new() {

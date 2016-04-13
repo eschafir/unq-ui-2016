@@ -10,6 +10,7 @@ import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Juego;
 import unq_ciu.gatoEncerrado.Laberinto;
+import unq_ciu.gatoEncerrado.Login.Usuario;
 
 @Accessors
 @Observable
@@ -17,14 +18,17 @@ import unq_ciu.gatoEncerrado.Laberinto;
 public class GatoEncerradoAppModel {
   private Juego juego;
   
+  private Usuario usuario;
+  
   private Laberinto laberintoSeleccionado;
   
   private Habitacion habitacionSeleccionada;
   
   private Accion accionSeleccionada;
   
-  public GatoEncerradoAppModel(final Juego juego) {
+  public GatoEncerradoAppModel(final Juego juego, final Usuario usuario) {
     this.juego = juego;
+    this.usuario = usuario;
   }
   
   public GatoEncerradoAppModel() {
@@ -84,6 +88,15 @@ public class GatoEncerradoAppModel {
   
   public void setJuego(final Juego juego) {
     this.juego = juego;
+  }
+  
+  @Pure
+  public Usuario getUsuario() {
+    return this.usuario;
+  }
+  
+  public void setUsuario(final Usuario usuario) {
+    this.usuario = usuario;
   }
   
   @Pure
