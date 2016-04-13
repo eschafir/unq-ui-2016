@@ -1,6 +1,5 @@
 package unq_ciu.gatoEncerrado.AppModel;
 
-import com.google.common.base.Objects;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
@@ -33,35 +32,11 @@ public class LoginAppModel {
     }
   }
   
-  public Object validaUsuario() {
-    Object _xifexpression = null;
-    boolean _and = false;
-    boolean _equals = Objects.equal(this.usuarioIngresado, null);
-    if (!_equals) {
-      _and = false;
-    } else {
-      boolean _equals_1 = Objects.equal(this.claveIngresada, null);
-      _and = _equals_1;
-    }
-    if (_and) {
-      throw new UserException("Debe ingresar el usuario y la contraseña");
-    } else {
-      Object _xifexpression_1 = null;
-      boolean _equals_2 = Objects.equal(this.usuarioIngresado, null);
-      if (_equals_2) {
-        throw new UserException("Debe ingresar el usuario");
-      } else {
-        String _username = this.usuarioIngresado.getUsername();
-        _xifexpression_1 = this.login.validarUsuario(_username);
-      }
-      _xifexpression = _xifexpression_1;
-    }
-    return _xifexpression;
-  }
-  
   public void validarUsuarioYClave() {
     String _username = this.usuarioIngresado.getUsername();
-    this.login.validarUsuarioYClave(_username, this.claveIngresada);
+    this.login.validarCamposVacios(_username, this.claveIngresada);
+    String _username_1 = this.usuarioIngresado.getUsername();
+    this.login.validarUsuarioYClave(_username_1, this.claveIngresada);
   }
   
   @Pure

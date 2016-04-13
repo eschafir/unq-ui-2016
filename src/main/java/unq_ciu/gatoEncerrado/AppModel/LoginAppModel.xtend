@@ -20,35 +20,17 @@ class LoginAppModel {
 		this.claveIngresada = null
 	}
 
-
 	def validarCamposVacios() {
-		
+
 		if (usuarioIngresado.username.empty) {
-			
+
 			throw new UserException("Complete el campo usuario")
 		}
-		
-	}
 
-
-	def validaUsuario() {
-
-		if (usuarioIngresado == null && claveIngresada == null) {
-
-			throw new UserException("Debe ingresar el usuario y la contraseña")
-
-		} else if (usuarioIngresado == null) {
-
-			throw new UserException("Debe ingresar el usuario")
-
-
-		} else {
-			login.validarUsuario(usuarioIngresado.username)
-		}
 	}
 
 	def validarUsuarioYClave() {
-		//login.validarCamposVacios(usuarioIngresado.username, claveIngresada)
+		login.validarCamposVacios(usuarioIngresado.username, claveIngresada)
 		login.validarUsuarioYClave(usuarioIngresado.username, claveIngresada)
 	}
 }

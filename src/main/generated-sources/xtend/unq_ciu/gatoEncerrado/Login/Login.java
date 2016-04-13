@@ -20,10 +20,6 @@ public class Login {
     this.usuarios = _arrayList;
   }
   
-  public Object validarUsuario(final String usernameIngresado) {
-    return null;
-  }
-  
   public void validarUsuarioYClave(final String usernameIngresado, final String clave) {
     for (final Usuario u : this.usuarios) {
       String _username = u.getUsername();
@@ -41,15 +37,15 @@ public class Login {
   }
   
   public void validarCamposVacios(final String usuarioIngresado, final String claveIngresada) {
-    boolean _and = false;
-    boolean _isEmpty = usuarioIngresado.isEmpty();
-    if (!_isEmpty) {
-      _and = false;
+    boolean _or = false;
+    boolean _equals = Objects.equal(usuarioIngresado, null);
+    if (_equals) {
+      _or = true;
     } else {
-      boolean _isEmpty_1 = claveIngresada.isEmpty();
-      _and = _isEmpty_1;
+      boolean _equals_1 = Objects.equal(claveIngresada, null);
+      _or = _equals_1;
     }
-    if (_and) {
+    if (_or) {
       throw new UserException("Debe ingresar el usuario y la contraseña");
     }
   }
