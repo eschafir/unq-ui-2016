@@ -22,7 +22,8 @@ public class LoginAppModel {
     this.usuario = _usuario;
   }
   
-  public void validaUsuario() {
+  public Object validaUsuario() {
+    Object _xifexpression = null;
     boolean _and = false;
     String _username = this.usuario.getUsername();
     boolean _equals = Objects.equal(_username, null);
@@ -36,6 +37,7 @@ public class LoginAppModel {
     if (_and) {
       throw new UserException("Debe ingresar el usuario y la contraseña");
     } else {
+      Object _xifexpression_1 = null;
       boolean _and_1 = false;
       String _username_1 = this.usuario.getUsername();
       boolean _equals_2 = Objects.equal(_username_1, null);
@@ -49,6 +51,7 @@ public class LoginAppModel {
       if (_and_1) {
         throw new UserException("Debe ingresar el usuario");
       } else {
+        Object _xifexpression_2 = null;
         boolean _and_2 = false;
         String _username_2 = this.usuario.getUsername();
         boolean _notEquals_1 = (!Objects.equal(_username_2, null));
@@ -64,10 +67,13 @@ public class LoginAppModel {
         } else {
           String _username_3 = this.usuario.getUsername();
           String _password_3 = this.usuario.getPassword();
-          this.login.validarUsuario(_username_3, _password_3);
+          _xifexpression_2 = this.login.validarUsuario(_username_3, _password_3);
         }
+        _xifexpression_1 = _xifexpression_2;
       }
+      _xifexpression = _xifexpression_1;
     }
+    return _xifexpression;
   }
   
   @Pure

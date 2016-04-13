@@ -12,9 +12,12 @@ class Login {
 	
 	//Lista de usuarios
 	List<Usuario> usuarios
-
+	val Usuario ui = new Usuario("ui2016","123456")
+	
 	new() {
 		this.usuarios = new ArrayList<Usuario>
+		this.usuarios.add(ui)
+		
 	}
 	
 	def validarUsuario(String usernameIngresado, String passwordIngresado){
@@ -25,7 +28,8 @@ class Login {
 		
 		if (this.usuarios.exists[(it.username.equals(usernameIngresado))])
 			 {
-				throw new UserException("Se ha logueado correctamente")
+				//Aca tiene que levantar una ventana
+				//throw new UserException("Se ha logueado correctamente")
 			}
 		
 		else {

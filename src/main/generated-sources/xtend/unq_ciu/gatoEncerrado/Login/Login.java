@@ -16,12 +16,16 @@ import unq_ciu.gatoEncerrado.Login.Usuario;
 public class Login {
   private List<Usuario> usuarios;
   
+  private final Usuario ui = new Usuario("ui2016", "123456");
+  
   public Login() {
     ArrayList<Usuario> _arrayList = new ArrayList<Usuario>();
     this.usuarios = _arrayList;
+    this.usuarios.add(this.ui);
   }
   
-  public void validarUsuario(final String usernameIngresado, final String passwordIngresado) {
+  public Object validarUsuario(final String usernameIngresado, final String passwordIngresado) {
+    Object _xifexpression = null;
     final Function1<Usuario, Boolean> _function = new Function1<Usuario, Boolean>() {
       public Boolean apply(final Usuario it) {
         String _username = it.getUsername();
@@ -30,10 +34,11 @@ public class Login {
     };
     boolean _exists = IterableExtensions.<Usuario>exists(this.usuarios, _function);
     if (_exists) {
-      throw new UserException("Se ha logueado correctamente");
+      _xifexpression = null;
     } else {
       throw new UserException("Usuario inexistente");
     }
+    return _xifexpression;
   }
   
   @Pure
@@ -43,5 +48,10 @@ public class Login {
   
   public void setUsuarios(final List<Usuario> usuarios) {
     this.usuarios = usuarios;
+  }
+  
+  @Pure
+  public Usuario getUi() {
+    return this.ui;
   }
 }
