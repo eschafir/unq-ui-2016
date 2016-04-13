@@ -22,23 +22,20 @@ class LoginAppModel {
 
 	def validaUsuario() {
 
-		//if (usuario.username == null && usuario.password == null) {
+		if (usuario.username == null && claveIngresada == null) {
 
-			//throw new UserException("Debe ingresar el usuario y la contraseña")
+			throw new UserException("Debe ingresar el usuario y la contraseña")
 			
-		//} else if (usuario.username == null && usuario.password != null) {
+		} else if (usuario.username == null && claveIngresada != null) {
 
-			//throw new UserException("Debe ingresar el usuario")
+			throw new UserException("Debe ingresar el usuario")
 
-		//} else if (usuario.username != null && usuario.password == null) {
+		} else if (usuario.username != null && claveIngresada == null) {
 
-			//throw new UserException("Debe ingresar el password")
-		//}
-		 if (usuario.password != claveIngresada) {
-				
-				throw new UserException("Password incorrecta")
-					
-		} else {
+			throw new UserException("Entra por aca")
+		
+		}
+		 else {
 			login.validarUsuario(usuario.username, usuario.password)
 		}
 	}
