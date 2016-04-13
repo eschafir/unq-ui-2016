@@ -20,20 +20,31 @@ class Login {
 
 	def validarUsuario(String usernameIngresado) {
 
-		if (!this.usuarios.exists[(it.username.equals(usernameIngresado))]) {
-			throw new UserException("Usuario inexistente")
-		}
+		//if (!this.usuarios.exists[(it.username.equals(usernameIngresado))]) {
+			//throw new UserException("Usuario inexistente")
+		//}
 	}
 
-	def validarClave(String usernameIngresado, String clave) {
+	def validarUsuarioYClave(String usernameIngresado, String clave) {
 		for (Usuario u : usuarios) {
-			if (u.username == usernameIngresado) {
-				if (u.password != clave) {
+			if (u.username != usernameIngresado) {
+				throw new UserException("Usuario incorrecto o inexistente")
+			}
+			
+			else if (u.password != clave) {
 					throw new UserException("Clave Incorrecta")
 				}
 			}
 		}
-	}
+
+	
+	def validarCamposVacios(String usuarioIngresado, String claveIngresada) {
+		
+		if (usuarioIngresado.empty && claveIngresada.empty) {
+			
+			throw new UserException("Debe ingresar el usuario y la contraseña")
+		}
+	}	
 
 	def agregarUsuario(Usuario user) {
 		usuarios.add(user)

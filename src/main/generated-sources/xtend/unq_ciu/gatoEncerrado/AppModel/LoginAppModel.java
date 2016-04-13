@@ -25,7 +25,16 @@ public class LoginAppModel {
     this.claveIngresada = null;
   }
   
-  public void validaUsuario() {
+  public void validarCamposVacios() {
+    String _username = this.usuarioIngresado.getUsername();
+    boolean _isEmpty = _username.isEmpty();
+    if (_isEmpty) {
+      throw new UserException("Complete el campo usuario");
+    }
+  }
+  
+  public Object validaUsuario() {
+    Object _xifexpression = null;
     boolean _and = false;
     boolean _equals = Objects.equal(this.usuarioIngresado, null);
     if (!_equals) {
@@ -37,24 +46,22 @@ public class LoginAppModel {
     if (_and) {
       throw new UserException("Debe ingresar el usuario y la contraseña");
     } else {
+      Object _xifexpression_1 = null;
       boolean _equals_2 = Objects.equal(this.usuarioIngresado, null);
       if (_equals_2) {
         throw new UserException("Debe ingresar el usuario");
       } else {
-        boolean _equals_3 = Objects.equal(this.claveIngresada, null);
-        if (_equals_3) {
-          throw new UserException("Ingrese la clave");
-        } else {
-          String _username = this.usuarioIngresado.getUsername();
-          this.login.validarUsuario(_username);
-        }
+        String _username = this.usuarioIngresado.getUsername();
+        _xifexpression_1 = this.login.validarUsuario(_username);
       }
+      _xifexpression = _xifexpression_1;
     }
+    return _xifexpression;
   }
   
-  public void validarClave() {
+  public void validarUsuarioYClave() {
     String _username = this.usuarioIngresado.getUsername();
-    this.login.validarClave(_username, this.claveIngresada);
+    this.login.validarUsuarioYClave(_username, this.claveIngresada);
   }
   
   @Pure
