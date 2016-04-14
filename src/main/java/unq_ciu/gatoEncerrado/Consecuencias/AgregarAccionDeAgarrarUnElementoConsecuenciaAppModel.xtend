@@ -25,7 +25,7 @@ class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
 		if (this.itemDisponibleComoConsecuencia.nombre == null) {
 			throw new UserException("Por favor ingrese un nombre para el elemento.")
 		} else {
-			habitacion.agregarAccion(new Usar(this.itemUtilizado, new Agarrar(itemDisponibleComoConsecuencia) ))
+			habitacion.agregarAccion(new Usar(this.itemUtilizado, new Agarrar(itemDisponibleComoConsecuencia)))
 		}
 	}
 }
