@@ -24,6 +24,8 @@ public class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
     this.habitacion = habitacion;
     Item _item = new Item();
     this.itemDisponibleComoConsecuencia = _item;
+    Item _item_1 = new Item();
+    this.itemUtilizado = _item_1;
   }
   
   public boolean agregarAcccionAgarrar() {
