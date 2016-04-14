@@ -2,6 +2,7 @@ package unq_ciu.gatoEncerrado.AppModel;
 
 import com.google.common.base.Objects;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -44,6 +45,15 @@ public class AgregarAccionDeUsarElementoAppModel {
         lista.add(i);
       }
     }
+    this.quitarDuplicados(lista);
+    return lista;
+  }
+  
+  public ArrayList<Item> quitarDuplicados(final ArrayList<Item> lista) {
+    final HashSet<Item> hs = new HashSet<Item>();
+    hs.addAll(lista);
+    lista.clear();
+    lista.addAll(hs);
     return lista;
   }
   

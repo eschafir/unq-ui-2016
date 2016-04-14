@@ -7,6 +7,8 @@ import unq_ciu.gatoEncerrado.Item
 import org.uqbar.commons.utils.Observable
 import java.util.List
 import org.uqbar.commons.model.UserException
+import java.util.ArrayList
+import java.util.HashSet
 
 @Accessors
 @Observable
@@ -35,7 +37,19 @@ class AgregarAccionDeUsarElementoAppModel {
 				lista.add(i)
 			}
 		}
+
+		quitarDuplicados(lista)
 		return lista
+	}
+
+	def quitarDuplicados(ArrayList<Item> lista) {
+
+		val hs = new HashSet<Item>();
+		hs.addAll(lista);
+		lista.clear();
+		lista.addAll(hs);
+		return lista;
+
 	}
 
 }

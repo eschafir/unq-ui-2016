@@ -16,10 +16,10 @@ class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
 	Item itemDisponibleComoConsecuencia
 	Item itemUtilizado
 
-	new(Habitacion habitacion) {
+	new(Habitacion habitacion, Item item) {
 		this.habitacion = habitacion
+		this.itemUtilizado = item
 		this.itemDisponibleComoConsecuencia = new Item()
-		this.itemUtilizado = new Item()
 	}
 
 	def agregarAccionAgarrar() {
