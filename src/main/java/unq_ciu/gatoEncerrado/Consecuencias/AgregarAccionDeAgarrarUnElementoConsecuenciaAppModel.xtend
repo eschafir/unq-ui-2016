@@ -12,7 +12,7 @@ import org.uqbar.commons.utils.Observable
 
 @Accessors
 @Observable
-class WindowAgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
+class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
 
 	Laberinto laberinto
 	Habitacion habitacion

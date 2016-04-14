@@ -9,21 +9,23 @@ import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
-class AgregarAccionDeAgarrarElementoAppModel {
+class AgregarAccionDeAgarrarUnElementoAppModel {
 
+	String nombre
 	Habitacion habitacion
-	Item item
+	Item itemDisponibleComoConsecuencia
+	Item itemUtilizado
 
-	new(Habitacion habitacion) {
-		this.habitacion = habitacion
-		item = new Item()
+	new(Item item) {
+		this.itemDisponibleComoConsecuencia = item
+		this.nombre = "Agarrar " + item.nombre
 	}
 
 	def agregarAcccionAgarrar() {
-		if (item.nombre == null) {
+		if (itemDisponibleComoConsecuencia.nombre == null) {
 			throw new UserException("Por favor ingrese un nombre para el elemento.")
 		} else {
-			habitacion.agregarAccion(new Agarrar(item))
+			habitacion.agregarAccion(new Agarrar(itemUtilizado))
 		}
 	}
 }
