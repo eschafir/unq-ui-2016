@@ -6,6 +6,7 @@ import org.uqbar.commons.model.UserException
 import unq_ciu.gatoEncerrado.acciones.Agarrar
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
+import unq_ciu.gatoEncerrado.acciones.Usar
 
 @Accessors
 @Observable
@@ -24,7 +25,7 @@ class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
 		if (this.itemDisponibleComoConsecuencia.nombre == null) {
 			throw new UserException("Por favor ingrese un nombre para el elemento.")
 		} else {
-			habitacion.agregarAccion(new Agarrar(this.itemUtilizado))
+			habitacion.agregarAccion(new Usar(this.itemUtilizado, new Agarrar(itemDisponibleComoConsecuencia) ))
 		}
 	}
 }

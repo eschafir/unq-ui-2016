@@ -8,6 +8,7 @@ import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.acciones.Agarrar;
+import unq_ciu.gatoEncerrado.acciones.Usar;
 
 @Accessors
 @Observable
@@ -32,8 +33,9 @@ public class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
     if (_equals) {
       throw new UserException("Por favor ingrese un nombre para el elemento.");
     } else {
-      Agarrar _agarrar = new Agarrar(this.itemUtilizado);
-      _xifexpression = this.habitacion.agregarAccion(_agarrar);
+      Agarrar _agarrar = new Agarrar(this.itemDisponibleComoConsecuencia);
+      Usar _usar = new Usar(this.itemUtilizado, _agarrar);
+      _xifexpression = this.habitacion.agregarAccion(_usar);
     }
     return _xifexpression;
   }
