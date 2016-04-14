@@ -13,14 +13,21 @@ class LoginAppModel {
 	Usuario usuarioIngresado
 	String claveIngresada
 
+	new() {
+	}
+
 	new(Login l) {
 		this.login = l
 		this.usuarioIngresado = new Usuario()
 		this.claveIngresada = null
 	}
 
+	/**
+	 * Validación de todos los campos dentro de la pantalla de login.
+	 */
 	def validarUsuarioYClave() {
 		login.validarCamposVacios(usuarioIngresado.username, claveIngresada)
-		login.validarUsuarioYClave(usuarioIngresado.username, claveIngresada)
+		login.validarUsuario(usuarioIngresado.username)
+		login.validarClave(claveIngresada)
 	}
 }

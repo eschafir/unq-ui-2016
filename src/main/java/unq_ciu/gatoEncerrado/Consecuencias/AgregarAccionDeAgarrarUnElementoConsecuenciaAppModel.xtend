@@ -22,7 +22,7 @@ class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
 		this.itemUtilizado = new Item()
 	}
 
-	def agregarAcccionAgarrar() {
+	def agregarAccionAgarrar() {
 		if (this.itemDisponibleComoConsecuencia.nombre == null) {
 			throw new UserException("Por favor ingrese un nombre para el elemento.")
 		} else {

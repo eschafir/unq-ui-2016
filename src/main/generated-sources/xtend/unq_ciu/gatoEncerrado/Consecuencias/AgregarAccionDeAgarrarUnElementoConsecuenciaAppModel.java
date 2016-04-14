@@ -28,7 +28,7 @@ public class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
     this.itemUtilizado = _item_1;
   }
   
-  public boolean agregarAcccionAgarrar() {
+  public boolean agregarAccionAgarrar() {
     boolean _xifexpression = false;
     String _nombre = this.itemDisponibleComoConsecuencia.getNombre();
     boolean _equals = Objects.equal(_nombre, null);

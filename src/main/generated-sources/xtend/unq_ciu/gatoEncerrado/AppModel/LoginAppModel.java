@@ -16,6 +16,9 @@ public class LoginAppModel {
   
   private String claveIngresada;
   
+  public LoginAppModel() {
+  }
+  
   public LoginAppModel(final Login l) {
     this.login = l;
     Usuario _usuario = new Usuario();
@@ -23,11 +26,15 @@ public class LoginAppModel {
     this.claveIngresada = null;
   }
   
+  /**
+   * Validación de todos los campos dentro de la pantalla de login.
+   */
   public void validarUsuarioYClave() {
     String _username = this.usuarioIngresado.getUsername();
     this.login.validarCamposVacios(_username, this.claveIngresada);
     String _username_1 = this.usuarioIngresado.getUsername();
-    this.login.validarUsuarioYClave(_username_1, this.claveIngresada);
+    this.login.validarUsuario(_username_1);
+    this.login.validarClave(this.claveIngresada);
   }
   
   @Pure
