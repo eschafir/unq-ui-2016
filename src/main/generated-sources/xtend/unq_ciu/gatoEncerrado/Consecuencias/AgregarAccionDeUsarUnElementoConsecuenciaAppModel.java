@@ -1,6 +1,9 @@
 package unq_ciu.gatoEncerrado.Consecuencias;
 
 import com.google.common.base.Objects;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
@@ -42,6 +45,32 @@ public class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
       _xifexpression = this.habitacion.agregarAccion(_usar);
     }
     return _xifexpression;
+  }
+  
+  public List<Item> getItemsDisponibles() {
+    final ArrayList<Item> lista = new ArrayList<Item>();
+    List<Item> _itemsDisponibles = this.laberinto.getItemsDisponibles();
+    for (final Item i : _itemsDisponibles) {
+      String _nombre = i.getNombre();
+      boolean _notEquals = (!Objects.equal(_nombre, null));
+      if (_notEquals) {
+        lista.add(i);
+      }
+    }
+    this.quitarDuplicadosYElementoUtilizado(lista);
+    return lista;
+  }
+  
+  public boolean quitarDuplicadosYElementoUtilizado(final ArrayList<Item> items) {
+    boolean _xblockexpression = false;
+    {
+      final HashSet<Item> hs = new HashSet<Item>();
+      hs.addAll(items);
+      items.clear();
+      items.addAll(hs);
+      _xblockexpression = items.remove(this.itemUtilizado);
+    }
+    return _xblockexpression;
   }
   
   @Pure

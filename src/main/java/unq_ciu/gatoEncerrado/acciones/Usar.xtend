@@ -19,6 +19,10 @@ class Usar extends Accion {
 		this.accionConsecuencia = acc
 	}
 
+	override getItem() {
+		accionConsecuencia.item
+	}
+
 	override ejecutar(Juego juego) {
 
 		if (juego.accionesPosibles.contains(this)) {

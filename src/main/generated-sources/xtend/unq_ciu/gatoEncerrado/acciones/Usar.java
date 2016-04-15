@@ -32,6 +32,10 @@ public class Usar extends Accion {
     this.accionConsecuencia = acc;
   }
   
+  public Item getItem() {
+    return this.accionConsecuencia.getItem();
+  }
+  
   public void ejecutar(final Juego juego) {
     try {
       List<Accion> _accionesPosibles = juego.accionesPosibles();
@@ -66,11 +70,6 @@ public class Usar extends Accion {
   
   public void setNombre(final String nombre) {
     this.nombre = nombre;
-  }
-  
-  @Pure
-  public Item getItem() {
-    return this.item;
   }
   
   public void setItem(final Item item) {
