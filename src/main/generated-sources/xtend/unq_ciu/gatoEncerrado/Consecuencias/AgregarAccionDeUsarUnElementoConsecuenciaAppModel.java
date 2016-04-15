@@ -8,34 +8,49 @@ import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
+import unq_ciu.gatoEncerrado.Laberinto;
 import unq_ciu.gatoEncerrado.acciones.Usar;
 
 @Accessors
 @Observable
 @SuppressWarnings("all")
 public class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
+  private Laberinto laberinto;
+  
   private Habitacion habitacion;
   
   private Accion accionConsecuencia;
   
+  private Item itemSeleccionado;
+  
   private Item itemUtilizado;
   
-  public AgregarAccionDeUsarUnElementoConsecuenciaAppModel(final Habitacion habitacion, final Item item, final Accion acc) {
+  public AgregarAccionDeUsarUnElementoConsecuenciaAppModel(final Habitacion habitacion, final Item item, final Accion acc, final Laberinto lbo) {
     this.habitacion = habitacion;
     this.itemUtilizado = item;
+    this.laberinto = lbo;
     this.accionConsecuencia = acc;
   }
   
   public boolean agregarAccionUsar() {
     boolean _xifexpression = false;
-    boolean _equals = Objects.equal(this.itemUtilizado, null);
+    boolean _equals = Objects.equal(this.itemSeleccionado, null);
     if (_equals) {
-      throw new UserException("Por favor ingrese .");
+      throw new UserException("Por favor ingrese un item .");
     } else {
       Usar _usar = new Usar(this.itemUtilizado, this.accionConsecuencia);
       _xifexpression = this.habitacion.agregarAccion(_usar);
     }
     return _xifexpression;
+  }
+  
+  @Pure
+  public Laberinto getLaberinto() {
+    return this.laberinto;
+  }
+  
+  public void setLaberinto(final Laberinto laberinto) {
+    this.laberinto = laberinto;
   }
   
   @Pure
@@ -54,6 +69,15 @@ public class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
   
   public void setAccionConsecuencia(final Accion accionConsecuencia) {
     this.accionConsecuencia = accionConsecuencia;
+  }
+  
+  @Pure
+  public Item getItemSeleccionado() {
+    return this.itemSeleccionado;
+  }
+  
+  public void setItemSeleccionado(final Item itemSeleccionado) {
+    this.itemSeleccionado = itemSeleccionado;
   }
   
   @Pure
