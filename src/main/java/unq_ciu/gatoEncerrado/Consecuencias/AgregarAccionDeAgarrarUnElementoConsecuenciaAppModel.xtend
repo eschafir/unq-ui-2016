@@ -16,9 +16,9 @@ class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
 	Item itemDisponibleComoConsecuencia
 	Item itemUtilizado
 
-	new(Habitacion habitacion) {
+	new(Habitacion habitacion, Item itemutilizado) {
 		this.habitacion = habitacion
-		this.itemUtilizado = new Item()
+		this.itemUtilizado = itemutilizado
 		this.itemDisponibleComoConsecuencia = new Item()
 	}
 
