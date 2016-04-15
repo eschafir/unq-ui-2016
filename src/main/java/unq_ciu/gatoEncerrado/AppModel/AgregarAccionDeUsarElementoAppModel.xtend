@@ -9,6 +9,7 @@ import java.util.List
 import org.uqbar.commons.model.UserException
 import java.util.ArrayList
 import java.util.HashSet
+import unq_ciu.gatoEncerrado.Accion
 
 @Accessors
 @Observable
@@ -17,10 +18,12 @@ class AgregarAccionDeUsarElementoAppModel {
 	Laberinto laberinto
 	Habitacion habitacion
 	Item itemSeleccionado
+	Accion accion
 
-	new(Laberinto lab, Habitacion habitacion) {
+	new(Laberinto lab, Habitacion habitacion, Accion acc) {
 		this.laberinto = lab
 		this.habitacion = habitacion
+		this.accion =  acc
 	}
 
 	def validarItem() {

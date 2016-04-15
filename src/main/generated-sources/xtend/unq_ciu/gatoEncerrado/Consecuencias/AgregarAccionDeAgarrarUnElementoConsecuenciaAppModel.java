@@ -20,14 +20,14 @@ public class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
   
   private Item itemUtilizado;
   
-  public AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(final Habitacion habitacion, final Item itemutilizado) {
+  public AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(final Habitacion habitacion, final Item itemUtilizado) {
     this.habitacion = habitacion;
-    this.itemUtilizado = itemutilizado;
+    this.itemUtilizado = itemUtilizado;
     Item _item = new Item();
     this.itemDisponibleComoConsecuencia = _item;
   }
   
-  public boolean agregarAccionAgarrar() {
+  public boolean agregarAccionUsar() {
     boolean _xifexpression = false;
     String _nombre = this.itemDisponibleComoConsecuencia.getNombre();
     boolean _equals = Objects.equal(_nombre, null);

@@ -3,6 +3,7 @@ package unq_ciu.gatoEncerrado.Consecuencias;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
+import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
@@ -17,10 +18,13 @@ public class AgregarAccionConsecuenciaAppModel {
   
   private Item item;
   
-  public AgregarAccionConsecuenciaAppModel(final Laberinto l, final Habitacion h, final Item i) {
+  private Accion accion;
+  
+  public AgregarAccionConsecuenciaAppModel(final Laberinto l, final Habitacion h, final Item i, final Accion acc) {
     this.laberinto = l;
     this.habitacion = h;
     this.item = i;
+    this.accion = acc;
   }
   
   @Pure
@@ -48,5 +52,14 @@ public class AgregarAccionConsecuenciaAppModel {
   
   public void setItem(final Item item) {
     this.item = item;
+  }
+  
+  @Pure
+  public Accion getAccion() {
+    return this.accion;
+  }
+  
+  public void setAccion(final Accion accion) {
+    this.accion = accion;
   }
 }

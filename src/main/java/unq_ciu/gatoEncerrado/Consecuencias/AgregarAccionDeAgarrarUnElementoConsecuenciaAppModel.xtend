@@ -16,13 +16,13 @@ class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
 	Item itemDisponibleComoConsecuencia
 	Item itemUtilizado
 
-	new(Habitacion habitacion, Item itemutilizado) {
+	new(Habitacion habitacion, Item itemUtilizado) {
 		this.habitacion = habitacion
-		this.itemUtilizado = itemutilizado
+		this.itemUtilizado = itemUtilizado
 		this.itemDisponibleComoConsecuencia = new Item()
 	}
 
-	def agregarAccionAgarrar() {
+	def agregarAccionUsar() {
 		if (this.itemDisponibleComoConsecuencia.nombre == null) {
 			throw new UserException("Por favor ingrese un nombre para el elemento.")
 		} else {

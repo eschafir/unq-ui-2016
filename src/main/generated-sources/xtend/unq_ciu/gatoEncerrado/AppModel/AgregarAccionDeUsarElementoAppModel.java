@@ -9,6 +9,7 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
+import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
@@ -23,9 +24,12 @@ public class AgregarAccionDeUsarElementoAppModel {
   
   private Item itemSeleccionado;
   
-  public AgregarAccionDeUsarElementoAppModel(final Laberinto lab, final Habitacion habitacion) {
+  private Accion accion;
+  
+  public AgregarAccionDeUsarElementoAppModel(final Laberinto lab, final Habitacion habitacion, final Accion acc) {
     this.laberinto = lab;
     this.habitacion = habitacion;
+    this.accion = acc;
   }
   
   public void validarItem() {
@@ -82,5 +86,14 @@ public class AgregarAccionDeUsarElementoAppModel {
   
   public void setItemSeleccionado(final Item itemSeleccionado) {
     this.itemSeleccionado = itemSeleccionado;
+  }
+  
+  @Pure
+  public Accion getAccion() {
+    return this.accion;
+  }
+  
+  public void setAccion(final Accion accion) {
+    this.accion = accion;
   }
 }
