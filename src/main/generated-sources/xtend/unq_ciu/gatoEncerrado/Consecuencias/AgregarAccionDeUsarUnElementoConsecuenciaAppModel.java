@@ -28,11 +28,10 @@ public class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
   
   private Item itemUtilizado;
   
-  public AgregarAccionDeUsarUnElementoConsecuenciaAppModel(final Habitacion habitacion, final Item item, final Accion acc, final Laberinto lbo) {
+  public AgregarAccionDeUsarUnElementoConsecuenciaAppModel(final Habitacion habitacion, final Item item, final Laberinto lbo) {
     this.habitacion = habitacion;
     this.itemUtilizado = item;
     this.laberinto = lbo;
-    this.accionConsecuencia = acc;
   }
   
   public boolean agregarAccionUsar() {
@@ -41,8 +40,10 @@ public class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
     if (_equals) {
       throw new UserException("Por favor ingrese un item .");
     } else {
-      Usar _usar = new Usar(this.itemUtilizado, this.accionConsecuencia);
-      _xifexpression = this.habitacion.agregarAccion(_usar);
+      Accion _accion = new Accion();
+      Usar _usar = new Usar(this.itemSeleccionado, _accion);
+      Usar _usar_1 = new Usar(this.itemUtilizado, _usar);
+      _xifexpression = this.habitacion.agregarAccion(_usar_1);
     }
     return _xifexpression;
   }

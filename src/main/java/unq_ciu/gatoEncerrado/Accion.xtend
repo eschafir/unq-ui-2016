@@ -5,9 +5,11 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
 @Observable
-abstract class Accion {
+class Accion {
 
 	String nombre
+	
+	new(){}
 
 	def void ejecutar(Juego juego) {}
 

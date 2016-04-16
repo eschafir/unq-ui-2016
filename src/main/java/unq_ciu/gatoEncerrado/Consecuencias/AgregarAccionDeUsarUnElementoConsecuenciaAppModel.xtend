@@ -22,18 +22,17 @@ class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
 	Item itemSeleccionado
 	Item itemUtilizado
 
-	new(Habitacion habitacion, Item item, Accion acc, Laberinto lbo) {
+	new(Habitacion habitacion, Item item, Laberinto lbo) {
 		this.habitacion = habitacion
 		this.itemUtilizado = item
 		this.laberinto = lbo
-		this.accionConsecuencia = acc
 	}
 
 	def agregarAccionUsar() {
 		if (this.itemSeleccionado == null) {
 			throw new UserException("Por favor ingrese un item .")
 		} else {
-			habitacion.agregarAccion(new Usar(this.itemUtilizado, accionConsecuencia))
+			habitacion.agregarAccion(new Usar(this.itemUtilizado, new Usar(itemSeleccionado, new Accion())))
 		}
 	}
 

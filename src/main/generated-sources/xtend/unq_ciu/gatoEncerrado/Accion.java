@@ -9,8 +9,11 @@ import unq_ciu.gatoEncerrado.Juego;
 @Accessors
 @Observable
 @SuppressWarnings("all")
-public abstract class Accion {
+public class Accion {
   private String nombre;
+  
+  public Accion() {
+  }
   
   public void ejecutar(final Juego juego) {
   }
