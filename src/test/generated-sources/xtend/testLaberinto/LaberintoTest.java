@@ -26,6 +26,23 @@ public class LaberintoTest {
   }
   
   @Test
+  public void newLaberinto() {
+    String resultadoEsperado1 = "Casa Embrujada";
+    Laberinto _laberinto = new Laberinto("Casa Embrujada");
+    this.laberinto = _laberinto;
+    this.laberinto.agregarHabitacion(this.habitacion1);
+    this.laberinto.agregarHabitacion(this.habitacion2);
+    String _nombre = this.laberinto.getNombre();
+    Assert.assertEquals(resultadoEsperado1, _nombre);
+    List<Habitacion> _habitaciones = this.laberinto.getHabitaciones();
+    boolean _contains = _habitaciones.contains(this.habitacion1);
+    Assert.assertTrue(_contains);
+    List<Habitacion> _habitaciones_1 = this.laberinto.getHabitaciones();
+    boolean _contains_1 = _habitaciones_1.contains(this.habitacion2);
+    Assert.assertTrue(_contains_1);
+  }
+  
+  @Test
   public void testAgregarHabitacion() {
     List<Habitacion> _habitaciones = this.laberinto.getHabitaciones();
     boolean _contains = _habitaciones.contains(this.habitacion1);

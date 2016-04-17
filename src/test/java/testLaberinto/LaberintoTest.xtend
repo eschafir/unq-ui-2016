@@ -24,6 +24,22 @@ class LaberintoTest {
 	}
 	
 	@Test
+	def void newLaberinto() {
+		var resultadoEsperado1 = "Casa Embrujada"
+		
+		laberinto = new Laberinto("Casa Embrujada")
+		laberinto.agregarHabitacion(habitacion1)
+		laberinto.agregarHabitacion(habitacion2)
+		
+		assertEquals(resultadoEsperado1, laberinto.nombre)
+		
+		assertTrue(laberinto.habitaciones.contains(habitacion1))
+		assertTrue(laberinto.habitaciones.contains(habitacion2))
+	}
+	
+	
+	
+	@Test
 	def void testAgregarHabitacion() {
 		
 		assertFalse(laberinto.habitaciones.contains(habitacion1))
