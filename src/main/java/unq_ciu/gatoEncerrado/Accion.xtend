@@ -8,6 +8,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 class Accion {
 
 	String nombre
+	String borrar
 	
 	new(){}
 

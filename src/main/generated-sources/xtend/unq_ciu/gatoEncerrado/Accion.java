@@ -12,6 +12,8 @@ import unq_ciu.gatoEncerrado.Juego;
 public class Accion {
   private String nombre;
   
+  private String borrar;
+  
   public Accion() {
   }
   
@@ -29,5 +31,14 @@ public class Accion {
   
   public void setNombre(final String nombre) {
     this.nombre = nombre;
+  }
+  
+  @Pure
+  public String getBorrar() {
+    return this.borrar;
+  }
+  
+  public void setBorrar(final String borrar) {
+    this.borrar = borrar;
   }
 }
