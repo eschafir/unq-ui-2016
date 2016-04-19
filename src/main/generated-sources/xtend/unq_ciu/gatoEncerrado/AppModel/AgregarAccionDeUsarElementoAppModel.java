@@ -10,6 +10,7 @@ import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
+import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeAccionAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
@@ -17,19 +18,20 @@ import unq_ciu.gatoEncerrado.Laberinto;
 @Accessors
 @Observable
 @SuppressWarnings("all")
-public class AgregarAccionDeUsarElementoAppModel {
-  private Laberinto laberinto;
-  
-  private Habitacion habitacion;
-  
+public class AgregarAccionDeUsarElementoAppModel extends AgregarAccionDeAccionAppModel {
   private Item itemSeleccionado;
   
   private Accion accion;
   
   public AgregarAccionDeUsarElementoAppModel(final Laberinto lab, final Habitacion habitacion, final Accion acc) {
-    this.laberinto = lab;
-    this.habitacion = habitacion;
+    this.setLaberinto(lab);
+    this.setHabitacion(habitacion);
     this.accion = acc;
+  }
+  
+  @Override
+  public Object agregarAccion() {
+    return null;
   }
   
   public void validarItem() {
@@ -41,7 +43,8 @@ public class AgregarAccionDeUsarElementoAppModel {
   
   public List<Item> getItemsDisponibles() {
     final ArrayList<Item> lista = CollectionLiterals.<Item>newArrayList();
-    List<Item> _itemsDisponibles = this.laberinto.getItemsDisponibles();
+    Laberinto _laberinto = this.getLaberinto();
+    List<Item> _itemsDisponibles = _laberinto.getItemsDisponibles();
     for (final Item i : _itemsDisponibles) {
       String _nombre = i.getNombre();
       boolean _notEquals = (!Objects.equal(_nombre, null));
@@ -59,24 +62,6 @@ public class AgregarAccionDeUsarElementoAppModel {
     lista.clear();
     lista.addAll(hs);
     return lista;
-  }
-  
-  @Pure
-  public Laberinto getLaberinto() {
-    return this.laberinto;
-  }
-  
-  public void setLaberinto(final Laberinto laberinto) {
-    this.laberinto = laberinto;
-  }
-  
-  @Pure
-  public Habitacion getHabitacion() {
-    return this.habitacion;
-  }
-  
-  public void setHabitacion(final Habitacion habitacion) {
-    this.habitacion = habitacion;
   }
   
   @Pure

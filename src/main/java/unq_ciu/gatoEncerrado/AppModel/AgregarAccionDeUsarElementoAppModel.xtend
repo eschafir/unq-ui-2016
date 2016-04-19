@@ -13,19 +13,20 @@ import unq_ciu.gatoEncerrado.Accion
 
 @Accessors
 @Observable
-class AgregarAccionDeUsarElementoAppModel {
+class AgregarAccionDeUsarElementoAppModel extends AgregarAccionDeAccionAppModel {
 
-	Laberinto laberinto
-	Habitacion habitacion
 	Item itemSeleccionado
 	Accion accion
 
 	new(Laberinto lab, Habitacion habitacion, Accion acc) {
 		this.laberinto = lab
 		this.habitacion = habitacion
-		this.accion =  acc
+		this.accion = acc
 	}
-
+	
+	@Override
+	override agregarAccion(){}
+	
 	def validarItem() {
 		if (itemSeleccionado == null) {
 			throw new UserException("Por favor seleccione un item.")
@@ -52,7 +53,5 @@ class AgregarAccionDeUsarElementoAppModel {
 		lista.clear();
 		lista.addAll(hs);
 		return lista;
-
 	}
-
 }

@@ -10,18 +10,17 @@ import java.util.List
 
 @Accessors
 @Observable
-class AgregarAccionDeIrAOtraHabitacionAppModel {
-
-	Habitacion habitacion
+class AgregarAccionDeIrAOtraHabitacionAppModel extends AgregarAccionDeAccionAppModel{
+	
 	Habitacion habitacionSeleccionada
-	Laberinto laberinto
 
 	new(Laberinto laberinto, Habitacion habitacion) {
 		this.laberinto = laberinto
 		this.habitacion = habitacion
 	}
 
-	def agregarAccion() {
+	@Override
+	override agregarAccion() {
 		if (habitacionSeleccionada == null) {
 			throw new UserException("Por favor seleccione una habitación.")
 		} else {
