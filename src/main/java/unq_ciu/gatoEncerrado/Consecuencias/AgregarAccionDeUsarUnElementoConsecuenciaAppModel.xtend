@@ -2,7 +2,6 @@ package unq_ciu.gatoEncerrado.Consecuencias
 
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Item
-import org.uqbar.commons.model.UserException
 import unq_ciu.gatoEncerrado.acciones.Usar
 import unq_ciu.gatoEncerrado.Accion
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -11,14 +10,14 @@ import unq_ciu.gatoEncerrado.Laberinto
 import java.util.List
 import java.util.ArrayList
 import java.util.HashSet
+import unq_ciu.gatoEncerrado.AppModel.AgregarAccionTemplateAppModel
 
 @Accessors
 @Observable
-class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
+class AgregarAccionDeUsarUnElementoConsecuenciaAppModel extends AgregarAccionTemplateAppModel {
 
 	Laberinto laberinto
 	Habitacion habitacion
-	Accion accionConsecuencia
 	Item itemSeleccionado
 	Item itemUtilizado
 
@@ -26,14 +25,17 @@ class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
 		this.habitacion = habitacion
 		this.itemUtilizado = item
 		this.laberinto = lbo
+		itemSeleccionado = new Item
+
 	}
 
-	def agregarAccionUsar() {
-		if (this.itemSeleccionado == null) {
-			throw new UserException("Por favor ingrese un item .")
-		} else {
-			habitacion.agregarAccion(new Usar(this.itemUtilizado, new Usar(itemSeleccionado, new Accion())))
-		}
+	override validarItem(Item item) {
+		super.validarItem(item)
+	}
+
+	override agregarAccion() {
+		validarItem(itemSeleccionado)
+		habitacion.agregarAccion(new Usar(this.itemUtilizado, new Usar(itemSeleccionado, new Accion())))
 	}
 
 	def List<Item> getItemsDisponibles() {

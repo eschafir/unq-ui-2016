@@ -5,14 +5,14 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Item
-import org.uqbar.commons.model.UserException
 import unq_ciu.gatoEncerrado.acciones.Mover
 import unq_ciu.gatoEncerrado.acciones.Usar
 import java.util.List
+import unq_ciu.gatoEncerrado.AppModel.AgregarAccionTemplateAppModel
 
 @Accessors
 @Observable
-class AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel {
+class AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel extends AgregarAccionTemplateAppModel {
 
 	Laberinto laberinto
 	Habitacion habitacion
@@ -25,12 +25,9 @@ class AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel {
 		this.item = item
 	}
 
-	def agregarConsecuencia() {
-		if (habitacionSeleccionada == null) {
-			throw new UserException("Por favor seleccione una habitación.")
-		} else {
-			habitacion.agregarAccion(new Usar(item, new Mover(habitacionSeleccionada)))
-		}
+	override agregarAccion() {
+		validarHabitacion(habitacionSeleccionada)
+		habitacion.agregarAccion(new Usar(item, new Mover(habitacionSeleccionada)))
 	}
 
 	def List<Habitacion> getHabitacionesDisponibles() {

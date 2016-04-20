@@ -5,11 +5,10 @@ import org.uqbar.commons.utils.Observable
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Item
 import unq_ciu.gatoEncerrado.acciones.Agarrar
-import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
-class AgregarAccionDeAgarrarElementoAppModel extends AgregarAccionDeAccionAppModel {
+class AgregarAccionDeAgarrarElementoAppModel extends AgregarAccionTemplateAppModel {
 
 	Habitacion habitacion
 	Item item
@@ -18,13 +17,10 @@ class AgregarAccionDeAgarrarElementoAppModel extends AgregarAccionDeAccionAppMod
 		this.habitacion = habitacion
 		item = new Item()
 	}
-	
+
 	@Override
 	override agregarAccion() {
-		if (item.nombre == null) {
-			throw new UserException("Por favor ingrese un nombre para el elemento.")
-		} else {
-			habitacion.agregarAccion(new Agarrar(item))
-		}
+		validarItem(item)
+		habitacion.agregarAccion(new Agarrar(item))
 	}
 }
