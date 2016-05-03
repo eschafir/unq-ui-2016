@@ -22,6 +22,8 @@ public class Laberinto {
   
   private List<Habitacion> habitaciones;
   
+  private int id;
+  
   public Laberinto() {
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
@@ -31,6 +33,13 @@ public class Laberinto {
     this.nombre = nombre;
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
+  }
+  
+  public Laberinto(final String nombre, final int id) {
+    this.nombre = nombre;
+    ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
+    this.habitaciones = _arrayList;
+    this.id = id;
   }
   
   public boolean agregarHabitacion(final Habitacion h) {
@@ -131,5 +140,14 @@ public class Laberinto {
   
   public void setHabitaciones(final List<Habitacion> habitaciones) {
     this.habitaciones = habitaciones;
+  }
+  
+  @Pure
+  public int getId() {
+    return this.id;
+  }
+  
+  public void setId(final int id) {
+    this.id = id;
   }
 }

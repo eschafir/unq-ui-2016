@@ -12,6 +12,7 @@ class Laberinto {
 
 	String nombre
 	List<Habitacion> habitaciones
+	int id
 
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>
@@ -20,6 +21,12 @@ class Laberinto {
 	new(String nombre) {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>
+	}
+	
+	new(String nombre, int id) {
+		this.nombre = nombre
+		this.habitaciones = new ArrayList<Habitacion>
+		this.id = id
 	}
 
 	def agregarHabitacion(Habitacion h) {

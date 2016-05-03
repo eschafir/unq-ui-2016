@@ -12,6 +12,7 @@ class Jugador {
 	Habitacion habitacion
 	int ganados
 	int abandonados
+	int id
 
 	new() {
 		this.nombre = ""
@@ -25,6 +26,15 @@ class Jugador {
 		this.inventario = new ArrayList<Item>()
 		this.ganados = 0
 		this.abandonados = 0
+	}
+	
+	new(String n, Habitacion h, int id) {
+		this.nombre = n
+		this.habitacion = h
+		this.inventario = new ArrayList<Item>()
+		this.ganados = 0
+		this.abandonados = 0
+		this.id = id
 	}
 
 	def abandonar() {

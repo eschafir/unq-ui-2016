@@ -23,6 +23,8 @@ public class Jugador {
   
   private int abandonados;
   
+  private int id;
+  
   public Jugador() {
     this.nombre = "";
     ArrayList<Item> _arrayList = new ArrayList<Item>();
@@ -37,6 +39,16 @@ public class Jugador {
     this.inventario = _arrayList;
     this.ganados = 0;
     this.abandonados = 0;
+  }
+  
+  public Jugador(final String n, final Habitacion h, final int id) {
+    this.nombre = n;
+    this.habitacion = h;
+    ArrayList<Item> _arrayList = new ArrayList<Item>();
+    this.inventario = _arrayList;
+    this.ganados = 0;
+    this.abandonados = 0;
+    this.id = id;
   }
   
   public int abandonar() {
@@ -154,5 +166,14 @@ public class Jugador {
   
   public void setAbandonados(final int abandonados) {
     this.abandonados = abandonados;
+  }
+  
+  @Pure
+  public int getId() {
+    return this.id;
+  }
+  
+  public void setId(final int id) {
+    this.id = id;
   }
 }
