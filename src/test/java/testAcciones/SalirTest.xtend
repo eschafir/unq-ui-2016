@@ -13,6 +13,7 @@ import unq_ciu.gatoEncerrado.acciones.Mover
 import unq_ciu.gatoEncerrado.acciones.Salir
 import unq_ciu.gatoEncerrado.acciones.Usar
 import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException
+import static org.junit.Assert.*
 
 @Accessors
 class SalirTest {
@@ -109,7 +110,7 @@ class SalirTest {
 		usarManivela = new Usar(manivela, moverA5)
 		usarMadera = new Usar(madera, moverA8)
 
-		salir = new Salir()
+		salir = new Salir(laberinto)
 
 		/*
 		 * Asignación de acciones a Habitaciones
@@ -167,7 +168,7 @@ class SalirTest {
 		/*
 		 * Creación de Jugador
 		 */
-		jugador = new Jugador("Jugador", hab0)
+		jugador = new Jugador("Jugador", hab8)
 		jugador2 = new Jugador("Jugador2", hab8)
 
 		/*
@@ -187,9 +188,9 @@ class SalirTest {
 	}
 
 	@Test
-	def void testSalirEnLaHabitacionFinalEsCorrecto() {
-		salir.ejecutar(juego2)
+	def void testSalirEnLaHabitacionFinalAgregaElLaberintoActualALaListaDeGanadosDelJugador() {
+		salir.ejecutar(juego)
+		assertTrue(jugador.laberintosGanados.contains(laberinto))
 
-	//Esto imprime el mensaje "Has ganado"
 	}
 }

@@ -10,9 +10,11 @@ import unq_ciu.gatoEncerrado.acciones.Mover
 import unq_ciu.gatoEncerrado.acciones.Salir
 import unq_ciu.gatoEncerrado.Item
 import unq_ciu.gatoEncerrado.acciones.Agarrar
+import unq_ciu.gatoEncerrado.Laberinto
 
 @Accessors
 class HabitacionTest {
+	var Laberinto laberinto
 	var Habitacion  habitacion
 	var Accion accion1
 	var Accion accion2
@@ -26,7 +28,7 @@ class HabitacionTest {
 		//Establezco el escenario para testear
 		habitacion = new Habitacion("Living", true, false)
 		accion1 = new Mover(habitacion)
-		accion2 = new Salir()
+		accion2 = new Salir(laberinto)
 		item = new Item("Llave")
 		accion3 = new Agarrar(item)
 	}

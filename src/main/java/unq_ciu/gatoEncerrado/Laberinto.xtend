@@ -10,9 +10,10 @@ import org.uqbar.commons.model.UserException
 @Observable
 class Laberinto {
 
+	int id
 	String nombre
 	List<Habitacion> habitaciones
-	int id
+	String path
 
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>
@@ -27,6 +28,13 @@ class Laberinto {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>
 		this.id = id
+	}
+	
+	new(int id, String nombre, String path) {
+		this.id = id
+		this.nombre = nombre
+		this.path = path
+		this.habitaciones = new ArrayList<Habitacion>
 	}
 
 	def agregarHabitacion(Habitacion h) {

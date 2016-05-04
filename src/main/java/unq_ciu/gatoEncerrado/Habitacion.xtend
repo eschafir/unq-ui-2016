@@ -49,8 +49,20 @@ class Habitacion {
 		val accionesAgarrar = acciones.filter(typeof(Agarrar))
 		return !accionesAgarrar.isEmpty
 	}
-	
-	def getItems(){
+
+	def getItems() {
 		this.acciones.map[it.item]
+	}
+
+	/**
+	 * Devuelve el laberinto en el cual está la habitación.
+	 */
+	def getLaberinto(Juego juego) {
+
+		for (Laberinto l : juego.laberintos) {
+			if (l.habitaciones.contains(this)) {
+				return l
+			}
+		}
 	}
 }

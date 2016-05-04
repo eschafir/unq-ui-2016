@@ -18,11 +18,13 @@ import unq_ciu.gatoEncerrado.Item;
 @Observable
 @SuppressWarnings("all")
 public class Laberinto {
+  private int id;
+  
   private String nombre;
   
   private List<Habitacion> habitaciones;
   
-  private int id;
+  private String path;
   
   public Laberinto() {
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
@@ -40,6 +42,14 @@ public class Laberinto {
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
     this.id = id;
+  }
+  
+  public Laberinto(final int id, final String nombre, final String path) {
+    this.id = id;
+    this.nombre = nombre;
+    this.path = path;
+    ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
+    this.habitaciones = _arrayList;
   }
   
   public boolean agregarHabitacion(final Habitacion h) {
@@ -125,6 +135,15 @@ public class Laberinto {
   }
   
   @Pure
+  public int getId() {
+    return this.id;
+  }
+  
+  public void setId(final int id) {
+    this.id = id;
+  }
+  
+  @Pure
   public String getNombre() {
     return this.nombre;
   }
@@ -143,11 +162,11 @@ public class Laberinto {
   }
   
   @Pure
-  public int getId() {
-    return this.id;
+  public String getPath() {
+    return this.path;
   }
   
-  public void setId(final int id) {
-    this.id = id;
+  public void setPath(final String path) {
+    this.path = path;
   }
 }

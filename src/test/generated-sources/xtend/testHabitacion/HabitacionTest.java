@@ -9,6 +9,7 @@ import org.junit.Test;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
+import unq_ciu.gatoEncerrado.Laberinto;
 import unq_ciu.gatoEncerrado.acciones.Agarrar;
 import unq_ciu.gatoEncerrado.acciones.Mover;
 import unq_ciu.gatoEncerrado.acciones.Salir;
@@ -16,6 +17,8 @@ import unq_ciu.gatoEncerrado.acciones.Salir;
 @Accessors
 @SuppressWarnings("all")
 public class HabitacionTest {
+  private Laberinto laberinto;
+  
   private Habitacion habitacion;
   
   private Accion accion1;
@@ -32,7 +35,7 @@ public class HabitacionTest {
     this.habitacion = _habitacion;
     Mover _mover = new Mover(this.habitacion);
     this.accion1 = _mover;
-    Salir _salir = new Salir();
+    Salir _salir = new Salir(this.laberinto);
     this.accion2 = _salir;
     Item _item = new Item("Llave");
     this.item = _item;
@@ -79,6 +82,15 @@ public class HabitacionTest {
     this.habitacion.agregarAccion(this.accion3);
     boolean _hayItem_1 = this.habitacion.hayItem();
     Assert.assertTrue(_hayItem_1);
+  }
+  
+  @Pure
+  public Laberinto getLaberinto() {
+    return this.laberinto;
+  }
+  
+  public void setLaberinto(final Laberinto laberinto) {
+    this.laberinto = laberinto;
   }
   
   @Pure

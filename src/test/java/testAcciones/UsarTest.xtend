@@ -110,7 +110,7 @@ class UsarTest {
 		usarManivela = new Usar(manivela, moverA5)
 		usarMadera = new Usar(madera, moverA8)
 
-		salir = new Salir()
+		salir = new Salir(laberinto)
 
 		/*
 		 * Asignacion de acciones a Habitaciones

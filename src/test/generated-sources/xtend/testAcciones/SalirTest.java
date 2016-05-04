@@ -1,9 +1,11 @@
 package testAcciones;
 
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException;
@@ -178,7 +180,7 @@ public class SalirTest {
     this.usarManivela = _usar_3;
     Usar _usar_4 = new Usar(this.madera, this.moverA8);
     this.usarMadera = _usar_4;
-    Salir _salir = new Salir();
+    Salir _salir = new Salir(this.laberinto);
     this.salir = _salir;
     this.hab0.agregarAccion(this.moverA1);
     this.hab0.agregarAccion(this.moverA2);
@@ -217,7 +219,7 @@ public class SalirTest {
     this.laberinto.agregarHabitacion(this.hab7);
     this.laberinto.agregarHabitacion(this.hab8);
     this.laberinto.agregarHabitacion(this.hab9);
-    Jugador _jugador = new Jugador("Jugador", this.hab0);
+    Jugador _jugador = new Jugador("Jugador", this.hab8);
     this.jugador = _jugador;
     Jugador _jugador_1 = new Jugador("Jugador2", this.hab8);
     this.jugador2 = _jugador_1;
@@ -242,8 +244,11 @@ public class SalirTest {
   }
   
   @Test
-  public void testSalirEnLaHabitacionFinalEsCorrecto() {
-    this.salir.ejecutar(this.juego2);
+  public void testSalirEnLaHabitacionFinalAgregaElLaberintoActualALaListaDeGanadosDelJugador() {
+    this.salir.ejecutar(this.juego);
+    List<Laberinto> _laberintosGanados = this.jugador.getLaberintosGanados();
+    boolean _contains = _laberintosGanados.contains(this.laberinto);
+    Assert.assertTrue(_contains);
   }
   
   @Pure

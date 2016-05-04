@@ -11,6 +11,8 @@ import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.utils.Observable;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Item;
+import unq_ciu.gatoEncerrado.Juego;
+import unq_ciu.gatoEncerrado.Laberinto;
 import unq_ciu.gatoEncerrado.acciones.Agarrar;
 
 @Accessors
@@ -76,6 +78,21 @@ public class Habitacion {
       }
     };
     return ListExtensions.<Accion, Item>map(this.acciones, _function);
+  }
+  
+  /**
+   * Devuelve el laberinto en el cual está la habitación.
+   */
+  public Laberinto getLaberinto(final Juego juego) {
+    List<Laberinto> _laberintos = juego.getLaberintos();
+    for (final Laberinto l : _laberintos) {
+      List<Habitacion> _habitaciones = l.getHabitaciones();
+      boolean _contains = _habitaciones.contains(this);
+      if (_contains) {
+        return l;
+      }
+    }
+    return null;
   }
   
   @Pure

@@ -180,7 +180,7 @@ public class UsarTest {
     this.usarManivela = _usar_3;
     Usar _usar_4 = new Usar(this.madera, this.moverA8);
     this.usarMadera = _usar_4;
-    Salir _salir = new Salir();
+    Salir _salir = new Salir(this.laberinto);
     this.salir = _salir;
     this.hab0.agregarAccion(this.moverA1);
     this.hab0.agregarAccion(this.usarManivela);
