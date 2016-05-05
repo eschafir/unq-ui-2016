@@ -6,7 +6,8 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 @Observable
 class Accion {
-
+	
+	int id
 	String nombre
 	
 	new(){}

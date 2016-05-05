@@ -5,6 +5,7 @@ import org.uqbar.commons.utils.Observable
 import java.util.List
 import java.util.ArrayList
 import org.uqbar.commons.model.UserException
+import org.apache.commons.lang.math.RandomUtils
 
 @Accessors
 @Observable
@@ -14,27 +15,35 @@ class Laberinto {
 	String nombre
 	List<Habitacion> habitaciones
 	String path
+	Estado estado
 
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>
+		this.estado = Estado.NO_FINALIZADO
 	}
 
 	new(String nombre) {
+		this.id = RandomUtils.nextInt
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>
+		this.path = ""
+		this.estado = Estado.NO_FINALIZADO
 	}
-	
+
 	new(String nombre, int id) {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>
 		this.id = id
+		this.path = ""
+		this.estado = Estado.NO_FINALIZADO
 	}
-	
+
 	new(int id, String nombre, String path) {
 		this.id = id
 		this.nombre = nombre
-		this.path = path
 		this.habitaciones = new ArrayList<Habitacion>
+		this.path = path
+		this.estado = Estado.NO_FINALIZADO
 	}
 
 	def agregarHabitacion(Habitacion h) {

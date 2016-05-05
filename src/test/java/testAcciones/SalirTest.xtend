@@ -14,6 +14,7 @@ import unq_ciu.gatoEncerrado.acciones.Salir
 import unq_ciu.gatoEncerrado.acciones.Usar
 import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException
 import static org.junit.Assert.*
+import unq_ciu.gatoEncerrado.Estado
 
 @Accessors
 class SalirTest {
@@ -189,8 +190,15 @@ class SalirTest {
 
 	@Test
 	def void testSalirEnLaHabitacionFinalAgregaElLaberintoActualALaListaDeGanadosDelJugador() {
+		val lab = jugador.habitacion.getLaberinto(juego)
+		assertEquals(lab.estado, Estado.NO_FINALIZADO)
+		assertTrue(jugador.laberintosNoResueltos.contains(laberinto))
+
 		salir.ejecutar(juego)
-		assertTrue(jugador.laberintosGanados.contains(laberinto))
+
+		assertTrue(jugador.laberintosResueltos.contains(laberinto))
+		assertEquals(lab.estado, Estado.RESUELTO)
 
 	}
+
 }

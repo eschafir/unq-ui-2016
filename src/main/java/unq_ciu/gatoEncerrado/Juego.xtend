@@ -31,12 +31,13 @@ class Juego {
 	}
 
 	/**
-	 * Agrega un laberinto al juego.
+	 * Agrega un laberinto al juego. Además se incluye en la lista de laberintos del jugador.
 	 * @params lab : laberinto a agregar.
 	 */
 	def agregarLaberinto(Laberinto lab) {
 		validarNombre(lab.nombre)
 		getLaberintos.add(lab)
+		jugador.laberintos.add(lab)
 	}
 
 	/**
@@ -46,6 +47,7 @@ class Juego {
 	def quitarLaberinto(Laberinto lab) {
 		if (laberintos.contains(lab)) {
 			laberintos.remove(lab)
+			jugador.laberintos.remove(lab)
 		}
 	}
 
@@ -55,11 +57,11 @@ class Juego {
 	 */
 	def validarNombre(String nuevoNombre) {
 
-		if(laberintos.exists[it.nombre.equals(nuevoNombre)]){
+		if (laberintos.exists[it.nombre.equals(nuevoNombre)]) {
 			throw new UserException("Ya existe un laberinto con el nombre " + nuevoNombre)
-		 }
-		 if (nuevoNombre == ""){
-		 	throw new UserException("Ingrese un nombre para el laberinto.")
-		 }
+		}
+		if (nuevoNombre == "") {
+			throw new UserException("Ingrese un nombre para el laberinto.")
+		}
 	}
 }

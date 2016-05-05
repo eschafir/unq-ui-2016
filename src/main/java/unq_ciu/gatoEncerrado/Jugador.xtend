@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
 import java.util.List
 import org.uqbar.commons.model.UserException
+import org.apache.commons.lang.math.RandomUtils
 
 @Accessors
 class Jugador {
@@ -11,15 +12,16 @@ class Jugador {
 	String nombre
 	List<Item> inventario
 	Habitacion habitacion
-	List<Laberinto> laberintosGanados
+	List<Laberinto> laberintos
 	int ganados
 	int abandonados
 
 	new() {
 		this.nombre = ""
 		this.inventario = new ArrayList<Item>()
-		this.laberintosGanados = new ArrayList<Laberinto>()
+		this.laberintos = new ArrayList<Laberinto>()
 		this.habitacion = null
+		this.id = RandomUtils.nextInt
 	}
 
 	new(String n, Habitacion h) {
@@ -28,17 +30,17 @@ class Jugador {
 		this.inventario = new ArrayList<Item>()
 		this.ganados = 0
 		this.abandonados = 0
-		this.laberintosGanados = new ArrayList<Laberinto>()
+		this.laberintos = new ArrayList<Laberinto>()
 	}
 
 	new(int id, String n) {
 		this.id = id
 		this.nombre = n
-		this.habitacion = new Habitacion("final", false, true)
+		this.habitacion = null
 		this.inventario = new ArrayList<Item>()
 		this.ganados = 0
 		this.abandonados = 0
-		this.laberintosGanados = new ArrayList<Laberinto>()
+		this.laberintos = new ArrayList<Laberinto>()
 	}
 
 	def abandonar() {
@@ -87,6 +89,20 @@ class Jugador {
 	 */
 	def boolean tiene(Item i) {
 		getInventario.contains(i)
+	}
+	
+	/**
+	 * Devuelve los laberintos resueltos por el jugador.
+	 */
+	def getLaberintosResueltos(){
+		this.laberintos.filter[it.estado == Estado.RESUELTO].toList
+	}
+	
+	/**
+	 * Devuelve los laberintos que aún no fueron resueltos por el jugador.
+	 */
+	def getLaberintosNoResueltos(){
+		this.laberintos.filter[it.estado == Estado.NO_FINALIZADO].toList
 	}
 
 }

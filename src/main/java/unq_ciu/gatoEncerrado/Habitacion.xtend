@@ -9,7 +9,8 @@ import java.util.List
 @Accessors
 @Observable
 class Habitacion {
-
+	
+	int id
 	String nombre
 	boolean esInicial
 	boolean esFinal

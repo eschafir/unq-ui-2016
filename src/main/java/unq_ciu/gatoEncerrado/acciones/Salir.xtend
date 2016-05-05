@@ -5,6 +5,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException
 import unq_ciu.gatoEncerrado.Laberinto
+import unq_ciu.gatoEncerrado.Estado
 
 @Accessors
 class Salir extends Accion {
@@ -16,12 +17,12 @@ class Salir extends Accion {
 	}
 
 	override ejecutar(Juego juego) {
-		
-		val laberintoActual = juego.jugador.habitacion.getLaberinto(juego)
+
+		var laberintoActual = juego.jugador.habitacion.getLaberinto(juego)
 
 		if (juego.jugador.habitacion.isEsFinal) {
 			juego.jugador.ganados = juego.jugador.ganados + 1
-			juego.jugador.laberintosGanados.add(laberintoActual)
+			laberintoActual.estado = Estado.RESUELTO
 		} else {
 			throw new NoHasGanadoException()
 		}
