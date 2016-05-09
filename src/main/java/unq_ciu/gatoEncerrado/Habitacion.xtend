@@ -36,6 +36,14 @@ class Habitacion {
 		this.acciones = acciones
 	}
 
+	new(int id,String nombre, boolean eI, boolean eF, String path){
+		this.nombre = nombre
+		this.esInicial = eI
+		this.esFinal = eF
+		this.id = id
+		this.path = path
+		this.acciones = new ArrayList<Accion>
+	}
 	/**
 	 * Agrega una accion a la lista de acciones permitidas en la habitacion.
 	 */
@@ -63,7 +71,7 @@ class Habitacion {
 	def getItems() {
 		this.acciones.map[it.item]
 	}
-
+	
 	/**
 	 * Devuelve el laberinto en el cual está la habitación.
 	 */

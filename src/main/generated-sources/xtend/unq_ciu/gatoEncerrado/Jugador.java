@@ -43,7 +43,8 @@ public class Jugador {
     this.id = _nextInt;
   }
   
-  public Jugador(final String n, final Habitacion h) {
+  public Jugador(final int id, final String n, final Habitacion h) {
+    this.id = id;
     this.nombre = n;
     this.habitacion = h;
     ArrayList<Item> _arrayList = new ArrayList<Item>();

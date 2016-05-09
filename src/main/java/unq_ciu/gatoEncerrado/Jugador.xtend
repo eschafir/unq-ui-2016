@@ -24,7 +24,8 @@ class Jugador {
 		this.id = RandomUtils.nextInt
 	}
 
-	new(String n, Habitacion h) {
+	new(int id, String n, Habitacion h) {
+		this.id = id
 		this.nombre = n
 		this.habitacion = h
 		this.inventario = new ArrayList<Item>()

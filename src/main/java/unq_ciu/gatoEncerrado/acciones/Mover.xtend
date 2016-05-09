@@ -18,6 +18,12 @@ class Mover extends Accion {
 		this.nombre = "Mover a " + destino.nombre
 		this.destino = destino
 	}
+	
+	new(int id, Habitacion destino) {
+		this.id = id
+		this.nombre = "Mover a " + destino.nombre
+		this.destino = destino
+	}
 
 	override ejecutar(Juego juego) {
 		if (juego.accionesPosibles.contains(this)) {

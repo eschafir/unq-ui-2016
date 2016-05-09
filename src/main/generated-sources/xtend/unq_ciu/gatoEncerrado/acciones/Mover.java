@@ -27,6 +27,14 @@ public class Mover extends Accion {
     this.destino = destino;
   }
   
+  public Mover(final int id, final Habitacion destino) {
+    this.setId(id);
+    String _nombre = destino.getNombre();
+    String _plus = ("Mover a " + _nombre);
+    this.nombre = _plus;
+    this.destino = destino;
+  }
+  
   public void ejecutar(final Juego juego) {
     try {
       List<Accion> _accionesPosibles = juego.accionesPosibles();

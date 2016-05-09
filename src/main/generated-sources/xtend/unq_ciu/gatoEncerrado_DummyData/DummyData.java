@@ -42,7 +42,7 @@ public class DummyData {
         Mover _mover_2 = new Mover(comedor);
         Usar _usar = new Usar(llave, _mover_2);
         cocina.agregarAccion(_usar);
-        Jugador _jugador = new Jugador("Esteban", entrada);
+        Jugador _jugador = new Jugador(1, "Esteban", entrada);
         it.setJugador(_jugador);
         laberinto.agregarHabitacion(entrada);
         laberinto.agregarHabitacion(cocina);

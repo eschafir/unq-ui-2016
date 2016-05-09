@@ -64,11 +64,11 @@ public class Laberinto {
     this.estado = Estado.NO_RESUELTO;
   }
   
-  public Laberinto(final int id, final List<Habitacion> habitaciones) {
+  public Laberinto(final int id, final String nombre, final String path, final List<Habitacion> habitaciones) {
     this.id = id;
-    this.nombre = "";
+    this.nombre = nombre;
     this.habitaciones = habitaciones;
-    this.path = "";
+    this.path = path;
     this.estado = Estado.NO_RESUELTO;
   }
   

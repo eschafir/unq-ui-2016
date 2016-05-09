@@ -51,6 +51,16 @@ public class Habitacion {
     this.acciones = acciones;
   }
   
+  public Habitacion(final int id, final String nombre, final boolean eI, final boolean eF, final String path) {
+    this.nombre = nombre;
+    this.esInicial = eI;
+    this.esFinal = eF;
+    this.id = id;
+    this.path = path;
+    ArrayList<Accion> _arrayList = new ArrayList<Accion>();
+    this.acciones = _arrayList;
+  }
+  
   /**
    * Agrega una accion a la lista de acciones permitidas en la habitacion.
    */
