@@ -33,7 +33,7 @@ class Habitacion {
 		this.nombre = nombre
 		this.id = id
 		this.path = path
-		this.acciones = new ArrayList<Accion>
+		this.acciones = acciones
 	}
 
 	/**

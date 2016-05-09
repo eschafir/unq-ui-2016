@@ -48,8 +48,7 @@ public class Habitacion {
     this.nombre = nombre;
     this.id = id;
     this.path = path;
-    ArrayList<Accion> _arrayList = new ArrayList<Accion>();
-    this.acciones = _arrayList;
+    this.acciones = acciones;
   }
   
   /**

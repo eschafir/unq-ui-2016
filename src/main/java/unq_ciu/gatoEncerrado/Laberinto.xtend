@@ -47,11 +47,11 @@ class Laberinto {
 	}
 	
 	//new para el servicio rest 2
-	new(int id, String nombre, String path, List<Habitacion> habitaciones){
+	new(int id, List<Habitacion> habitaciones){
 		this.id = id
-		this.nombre = nombre
-		this.path = path
+		this.nombre = ""
 		this.habitaciones = habitaciones
+		this.path = ""
 		this.estado = Estado.NO_RESUELTO
 	}
 

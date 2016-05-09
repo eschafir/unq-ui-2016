@@ -10,6 +10,7 @@ class Item {
 	
 	int id
 	String nombre
+	String descripcion
 	
 	new(){
 		this.id = RandomUtils.nextInt
@@ -19,5 +20,12 @@ class Item {
 	new(String nombre) {
 		this.id = RandomUtils.nextInt
 		this.nombre = nombre
+	}
+	
+	//new para el servicio rest 2
+	new(String nombre, String descripcion){
+		this.id = RandomUtils.nextInt
+		this.nombre = nombre
+		this.descripcion = descripcion
 	}
 }

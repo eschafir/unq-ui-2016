@@ -13,6 +13,8 @@ public class Item {
   
   private String nombre;
   
+  private String descripcion;
+  
   public Item() {
     int _nextInt = RandomUtils.nextInt();
     this.id = _nextInt;
@@ -23,6 +25,13 @@ public class Item {
     int _nextInt = RandomUtils.nextInt();
     this.id = _nextInt;
     this.nombre = nombre;
+  }
+  
+  public Item(final String nombre, final String descripcion) {
+    int _nextInt = RandomUtils.nextInt();
+    this.id = _nextInt;
+    this.nombre = nombre;
+    this.descripcion = descripcion;
   }
   
   @Pure
@@ -41,5 +50,14 @@ public class Item {
   
   public void setNombre(final String nombre) {
     this.nombre = nombre;
+  }
+  
+  @Pure
+  public String getDescripcion() {
+    return this.descripcion;
+  }
+  
+  public void setDescripcion(final String descripcion) {
+    this.descripcion = descripcion;
   }
 }
