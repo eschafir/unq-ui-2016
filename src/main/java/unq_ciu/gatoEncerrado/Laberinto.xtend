@@ -45,6 +45,15 @@ class Laberinto {
 		this.path = path
 		this.estado = Estado.NO_RESUELTO
 	}
+	
+	//new para el servicio rest 2
+	new(int id, String nombre, String path, List<Habitacion> habitaciones){
+		this.id = id
+		this.nombre = nombre
+		this.path = path
+		this.habitaciones = habitaciones
+		this.estado = Estado.NO_RESUELTO
+	}
 
 	def agregarHabitacion(Habitacion h) {
 		if (h.isEsInicial && tieneHabInicial) {

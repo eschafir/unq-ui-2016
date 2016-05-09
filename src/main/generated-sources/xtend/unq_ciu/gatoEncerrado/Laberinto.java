@@ -64,6 +64,14 @@ public class Laberinto {
     this.estado = Estado.NO_RESUELTO;
   }
   
+  public Laberinto(final int id, final String nombre, final String path, final List<Habitacion> habitaciones) {
+    this.id = id;
+    this.nombre = nombre;
+    this.path = path;
+    this.habitaciones = habitaciones;
+    this.estado = Estado.NO_RESUELTO;
+  }
+  
   public boolean agregarHabitacion(final Habitacion h) {
     boolean _xblockexpression = false;
     {

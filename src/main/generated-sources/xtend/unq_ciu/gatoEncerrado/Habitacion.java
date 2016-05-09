@@ -29,6 +29,8 @@ public class Habitacion {
   
   private List<Accion> acciones;
   
+  private String path;
+  
   public Habitacion() {
     ArrayList<Accion> _arrayList = new ArrayList<Accion>();
     this.acciones = _arrayList;
@@ -38,6 +40,14 @@ public class Habitacion {
     this.nombre = nombre;
     this.esInicial = eI;
     this.esFinal = eF;
+    ArrayList<Accion> _arrayList = new ArrayList<Accion>();
+    this.acciones = _arrayList;
+  }
+  
+  public Habitacion(final int id, final String nombre, final List<Accion> acciones, final String path) {
+    this.nombre = nombre;
+    this.id = id;
+    this.path = path;
     ArrayList<Accion> _arrayList = new ArrayList<Accion>();
     this.acciones = _arrayList;
   }
@@ -140,5 +150,14 @@ public class Habitacion {
   
   public void setAcciones(final List<Accion> acciones) {
     this.acciones = acciones;
+  }
+  
+  @Pure
+  public String getPath() {
+    return this.path;
+  }
+  
+  public void setPath(final String path) {
+    this.path = path;
   }
 }

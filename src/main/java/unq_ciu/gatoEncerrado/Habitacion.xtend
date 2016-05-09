@@ -15,6 +15,7 @@ class Habitacion {
 	boolean esInicial
 	boolean esFinal
 	List<Accion> acciones
+	String path
 
 	new() {
 		acciones = new ArrayList<Accion>
@@ -24,6 +25,14 @@ class Habitacion {
 		this.nombre = nombre
 		this.esInicial = eI
 		this.esFinal = eF
+		this.acciones = new ArrayList<Accion>
+	}
+	
+	//New para el servicio rest 2
+	new(int id,String nombre, List<Accion> acciones, String path){
+		this.nombre = nombre
+		this.id = id
+		this.path = path
 		this.acciones = new ArrayList<Accion>
 	}
 
