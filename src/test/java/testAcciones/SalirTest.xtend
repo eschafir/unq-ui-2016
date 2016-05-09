@@ -191,7 +191,7 @@ class SalirTest {
 	@Test
 	def void testSalirEnLaHabitacionFinalAgregaElLaberintoActualALaListaDeGanadosDelJugador() {
 		val lab = jugador.habitacion.getLaberinto(juego)
-		assertEquals(lab.estado, Estado.NO_FINALIZADO)
+		assertEquals(lab.estado, Estado.NO_RESUELTO)
 		assertTrue(jugador.laberintosNoResueltos.contains(laberinto))
 
 		salir.ejecutar(juego)

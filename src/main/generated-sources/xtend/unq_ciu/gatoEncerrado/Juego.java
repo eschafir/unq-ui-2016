@@ -44,7 +44,7 @@ public class Juego {
   }
   
   /**
-   * Agrega un laberinto al juego.
+   * Agrega un laberinto al juego. Además se incluye en la lista de laberintos del jugador.
    * @params lab : laberinto a agregar.
    */
   public boolean agregarLaberinto(final Laberinto lab) {
@@ -53,7 +53,9 @@ public class Juego {
       String _nombre = lab.getNombre();
       this.validarNombre(_nombre);
       List<Laberinto> _laberintos = this.getLaberintos();
-      _xblockexpression = _laberintos.add(lab);
+      _laberintos.add(lab);
+      List<Laberinto> _laberintos_1 = this.jugador.getLaberintos();
+      _xblockexpression = _laberintos_1.add(lab);
     }
     return _xblockexpression;
   }
@@ -66,7 +68,13 @@ public class Juego {
     boolean _xifexpression = false;
     boolean _contains = this.laberintos.contains(lab);
     if (_contains) {
-      _xifexpression = this.laberintos.remove(lab);
+      boolean _xblockexpression = false;
+      {
+        this.laberintos.remove(lab);
+        List<Laberinto> _laberintos = this.jugador.getLaberintos();
+        _xblockexpression = _laberintos.remove(lab);
+      }
+      _xifexpression = _xblockexpression;
     }
     return _xifexpression;
   }

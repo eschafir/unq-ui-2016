@@ -19,7 +19,7 @@ class Laberinto {
 
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>
-		this.estado = Estado.NO_FINALIZADO
+		this.estado = Estado.NO_RESUELTO
 	}
 
 	new(String nombre) {
@@ -27,7 +27,7 @@ class Laberinto {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>
 		this.path = ""
-		this.estado = Estado.NO_FINALIZADO
+		this.estado = Estado.NO_RESUELTO
 	}
 
 	new(String nombre, int id) {
@@ -35,7 +35,7 @@ class Laberinto {
 		this.habitaciones = new ArrayList<Habitacion>
 		this.id = id
 		this.path = ""
-		this.estado = Estado.NO_FINALIZADO
+		this.estado = Estado.NO_RESUELTO
 	}
 
 	new(int id, String nombre, String path) {
@@ -43,7 +43,7 @@ class Laberinto {
 		this.nombre = nombre
 		this.habitaciones = new ArrayList<Habitacion>
 		this.path = path
-		this.estado = Estado.NO_FINALIZADO
+		this.estado = Estado.NO_RESUELTO
 	}
 
 	def agregarHabitacion(Habitacion h) {

@@ -19,6 +19,8 @@ import unq_ciu.gatoEncerrado.acciones.Agarrar;
 @Observable
 @SuppressWarnings("all")
 public class Habitacion {
+  private int id;
+  
   private String nombre;
   
   private boolean esInicial;
@@ -93,6 +95,15 @@ public class Habitacion {
       }
     }
     return null;
+  }
+  
+  @Pure
+  public int getId() {
+    return this.id;
+  }
+  
+  public void setId(final int id) {
+    this.id = id;
   }
   
   @Pure

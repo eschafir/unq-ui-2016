@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang.math.RandomUtils;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -11,6 +12,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
+import unq_ciu.gatoEncerrado.Estado;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 
@@ -26,15 +28,22 @@ public class Laberinto {
   
   private String path;
   
+  private Estado estado;
+  
   public Laberinto() {
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
+    this.estado = Estado.NO_RESUELTO;
   }
   
   public Laberinto(final String nombre) {
+    int _nextInt = RandomUtils.nextInt();
+    this.id = _nextInt;
     this.nombre = nombre;
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
+    this.path = "";
+    this.estado = Estado.NO_RESUELTO;
   }
   
   public Laberinto(final String nombre, final int id) {
@@ -42,14 +51,17 @@ public class Laberinto {
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
     this.id = id;
+    this.path = "";
+    this.estado = Estado.NO_RESUELTO;
   }
   
   public Laberinto(final int id, final String nombre, final String path) {
     this.id = id;
     this.nombre = nombre;
-    this.path = path;
     ArrayList<Habitacion> _arrayList = new ArrayList<Habitacion>();
     this.habitaciones = _arrayList;
+    this.path = path;
+    this.estado = Estado.NO_RESUELTO;
   }
   
   public boolean agregarHabitacion(final Habitacion h) {
@@ -168,5 +180,14 @@ public class Laberinto {
   
   public void setPath(final String path) {
     this.path = path;
+  }
+  
+  @Pure
+  public Estado getEstado() {
+    return this.estado;
+  }
+  
+  public void setEstado(final Estado estado) {
+    this.estado = estado;
   }
 }

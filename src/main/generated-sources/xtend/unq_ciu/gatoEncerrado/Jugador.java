@@ -1,11 +1,16 @@
 package unq_ciu.gatoEncerrado;
 
+import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang.math.RandomUtils;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.uqbar.commons.model.UserException;
+import unq_ciu.gatoEncerrado.Estado;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
@@ -21,7 +26,7 @@ public class Jugador {
   
   private Habitacion habitacion;
   
-  private List<Laberinto> laberintosGanados;
+  private List<Laberinto> laberintos;
   
   private int ganados;
   
@@ -32,8 +37,10 @@ public class Jugador {
     ArrayList<Item> _arrayList = new ArrayList<Item>();
     this.inventario = _arrayList;
     ArrayList<Laberinto> _arrayList_1 = new ArrayList<Laberinto>();
-    this.laberintosGanados = _arrayList_1;
+    this.laberintos = _arrayList_1;
     this.habitacion = null;
+    int _nextInt = RandomUtils.nextInt();
+    this.id = _nextInt;
   }
   
   public Jugador(final String n, final Habitacion h) {
@@ -44,20 +51,19 @@ public class Jugador {
     this.ganados = 0;
     this.abandonados = 0;
     ArrayList<Laberinto> _arrayList_1 = new ArrayList<Laberinto>();
-    this.laberintosGanados = _arrayList_1;
+    this.laberintos = _arrayList_1;
   }
   
   public Jugador(final int id, final String n) {
     this.id = id;
     this.nombre = n;
-    Habitacion _habitacion = new Habitacion("final", false, true);
-    this.habitacion = _habitacion;
+    this.habitacion = null;
     ArrayList<Item> _arrayList = new ArrayList<Item>();
     this.inventario = _arrayList;
     this.ganados = 0;
     this.abandonados = 0;
     ArrayList<Laberinto> _arrayList_1 = new ArrayList<Laberinto>();
-    this.laberintosGanados = _arrayList_1;
+    this.laberintos = _arrayList_1;
   }
   
   public int abandonar() {
@@ -123,6 +129,34 @@ public class Jugador {
     return _inventario.contains(i);
   }
   
+  /**
+   * Devuelve los laberintos resueltos por el jugador.
+   */
+  public List<Laberinto> getLaberintosResueltos() {
+    final Function1<Laberinto, Boolean> _function = new Function1<Laberinto, Boolean>() {
+      public Boolean apply(final Laberinto it) {
+        Estado _estado = it.getEstado();
+        return Boolean.valueOf(Objects.equal(_estado, Estado.RESUELTO));
+      }
+    };
+    Iterable<Laberinto> _filter = IterableExtensions.<Laberinto>filter(this.laberintos, _function);
+    return IterableExtensions.<Laberinto>toList(_filter);
+  }
+  
+  /**
+   * Devuelve los laberintos que aún no fueron resueltos por el jugador.
+   */
+  public List<Laberinto> getLaberintosNoResueltos() {
+    final Function1<Laberinto, Boolean> _function = new Function1<Laberinto, Boolean>() {
+      public Boolean apply(final Laberinto it) {
+        Estado _estado = it.getEstado();
+        return Boolean.valueOf(Objects.equal(_estado, Estado.NO_RESUELTO));
+      }
+    };
+    Iterable<Laberinto> _filter = IterableExtensions.<Laberinto>filter(this.laberintos, _function);
+    return IterableExtensions.<Laberinto>toList(_filter);
+  }
+  
   @Pure
   public int getId() {
     return this.id;
@@ -160,12 +194,12 @@ public class Jugador {
   }
   
   @Pure
-  public List<Laberinto> getLaberintosGanados() {
-    return this.laberintosGanados;
+  public List<Laberinto> getLaberintos() {
+    return this.laberintos;
   }
   
-  public void setLaberintosGanados(final List<Laberinto> laberintosGanados) {
-    this.laberintosGanados = laberintosGanados;
+  public void setLaberintos(final List<Laberinto> laberintos) {
+    this.laberintos = laberintos;
   }
   
   @Pure

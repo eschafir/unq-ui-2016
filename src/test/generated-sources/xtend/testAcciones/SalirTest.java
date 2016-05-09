@@ -8,6 +8,7 @@ import org.eclipse.xtext.xbase.lib.Pure;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import unq_ciu.gatoEncerrado.Estado;
 import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
@@ -245,10 +246,19 @@ public class SalirTest {
   
   @Test
   public void testSalirEnLaHabitacionFinalAgregaElLaberintoActualALaListaDeGanadosDelJugador() {
-    this.salir.ejecutar(this.juego);
-    List<Laberinto> _laberintosGanados = this.jugador.getLaberintosGanados();
-    boolean _contains = _laberintosGanados.contains(this.laberinto);
+    Habitacion _habitacion = this.jugador.getHabitacion();
+    final Laberinto lab = _habitacion.getLaberinto(this.juego);
+    Estado _estado = lab.getEstado();
+    Assert.assertEquals(_estado, Estado.NO_RESUELTO);
+    List<Laberinto> _laberintosNoResueltos = this.jugador.getLaberintosNoResueltos();
+    boolean _contains = _laberintosNoResueltos.contains(this.laberinto);
     Assert.assertTrue(_contains);
+    this.salir.ejecutar(this.juego);
+    List<Laberinto> _laberintosResueltos = this.jugador.getLaberintosResueltos();
+    boolean _contains_1 = _laberintosResueltos.contains(this.laberinto);
+    Assert.assertTrue(_contains_1);
+    Estado _estado_1 = lab.getEstado();
+    Assert.assertEquals(_estado_1, Estado.RESUELTO);
   }
   
   @Pure

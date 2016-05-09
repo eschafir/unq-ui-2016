@@ -102,7 +102,7 @@ class Jugador {
 	 * Devuelve los laberintos que aún no fueron resueltos por el jugador.
 	 */
 	def getLaberintosNoResueltos(){
-		this.laberintos.filter[it.estado == Estado.NO_FINALIZADO].toList
+		this.laberintos.filter[it.estado == Estado.NO_RESUELTO].toList
 	}
 
 }

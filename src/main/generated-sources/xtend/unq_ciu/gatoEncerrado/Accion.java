@@ -10,6 +10,8 @@ import unq_ciu.gatoEncerrado.Juego;
 @Observable
 @SuppressWarnings("all")
 public class Accion {
+  private int id;
+  
   private String nombre;
   
   public Accion() {
@@ -20,6 +22,15 @@ public class Accion {
   
   public Item getItem() {
     return null;
+  }
+  
+  @Pure
+  public int getId() {
+    return this.id;
+  }
+  
+  public void setId(final int id) {
+    this.id = id;
   }
   
   @Pure
