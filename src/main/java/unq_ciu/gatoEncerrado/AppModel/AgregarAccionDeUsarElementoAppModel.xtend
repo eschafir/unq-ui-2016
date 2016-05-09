@@ -23,7 +23,7 @@ class AgregarAccionDeUsarElementoAppModel {
 	new(Laberinto lab, Habitacion habitacion, Accion acc) {
 		this.laberinto = lab
 		this.habitacion = habitacion
-		this.accion =  acc
+		this.accion = acc
 	}
 
 	def validarItem() {
@@ -40,7 +40,6 @@ class AgregarAccionDeUsarElementoAppModel {
 				lista.add(i)
 			}
 		}
-
 		quitarDuplicados(lista)
 		return lista
 	}

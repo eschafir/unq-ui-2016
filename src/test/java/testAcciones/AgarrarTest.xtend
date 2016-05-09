@@ -167,7 +167,7 @@ class AgarrarTest {
 		/*
 		 * Creación de Jugador
 		 */
-		jugador = new Jugador("Jugador", hab0)
+		jugador = new Jugador(1,"Jugador", hab0)
 
 		/*
 		 * Creación de Juego

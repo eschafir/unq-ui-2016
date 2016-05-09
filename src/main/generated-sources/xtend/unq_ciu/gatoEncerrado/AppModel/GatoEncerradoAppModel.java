@@ -64,7 +64,14 @@ public class GatoEncerradoAppModel {
   }
   
   public String getNombreHabitacion() {
-    return this.habitacionSeleccionada.getNombre();
+    String _xifexpression = null;
+    boolean _equals = Objects.equal(this.habitacionSeleccionada, null);
+    if (_equals) {
+      _xifexpression = "";
+    } else {
+      _xifexpression = this.habitacionSeleccionada.getNombre();
+    }
+    return _xifexpression;
   }
   
   public void setNombreHabitacion(final String nuevoNombre) {

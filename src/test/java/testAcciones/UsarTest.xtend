@@ -168,8 +168,8 @@ class UsarTest {
 		/*
 		 * Creacion de Jugador
 		 */
-		jugador = new Jugador("Jugador", hab0)
-		jugador2 = new Jugador("Jugador2", hab8)
+		jugador = new Jugador(1, "Jugador", hab0)
+		jugador2 = new Jugador(2, "Jugador2", hab8)
 
 		/*
 		 * Creacion de Juego

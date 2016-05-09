@@ -57,7 +57,7 @@ class GatoEncerradoAppModel {
 	}
 
 	def String getNombreHabitacion() {
-		this.habitacionSeleccionada.nombre
+		if(this.habitacionSeleccionada == null) "" else this.habitacionSeleccionada.nombre
 	}
 
 	def void setNombreHabitacion(String nuevoNombre) {

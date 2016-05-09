@@ -16,9 +16,10 @@ public class JugadorTest {
   
   @Before
   public void setUp() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from String to int"
-      + "\nType mismatch: cannot convert from Habitacion to String");
+    Habitacion _habitacion = new Habitacion("Living", false, false);
+    this.habitacion = _habitacion;
+    Jugador _jugador = new Jugador(1, "Pepe", this.habitacion);
+    this.jugador = _jugador;
   }
   
   @Test

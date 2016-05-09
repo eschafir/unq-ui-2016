@@ -16,7 +16,7 @@ class JugadorTest {
 		
 		//Establezco el escenario para testear
 		habitacion = new Habitacion("Living", false, false)
-		jugador = new Jugador("Pepe", habitacion)
+		jugador = new Jugador(1, "Pepe", habitacion)
 		}
 	
 	@Test
