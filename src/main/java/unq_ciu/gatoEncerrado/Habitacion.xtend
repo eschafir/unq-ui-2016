@@ -9,7 +9,7 @@ import java.util.List
 @Accessors
 @Observable
 class Habitacion {
-	
+
 	int id
 	String nombre
 	boolean esInicial
@@ -27,16 +27,16 @@ class Habitacion {
 		this.esFinal = eF
 		this.acciones = new ArrayList<Accion>
 	}
-	
+
 	//New para el servicio rest 2
-	new(int id,String nombre, List<Accion> acciones, String path){
+	new(int id, String nombre, List<Accion> acciones, String path) {
 		this.nombre = nombre
 		this.id = id
 		this.path = path
 		this.acciones = acciones
 	}
 
-	new(int id,String nombre, boolean eI, boolean eF, String path){
+	new(int id, String nombre, boolean eI, boolean eF, String path) {
 		this.nombre = nombre
 		this.esInicial = eI
 		this.esFinal = eF
@@ -44,6 +44,7 @@ class Habitacion {
 		this.path = path
 		this.acciones = new ArrayList<Accion>
 	}
+
 	/**
 	 * Agrega una accion a la lista de acciones permitidas en la habitacion.
 	 */
@@ -71,7 +72,7 @@ class Habitacion {
 	def getItems() {
 		this.acciones.map[it.item]
 	}
-	
+
 	/**
 	 * Devuelve el laberinto en el cual está la habitación.
 	 */
