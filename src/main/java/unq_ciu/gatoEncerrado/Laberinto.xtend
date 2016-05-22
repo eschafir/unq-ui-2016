@@ -45,9 +45,9 @@ class Laberinto {
 		this.path = path
 		this.estado = Estado.NO_RESUELTO
 	}
-	
+
 	//new para el servicio rest 2
-	new(int id, String nombre, String path, List<Habitacion> habitaciones){
+	new(int id, String nombre, String path, List<Habitacion> habitaciones) {
 		this.id = id
 		this.nombre = nombre
 		this.habitaciones = habitaciones
@@ -93,4 +93,21 @@ class Laberinto {
 	def List<Item> getItemsDisponibles() {
 		getHabitaciones.map[Habitacion h|h.items].flatten.toList
 	}
+
+	def getGetHabitacionInicial() {
+		for (Habitacion h : habitaciones) {
+			if (h.esInicial) {
+				return h.nombre
+			}
+		}
+	}
+
+	def getGetHabitacionFinal() {
+		for (Habitacion h : habitaciones) {
+			if (h.esFinal) {
+				return h.nombre
+			}
+		}
+	}
+
 }

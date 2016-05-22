@@ -11,6 +11,10 @@ class Accion {
 	String nombre
 	
 	new(){}
+	new(int id, String nombre){
+		this.id = id
+		this.nombre = nombre
+	}
 
 	def void ejecutar(Juego juego) {}
 

@@ -154,6 +154,26 @@ public class Laberinto {
     return IterableExtensions.<Item>toList(_flatten);
   }
   
+  public String getGetHabitacionInicial() {
+    for (final Habitacion h : this.habitaciones) {
+      boolean _isEsInicial = h.isEsInicial();
+      if (_isEsInicial) {
+        return h.getNombre();
+      }
+    }
+    return null;
+  }
+  
+  public String getGetHabitacionFinal() {
+    for (final Habitacion h : this.habitaciones) {
+      boolean _isEsFinal = h.isEsFinal();
+      if (_isEsFinal) {
+        return h.getNombre();
+      }
+    }
+    return null;
+  }
+  
   @Pure
   public int getId() {
     return this.id;

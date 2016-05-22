@@ -17,6 +17,11 @@ public class Accion {
   public Accion() {
   }
   
+  public Accion(final int id, final String nombre) {
+    this.id = id;
+    this.nombre = nombre;
+  }
+  
   public void ejecutar(final Juego juego) {
   }
   
