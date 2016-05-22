@@ -29,7 +29,7 @@ class AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel {
 		if (habitacionSeleccionada == null) {
 			throw new UserException("Por favor seleccione una habitación.")
 		} else {
-			habitacion.agregarAccion(new Usar(item, new Mover(habitacionSeleccionada)))
+			habitacion.agregarAccion(new Usar(1, item, new Mover(habitacionSeleccionada)))
 		}
 	}
 

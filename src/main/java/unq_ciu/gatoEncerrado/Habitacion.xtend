@@ -5,6 +5,7 @@ import java.util.ArrayList
 import unq_ciu.gatoEncerrado.acciones.Agarrar
 import org.uqbar.commons.utils.Observable
 import java.util.List
+import org.uqbar.commons.model.UserException
 
 @Accessors
 @Observable
@@ -84,4 +85,9 @@ class Habitacion {
 			}
 		}
 	}
+
+	def buscarAccion(long id) {
+		getAcciones.findFirst[it.id == id]
+	}
+
 }

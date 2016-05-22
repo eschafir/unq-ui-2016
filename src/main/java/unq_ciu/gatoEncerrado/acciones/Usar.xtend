@@ -9,12 +9,11 @@ import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException
 
 @Accessors
 class Usar extends Accion {
-	String nombre
 	Item item
 	Accion accionConsecuencia
 
-	new(Item i, Accion acc) {
-		this.nombre = "Usar " + i.nombre + " habilita " + acc.nombre
+	new(int id, Item i, Accion acc) {
+		super(id, "Usar " + i.nombre + " habilita " + acc.nombre)
 		this.item = i
 		this.accionConsecuencia = acc
 	}

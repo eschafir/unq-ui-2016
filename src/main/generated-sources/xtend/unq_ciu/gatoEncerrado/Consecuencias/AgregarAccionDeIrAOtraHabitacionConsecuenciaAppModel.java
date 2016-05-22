@@ -39,7 +39,7 @@ public class AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel {
       throw new UserException("Por favor seleccione una habitación.");
     } else {
       Mover _mover = new Mover(this.habitacionSeleccionada);
-      Usar _usar = new Usar(this.item, _mover);
+      Usar _usar = new Usar(1, this.item, _mover);
       _xifexpression = this.habitacion.agregarAccion(_usar);
     }
     return _xifexpression;

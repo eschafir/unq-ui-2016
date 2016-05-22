@@ -32,7 +32,7 @@ class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
 		if (this.itemSeleccionado == null) {
 			throw new UserException("Por favor ingrese un item .")
 		} else {
-			habitacion.agregarAccion(new Usar(this.itemUtilizado, new Usar(itemSeleccionado, new Accion())))
+			habitacion.agregarAccion(new Usar(1, this.itemUtilizado, new Usar(2, itemSeleccionado, new Accion())))
 		}
 	}
 

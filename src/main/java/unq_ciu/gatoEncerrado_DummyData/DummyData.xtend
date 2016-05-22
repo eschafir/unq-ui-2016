@@ -33,7 +33,7 @@ class DummyData {
 			entrada.agregarAccion(new Mover(cocina))
 			entrada.agregarAccion(new Agarrar(llave))
 			cocina.agregarAccion(new Mover(entrada))
-			cocina.agregarAccion(new Usar(llave, new Mover(comedor)))
+			cocina.agregarAccion(new Usar(1,llave, new Mover(comedor)))
 			jugador = new Jugador(1,"Esteban", entrada)
 			laberinto.agregarHabitacion(entrada)
 			laberinto.agregarHabitacion(cocina)

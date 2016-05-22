@@ -40,7 +40,7 @@ public class DummyData {
         Mover _mover_1 = new Mover(entrada);
         cocina.agregarAccion(_mover_1);
         Mover _mover_2 = new Mover(comedor);
-        Usar _usar = new Usar(llave, _mover_2);
+        Usar _usar = new Usar(1, llave, _mover_2);
         cocina.agregarAccion(_usar);
         Jugador _jugador = new Jugador(1, "Esteban", entrada);
         it.setJugador(_jugador);

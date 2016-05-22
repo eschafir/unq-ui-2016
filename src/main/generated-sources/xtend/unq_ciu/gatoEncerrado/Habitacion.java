@@ -116,6 +116,17 @@ public class Habitacion {
     return null;
   }
   
+  public Accion buscarAccion(final long id) {
+    List<Accion> _acciones = this.getAcciones();
+    final Function1<Accion, Boolean> _function = new Function1<Accion, Boolean>() {
+      public Boolean apply(final Accion it) {
+        int _id = it.getId();
+        return Boolean.valueOf((_id == id));
+      }
+    };
+    return IterableExtensions.<Accion>findFirst(_acciones, _function);
+  }
+  
   @Pure
   public int getId() {
     return this.id;

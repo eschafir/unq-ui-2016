@@ -35,7 +35,7 @@ public class AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel {
       throw new UserException("Por favor ingrese un nombre para el elemento.");
     } else {
       Agarrar _agarrar = new Agarrar(this.itemDisponibleComoConsecuencia);
-      Usar _usar = new Usar(this.itemUtilizado, _agarrar);
+      Usar _usar = new Usar(1, this.itemUtilizado, _agarrar);
       _xifexpression = this.habitacion.agregarAccion(_usar);
     }
     return _xifexpression;

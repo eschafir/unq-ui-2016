@@ -103,11 +103,11 @@ class MoverTest {
 		agarrarClavos = new Agarrar(clavos)
 		agarrarMadera = new Agarrar(madera)
 
-		usarLlave = new Usar(llave, moverA4)
-		usarPiedra = new Usar(piedra, agarrarLlave) // ATENCION
-		usarPala = new Usar(pala, moverA9)
-		usarManivela = new Usar(manivela, moverA5)
-		usarMadera = new Usar(madera, moverA8)
+		usarLlave = new Usar(1, llave, moverA4)
+		usarPiedra = new Usar(2, piedra, agarrarLlave) // ATENCION
+		usarPala = new Usar(3, pala, moverA9)
+		usarManivela = new Usar(4, manivela, moverA5)
+		usarMadera = new Usar(5, madera, moverA8)
 
 		salir = new Salir(laberinto)
 
@@ -167,7 +167,7 @@ class MoverTest {
 		/*
 		 * Creación de Jugador
 		 */
-		jugador = new Jugador(1,"Jugador", hab0)
+		jugador = new Jugador(1, "Jugador", hab0)
 
 		/*
 		 * Creación de Juego

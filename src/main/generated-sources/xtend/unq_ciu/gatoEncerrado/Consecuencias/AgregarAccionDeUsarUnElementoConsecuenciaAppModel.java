@@ -41,8 +41,8 @@ public class AgregarAccionDeUsarUnElementoConsecuenciaAppModel {
       throw new UserException("Por favor ingrese un item .");
     } else {
       Accion _accion = new Accion();
-      Usar _usar = new Usar(this.itemSeleccionado, _accion);
-      Usar _usar_1 = new Usar(this.itemUtilizado, _usar);
+      Usar _usar = new Usar(2, this.itemSeleccionado, _accion);
+      Usar _usar_1 = new Usar(1, this.itemUtilizado, _usar);
       _xifexpression = this.habitacion.agregarAccion(_usar_1);
     }
     return _xifexpression;
