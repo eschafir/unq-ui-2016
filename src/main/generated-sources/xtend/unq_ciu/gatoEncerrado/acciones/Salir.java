@@ -1,14 +1,9 @@
 package unq_ciu.gatoEncerrado.acciones;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Estado;
-import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException;
-import unq_ciu.gatoEncerrado.Habitacion;
-import unq_ciu.gatoEncerrado.Juego;
-import unq_ciu.gatoEncerrado.Jugador;
 import unq_ciu.gatoEncerrado.Laberinto;
 
 @Accessors
@@ -20,27 +15,35 @@ public class Salir extends Accion {
     this.laberintoActual = laberinto;
   }
   
-  public void ejecutar(final Juego juego) {
-    try {
-      Jugador _jugador = juego.getJugador();
-      Habitacion _habitacion = _jugador.getHabitacion();
-      Laberinto laberintoActual = _habitacion.getLaberinto(juego);
-      Jugador _jugador_1 = juego.getJugador();
-      Habitacion _habitacion_1 = _jugador_1.getHabitacion();
-      boolean _isEsFinal = _habitacion_1.isEsFinal();
-      if (_isEsFinal) {
-        Jugador _jugador_2 = juego.getJugador();
-        Jugador _jugador_3 = juego.getJugador();
-        int _ganados = _jugador_3.getGanados();
-        int _plus = (_ganados + 1);
-        _jugador_2.setGanados(_plus);
-        laberintoActual.setEstado(Estado.RESUELTO);
-      } else {
-        throw new NoHasGanadoException();
-      }
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+  public Salir(final int id) {
+    super(id, "Salir");
+    this.laberintoActual = null;
+  }
+  
+  public Object ejecutar(final /* Habitacion */Object h, final /* Jugador */Object j) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field juego is undefined for the type Salir"
+      + "\nThe method or field juego is undefined for the type Salir"
+      + "\nThe method or field juego is undefined for the type Salir"
+      + "\nThe method or field juego is undefined for the type Salir"
+      + "\nThe method or field juego is undefined for the type Salir"
+      + "\njugador cannot be resolved"
+      + "\nhabitacion cannot be resolved"
+      + "\ngetLaberinto cannot be resolved"
+      + "\njugador cannot be resolved"
+      + "\nhabitacion cannot be resolved"
+      + "\nisEsFinal cannot be resolved"
+      + "\njugador cannot be resolved"
+      + "\nganados cannot be resolved"
+      + "\njugador cannot be resolved"
+      + "\nganados cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nestado cannot be resolved");
+  }
+  
+  public Object execute() {
+    this.laberintoActual.setEstado(Estado.RESUELTO);
+    return this.laberintoActual.getEstado();
   }
   
   @Pure

@@ -89,5 +89,11 @@ class Habitacion {
 	def buscarAccion(long id) {
 		getAcciones.findFirst[it.id == id]
 	}
+	
+	def ejecutarAccion(Accion acc){
+		if (getAcciones.contains(acc)){
+			acc.execute()
+		}
+	}
 
 }

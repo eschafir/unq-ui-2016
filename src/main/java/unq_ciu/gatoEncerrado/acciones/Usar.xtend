@@ -6,6 +6,9 @@ import unq_ciu.gatoEncerrado.Item
 import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Excepciones.NoHayItemNecesarioException
 import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException
+import org.uqbar.commons.model.UserException
+import unq_ciu.gatoEncerrado.Jugador
+import unq_ciu.gatoEncerrado.Habitacion
 
 @Accessors
 class Usar extends Accion {
@@ -22,18 +25,23 @@ class Usar extends Accion {
 		accionConsecuencia.item
 	}
 
-	override ejecutar(Juego juego) {
+	override ejecutar(Habitacion h, Jugador j) {
 
-		if (juego.accionesPosibles.contains(this)) {
-			if (juego.jugador.tiene(item)) {
-				juego.jugador.habitacion.quitarAccion(this)
-				juego.jugador.habitacion.agregarAccion(accionConsecuencia)
-				juego.jugador.quitarDelInventario(item)
+		if (h.acciones.contains(this)) {
+			if (j.tiene(item)) {
+				h.quitarAccion(this)
+				h.agregarAccion(accionConsecuencia)
+				j.quitarDelInventario(item)
 			} else {
 				throw new NoHayItemNecesarioException()
 			}
 		} else {
-			throw new NoEstaDisponibleEstaAccionException()
+			throw new UserException("No existe esta accion en la habitacion")
 		}
+		return accionConsecuencia
+	}
+	
+	override execute(){
+		return this
 	}
 }

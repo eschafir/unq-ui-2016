@@ -9,7 +9,6 @@ import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
-import unq_ciu.gatoEncerrado.Juego;
 import unq_ciu.gatoEncerrado.Jugador;
 
 @Accessors
@@ -35,16 +34,16 @@ public class Mover extends Accion {
     this.destino = destino;
   }
   
-  public void ejecutar(final Juego juego) {
+  public Object ejecutar(final Habitacion h, final Jugador j) {
     try {
-      List<Accion> _accionesPosibles = juego.accionesPosibles();
-      boolean _contains = _accionesPosibles.contains(this);
+      List<Accion> _acciones = h.getAcciones();
+      boolean _contains = _acciones.contains(this);
       if (_contains) {
-        Jugador _jugador = juego.getJugador();
-        _jugador.setHabitacion(this.destino);
+        j.setHabitacion(this.destino);
       } else {
         throw new NoEstaDisponibleEstaAccionException();
       }
+      return j.getHabitacion();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -52,6 +51,10 @@ public class Mover extends Accion {
   
   public Item getItem() {
     return new Item();
+  }
+  
+  public Object execute() {
+    return this.destino;
   }
   
   @Pure

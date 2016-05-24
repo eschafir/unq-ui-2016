@@ -15,6 +15,7 @@ class Jugador {
 	List<Laberinto> laberintos
 	int ganados
 	int abandonados
+	Juego juego
 
 	new() {
 		this.nombre = ""
@@ -22,6 +23,7 @@ class Jugador {
 		this.laberintos = new ArrayList<Laberinto>()
 		this.habitacion = null
 		this.id = RandomUtils.nextInt
+		this.juego = new Juego(this)
 	}
 
 	new(int id, String n, Habitacion h) {
@@ -32,6 +34,7 @@ class Jugador {
 		this.ganados = 0
 		this.abandonados = 0
 		this.laberintos = new ArrayList<Laberinto>()
+		this.juego = new Juego(this)
 	}
 
 	new(int id, String n) {
@@ -42,6 +45,7 @@ class Jugador {
 		this.ganados = 0
 		this.abandonados = 0
 		this.laberintos = new ArrayList<Laberinto>()
+		this.juego = new Juego(this)
 	}
 
 	def abandonar() {
@@ -61,7 +65,7 @@ class Jugador {
 	 * Este método verifica si el inventario del Jugador esta lleno. 
 	 */
 	def puedeAgregar() {
-		return (getInventario.size < 15)
+		return (inventario.size < 15)
 	}
 
 	/**
@@ -69,7 +73,7 @@ class Jugador {
 	 * @param i el item a agregar.
 	 */
 	def void agregarAlInventario(Item i) {
-		getInventario.add(i)
+		inventario.add(i)
 	}
 
 	/**
@@ -91,19 +95,25 @@ class Jugador {
 	def boolean tiene(Item i) {
 		getInventario.contains(i)
 	}
-	
+
 	/**
 	 * Devuelve los laberintos resueltos por el jugador.
 	 */
-	def getLaberintosResueltos(){
+	def getLaberintosResueltos() {
 		this.laberintos.filter[it.estado == Estado.RESUELTO].toList
 	}
-	
+
 	/**
 	 * Devuelve los laberintos que aún no fueron resueltos por el jugador.
 	 */
-	def getLaberintosNoResueltos(){
+	def getLaberintosNoResueltos() {
 		this.laberintos.filter[it.estado == Estado.NO_RESUELTO].toList
+	}
+
+	def Juego iniciarJuego(Laberinto l) {
+		this.juego = new Juego(this)
+		juego.agregarLaberinto(l)
+		return juego
 	}
 
 }

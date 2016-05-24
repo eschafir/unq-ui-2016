@@ -127,6 +127,16 @@ public class Habitacion {
     return IterableExtensions.<Accion>findFirst(_acciones, _function);
   }
   
+  public Object ejecutarAccion(final Accion acc) {
+    Object _xifexpression = null;
+    List<Accion> _acciones = this.getAcciones();
+    boolean _contains = _acciones.contains(acc);
+    if (_contains) {
+      _xifexpression = acc.execute();
+    }
+    return _xifexpression;
+  }
+  
   @Pure
   public int getId() {
     return this.id;

@@ -16,7 +16,12 @@ class Salir extends Accion {
 		this.laberintoActual = laberinto
 	}
 
-	override ejecutar(Juego juego) {
+	new(int id) {
+		super(id, "Salir")
+		laberintoActual = null
+	}
+
+	override ejecutar(Habitacion h, Jugador j) {
 
 		var laberintoActual = juego.jugador.habitacion.getLaberinto(juego)
 
@@ -26,5 +31,12 @@ class Salir extends Accion {
 		} else {
 			throw new NoHasGanadoException()
 		}
+		
+		return laberintoActual
+	}
+
+	override execute() {
+		laberintoActual.estado = Estado.RESUELTO
+		return laberintoActual.estado
 	}
 }

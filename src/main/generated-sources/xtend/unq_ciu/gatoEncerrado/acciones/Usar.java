@@ -4,12 +4,11 @@ import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.uqbar.commons.model.UserException;
 import unq_ciu.gatoEncerrado.Accion;
-import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException;
 import unq_ciu.gatoEncerrado.Excepciones.NoHayItemNecesarioException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
-import unq_ciu.gatoEncerrado.Juego;
 import unq_ciu.gatoEncerrado.Jugador;
 
 @Accessors
@@ -29,31 +28,30 @@ public class Usar extends Accion {
     return this.accionConsecuencia.getItem();
   }
   
-  public void ejecutar(final Juego juego) {
+  public Object ejecutar(final Habitacion h, final Jugador j) {
     try {
-      List<Accion> _accionesPosibles = juego.accionesPosibles();
-      boolean _contains = _accionesPosibles.contains(this);
+      List<Accion> _acciones = h.getAcciones();
+      boolean _contains = _acciones.contains(this);
       if (_contains) {
-        Jugador _jugador = juego.getJugador();
-        boolean _tiene = _jugador.tiene(this.item);
+        boolean _tiene = j.tiene(this.item);
         if (_tiene) {
-          Jugador _jugador_1 = juego.getJugador();
-          Habitacion _habitacion = _jugador_1.getHabitacion();
-          _habitacion.quitarAccion(this);
-          Jugador _jugador_2 = juego.getJugador();
-          Habitacion _habitacion_1 = _jugador_2.getHabitacion();
-          _habitacion_1.agregarAccion(this.accionConsecuencia);
-          Jugador _jugador_3 = juego.getJugador();
-          _jugador_3.quitarDelInventario(this.item);
+          h.quitarAccion(this);
+          h.agregarAccion(this.accionConsecuencia);
+          j.quitarDelInventario(this.item);
         } else {
           throw new NoHayItemNecesarioException();
         }
       } else {
-        throw new NoEstaDisponibleEstaAccionException();
+        throw new UserException("No existe esta accion en la habitacion");
       }
+      return this.accionConsecuencia;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  public Object execute() {
+    return this;
   }
   
   public void setItem(final Item item) {

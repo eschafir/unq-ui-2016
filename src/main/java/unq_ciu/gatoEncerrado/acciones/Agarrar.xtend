@@ -7,11 +7,13 @@ import unq_ciu.gatoEncerrado.Item
 import unq_ciu.gatoEncerrado.Excepciones.NoSePuedeAgregarItemAlInventarioException
 import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException
 import org.uqbar.commons.utils.Observable
+import unq_ciu.gatoEncerrado.Jugador
+import unq_ciu.gatoEncerrado.Habitacion
 
 @Accessors
 @Observable
 class Agarrar extends Accion {
-	
+
 	String nombre
 	Item item
 
@@ -20,17 +22,28 @@ class Agarrar extends Accion {
 		this.nombre = "Agarrar " + item.nombre
 	}
 
-	override ejecutar(Juego juego) {
+	new(int id, Item item) {
+		super(id, "Agarrar " + item.nombre)
+		this.item = item
+	}
 
-		if (juego.accionesPosibles.contains(this)) {
-			if (juego.jugador.puedeAgregar) {
-				juego.jugador.agregarAlInventario(item)
-				juego.jugador.habitacion.quitarAccion(this)
+	override ejecutar(Habitacion h, Jugador j) {
+
+		if (h.acciones.contains(this)) {
+			if (j.puedeAgregar) {
+				j.agregarAlInventario(item)
+				h.quitarAccion(this)
 			} else {
 				throw new NoSePuedeAgregarItemAlInventarioException()
 			}
 		} else {
 			throw new NoEstaDisponibleEstaAccionException()
 		}
+
+		return j.inventario
+	}
+
+	override execute() {
+		return this
 	}
 }

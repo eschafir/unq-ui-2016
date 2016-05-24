@@ -1,17 +1,9 @@
 package testAcciones;
 
-import com.google.common.collect.Iterables;
-import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.IntegerRange;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unq_ciu.gatoEncerrado.Accion;
-import unq_ciu.gatoEncerrado.Excepciones.NoSePuedeAgregarItemAlInventarioException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Juego;
@@ -227,71 +219,37 @@ public class AgarrarTest {
   
   @Test
   public void testComprobarQueSeAgregaAlInventario() {
-    List<Item> _inventario = this.jugador.getInventario();
-    int _size = _inventario.size();
-    Assert.assertEquals(0, _size);
-    this.agarrarManivela.ejecutar(this.juego);
-    List<Item> _inventario_1 = this.jugador.getInventario();
-    int _size_1 = _inventario_1.size();
-    Assert.assertEquals(1, _size_1);
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
+      + "\nType mismatch: cannot convert from Juego to Habitacion");
   }
   
   @Test
   public void testElItemSeQuitaDeLaHabitacion() {
-    Habitacion _habitacion = this.jugador.getHabitacion();
-    boolean _hayItem = _habitacion.hayItem();
-    Assert.assertTrue(_hayItem);
-    this.agarrarManivela.ejecutar(this.juego);
-    Habitacion _habitacion_1 = this.jugador.getHabitacion();
-    boolean _hayItem_1 = _habitacion_1.hayItem();
-    Assert.assertFalse(_hayItem_1);
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
+      + "\nType mismatch: cannot convert from Juego to Habitacion");
   }
   
   @Test
   public void testComprobarItemAgregado() {
-    boolean _tiene = this.jugador.tiene(this.manivela);
-    Assert.assertFalse(_tiene);
-    this.agarrarManivela.ejecutar(this.juego);
-    boolean _tiene_1 = this.jugador.tiene(this.manivela);
-    Assert.assertTrue(_tiene_1);
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
+      + "\nType mismatch: cannot convert from Juego to Habitacion");
   }
   
   @Test
   public void testInventarioLleno() {
-    IntegerRange _upTo = new IntegerRange(0, 14);
-    for (final Integer i : _upTo) {
-      this.jugador.agregarAlInventario(this.pala);
-    }
-    try {
-      this.agarrarManivela.ejecutar(this.juego);
-    } catch (final Throwable _t) {
-      if (_t instanceof NoSePuedeAgregarItemAlInventarioException) {
-        final NoSePuedeAgregarItemAlInventarioException e = (NoSePuedeAgregarItemAlInventarioException)_t;
-        Habitacion _habitacion = this.jugador.getHabitacion();
-        boolean _hayItem = _habitacion.hayItem();
-        Assert.assertTrue(_hayItem);
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
+      + "\nType mismatch: cannot convert from Juego to Habitacion");
   }
   
   @Test
   public void testAgarrarItemHabilitadoPorAccionConsecuencia() {
-    this.jugador.setHabitacion(this.hab4);
-    this.jugador.agregarAlInventario(this.piedra);
-    Habitacion _habitacion = this.jugador.getHabitacion();
-    boolean _hayItem = _habitacion.hayItem();
-    Assert.assertFalse(_hayItem);
-    this.usarPiedra.ejecutar(this.juego);
-    Habitacion _habitacion_1 = this.jugador.getHabitacion();
-    List<Accion> _acciones = _habitacion_1.getAcciones();
-    final Iterable<Agarrar> accionesAgarrar = Iterables.<Agarrar>filter(_acciones, Agarrar.class);
-    final int valor = IterableExtensions.size(accionesAgarrar);
-    Assert.assertEquals(1, valor);
-    Agarrar _head = IterableExtensions.<Agarrar>head(accionesAgarrar);
-    final Item itemNuevo = _head.getItem();
-    Assert.assertEquals(this.llave, itemNuevo);
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
+      + "\nType mismatch: cannot convert from Juego to Habitacion");
   }
   
   @Pure
