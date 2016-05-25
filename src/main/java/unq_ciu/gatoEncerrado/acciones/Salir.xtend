@@ -6,6 +6,8 @@ import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Estado
+import unq_ciu.gatoEncerrado.Jugador
+import unq_ciu.gatoEncerrado.Habitacion
 
 @Accessors
 class Salir extends Accion {
@@ -23,16 +25,14 @@ class Salir extends Accion {
 
 	override ejecutar(Habitacion h, Jugador j) {
 
-		var laberintoActual = juego.jugador.habitacion.getLaberinto(juego)
-
-		if (juego.jugador.habitacion.isEsFinal) {
-			juego.jugador.ganados = juego.jugador.ganados + 1
-			laberintoActual.estado = Estado.RESUELTO
+		if (j.habitacion.esFinal) {
+			j.ganados = j.ganados + 1
+			//laberintoActual.estado = Estado.RESUELTO
 		} else {
 			throw new NoHasGanadoException()
 		}
-		
-		return laberintoActual
+
+		return j.ganados
 	}
 
 	override execute() {

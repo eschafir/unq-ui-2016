@@ -1,9 +1,13 @@
 package unq_ciu.gatoEncerrado.acciones;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Estado;
+import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException;
+import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Jugador;
 import unq_ciu.gatoEncerrado.Laberinto;
 
 @Accessors
@@ -20,25 +24,21 @@ public class Salir extends Accion {
     this.laberintoActual = null;
   }
   
-  public Object ejecutar(final /* Habitacion */Object h, final /* Jugador */Object j) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field juego is undefined for the type Salir"
-      + "\nThe method or field juego is undefined for the type Salir"
-      + "\nThe method or field juego is undefined for the type Salir"
-      + "\nThe method or field juego is undefined for the type Salir"
-      + "\nThe method or field juego is undefined for the type Salir"
-      + "\njugador cannot be resolved"
-      + "\nhabitacion cannot be resolved"
-      + "\ngetLaberinto cannot be resolved"
-      + "\njugador cannot be resolved"
-      + "\nhabitacion cannot be resolved"
-      + "\nisEsFinal cannot be resolved"
-      + "\njugador cannot be resolved"
-      + "\nganados cannot be resolved"
-      + "\njugador cannot be resolved"
-      + "\nganados cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\nestado cannot be resolved");
+  public Object ejecutar(final Habitacion h, final Jugador j) {
+    try {
+      Habitacion _habitacion = j.getHabitacion();
+      boolean _isEsFinal = _habitacion.isEsFinal();
+      if (_isEsFinal) {
+        int _ganados = j.getGanados();
+        int _plus = (_ganados + 1);
+        j.setGanados(_plus);
+      } else {
+        throw new NoHasGanadoException();
+      }
+      return Integer.valueOf(j.getGanados());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public Object execute() {

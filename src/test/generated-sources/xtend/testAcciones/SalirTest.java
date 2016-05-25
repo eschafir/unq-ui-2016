@@ -226,13 +226,15 @@ public class SalirTest {
   @Test
   public void testSalirSiNoEsLaHabitacionFinalEsIncorrecto() {
     throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)");
+      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
+      + "\nType mismatch: cannot convert from Juego to Habitacion");
   }
   
   @Test
   public void testSalirEnLaHabitacionFinalAgregaElLaberintoActualALaListaDeGanadosDelJugador() {
     throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)");
+      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
+      + "\nType mismatch: cannot convert from Juego to Habitacion");
   }
   
   @Pure
