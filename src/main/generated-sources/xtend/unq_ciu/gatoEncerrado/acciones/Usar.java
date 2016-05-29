@@ -20,7 +20,7 @@ public class Usar extends Accion {
   private Accion accionConsecuencia;
   
   public Usar(final int id, final Item i, final Accion acc) {
-    super(id, ((("Usar " + i.getNombre()) + " habilita ") + acc.getNombre()));
+    super(id, ("Usar " + i.getNombre()));
     this.item = i;
     this.accionConsecuencia = acc;
   }

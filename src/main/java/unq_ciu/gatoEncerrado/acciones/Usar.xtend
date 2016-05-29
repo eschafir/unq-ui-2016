@@ -16,7 +16,7 @@ class Usar extends Accion {
 	Accion accionConsecuencia
 
 	new(int id, Item i, Accion acc) {
-		super(id, "Usar " + i.nombre + " habilita " + acc.nombre)
+		super(id, "Usar " + i.nombre)
 		this.item = i
 		this.accionConsecuencia = acc
 	}
