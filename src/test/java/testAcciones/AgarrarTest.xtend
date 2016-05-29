@@ -179,14 +179,14 @@ class AgarrarTest {
 	@Test
 	def void testComprobarQueSeAgregaAlInventario() {
 		assertEquals(0, jugador.inventario.size)
-		agarrarManivela.ejecutar(juego)
+		agarrarManivela.ejecutar(hab0, jugador)
 		assertEquals(1, jugador.inventario.size)
 	}
 
 	@Test
 	def void testElItemSeQuitaDeLaHabitacion() {
 		assertTrue(jugador.habitacion.hayItem)
-		agarrarManivela.ejecutar(juego)
+		agarrarManivela.ejecutar(hab0, jugador)
 		assertFalse(jugador.habitacion.hayItem)
 	}
 
@@ -194,7 +194,7 @@ class AgarrarTest {
 	def void testComprobarItemAgregado() {
 
 		assertFalse(jugador.tiene(manivela))
-		agarrarManivela.ejecutar(juego)
+		agarrarManivela.ejecutar(hab0, jugador)
 		assertTrue(jugador.tiene(manivela))
 	}
 
@@ -205,7 +205,7 @@ class AgarrarTest {
 			jugador.agregarAlInventario(pala)
 		}
 		try {
-			agarrarManivela.ejecutar(juego)
+			agarrarManivela.ejecutar(hab0, jugador)
 		} catch (NoSePuedeAgregarItemAlInventarioException e) {
 			assertTrue(jugador.habitacion.hayItem)
 		}
@@ -221,7 +221,7 @@ class AgarrarTest {
 		assertFalse(jugador.habitacion.hayItem)
 
 		// Al usar la piedra, se habilita la acción agarrar llave mística
-		usarPiedra.ejecutar(juego)
+		usarPiedra.ejecutar(hab4, jugador)
 
 		//Filtro las acciones Agarrar que tiene la habitación. Debe tener una sola acción Agarrar.
 		val accionesAgarrar = jugador.habitacion.acciones.filter(typeof(Agarrar))

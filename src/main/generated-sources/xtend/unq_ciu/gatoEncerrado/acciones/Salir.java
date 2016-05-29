@@ -32,6 +32,7 @@ public class Salir extends Accion {
         int _ganados = j.getGanados();
         int _plus = (_ganados + 1);
         j.setGanados(_plus);
+        this.laberintoActual.setEstado(Estado.RESUELTO);
       } else {
         throw new NoHasGanadoException();
       }

@@ -27,7 +27,7 @@ class Salir extends Accion {
 
 		if (j.habitacion.esFinal) {
 			j.ganados = j.ganados + 1
-			//laberintoActual.estado = Estado.RESUELTO
+			laberintoActual.estado = Estado.RESUELTO
 		} else {
 			throw new NoHasGanadoException()
 		}

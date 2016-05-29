@@ -23,7 +23,8 @@ class Agarrar extends Accion {
 	}
 
 	new(int id, Item item) {
-		super(id, "Agarrar " + item.nombre)
+		this.id = id
+		this.nombre = "Agarrar " + item.nombre
 		this.item = item
 	}
 

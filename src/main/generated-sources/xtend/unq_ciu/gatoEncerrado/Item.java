@@ -18,7 +18,7 @@ public class Item {
   public Item() {
     int _nextInt = RandomUtils.nextInt();
     this.id = _nextInt;
-    this.nombre = null;
+    this.nombre = "";
   }
   
   public Item(final String nombre) {

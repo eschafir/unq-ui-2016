@@ -15,15 +15,16 @@ class Jugador {
 	List<Laberinto> laberintos
 	int ganados
 	int abandonados
-	Juego juego
 
+	//Juego juego
 	new() {
 		this.nombre = ""
 		this.inventario = new ArrayList<Item>()
 		this.laberintos = new ArrayList<Laberinto>()
 		this.habitacion = null
 		this.id = RandomUtils.nextInt
-		this.juego = new Juego(this)
+
+	//this.juego = new Juego(this)
 	}
 
 	new(int id, String n, Habitacion h) {
@@ -34,7 +35,8 @@ class Jugador {
 		this.ganados = 0
 		this.abandonados = 0
 		this.laberintos = new ArrayList<Laberinto>()
-		this.juego = new Juego(this)
+
+	//this.juego = new Juego(this)
 	}
 
 	new(int id, String n) {
@@ -45,7 +47,8 @@ class Jugador {
 		this.ganados = 0
 		this.abandonados = 0
 		this.laberintos = new ArrayList<Laberinto>()
-		this.juego = new Juego(this)
+
+	//this.juego = new Juego(this)
 	}
 
 	def abandonar() {
@@ -110,10 +113,12 @@ class Jugador {
 		this.laberintos.filter[it.estado == Estado.NO_RESUELTO].toList
 	}
 
+/**
+	 * 
 	def Juego iniciarJuego(Laberinto l) {
 		this.juego = new Juego(this)
 		juego.agregarLaberinto(l)
 		return juego
 	}
-
+	 */
 }

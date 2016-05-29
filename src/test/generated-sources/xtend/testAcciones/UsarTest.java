@@ -1,9 +1,14 @@
 package testAcciones;
 
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import unq_ciu.gatoEncerrado.Accion;
+import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Juego;
@@ -180,6 +185,7 @@ public class UsarTest {
     this.hab0.agregarAccion(this.moverA1);
     this.hab0.agregarAccion(this.usarManivela);
     this.hab0.agregarAccion(this.agarrarManivela);
+    this.hab0.agregarAccion(this.moverA5);
     this.hab1.agregarAccion(this.moverA0);
     this.hab1.agregarAccion(this.moverA3);
     this.hab1.agregarAccion(this.agarrarLlave);
@@ -225,33 +231,40 @@ public class UsarTest {
   
   @Test
   public void testUnJugadorUsaAlgoCorrectamenteYHabilitaAccionConsecuencia() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nType mismatch: cannot convert from Juego to Habitacion"
-      + "\nType mismatch: cannot convert from Juego to Habitacion");
+    this.agarrarManivela.ejecutar(this.hab0, this.jugador);
+    List<Accion> _accionesPosibles = this.juego.accionesPosibles();
+    boolean _contains = _accionesPosibles.contains(this.moverA5);
+    Assert.assertFalse(_contains);
+    this.usarManivela.ejecutar(this.hab0, this.jugador);
+    List<Accion> _accionesPosibles_1 = this.juego.accionesPosibles();
+    boolean _contains_1 = _accionesPosibles_1.contains(this.moverA5);
+    Assert.assertTrue(_contains_1);
   }
   
   @Test
   public void testAlUtilizarUnItemSeBorraDelInventario() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nType mismatch: cannot convert from Juego to Habitacion"
-      + "\nType mismatch: cannot convert from Juego to Habitacion");
+    this.agarrarManivela.ejecutar(this.hab0, this.jugador);
+    this.usarManivela.ejecutar(this.hab0, this.jugador);
+    List<Item> _inventario = this.jugador.getInventario();
+    int _size = _inventario.size();
+    Assert.assertEquals(0, _size);
+    boolean _tiene = this.jugador.tiene(this.manivela);
+    Assert.assertFalse(_tiene);
   }
   
   @Test
   public void testNoPuedoUsarUnItemEnUnaHabitacionIncorrecta() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nType mismatch: cannot convert from Juego to Habitacion"
-      + "\nType mismatch: cannot convert from Juego to Habitacion"
-      + "\nType mismatch: cannot convert from Juego to Habitacion"
-      + "\nType mismatch: cannot convert from Juego to Habitacion");
+    this.agarrarManivela.ejecutar(this.hab0, this.jugador);
+    this.moverA5.ejecutar(this.hab0, this.jugador);
+    try {
+      this.usarManivela.ejecutar(this.hab0, this.jugador);
+    } catch (final Throwable _t) {
+      if (_t instanceof NoEstaDisponibleEstaAccionException) {
+        final NoEstaDisponibleEstaAccionException e = (NoEstaDisponibleEstaAccionException)_t;
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
   }
   
   @Pure

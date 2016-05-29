@@ -13,7 +13,6 @@ import org.uqbar.commons.model.UserException;
 import unq_ciu.gatoEncerrado.Estado;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
-import unq_ciu.gatoEncerrado.Juego;
 import unq_ciu.gatoEncerrado.Laberinto;
 
 @Accessors
@@ -33,8 +32,6 @@ public class Jugador {
   
   private int abandonados;
   
-  private Juego juego;
-  
   public Jugador() {
     this.nombre = "";
     ArrayList<Item> _arrayList = new ArrayList<Item>();
@@ -44,8 +41,6 @@ public class Jugador {
     this.habitacion = null;
     int _nextInt = RandomUtils.nextInt();
     this.id = _nextInt;
-    Juego _juego = new Juego(this);
-    this.juego = _juego;
   }
   
   public Jugador(final int id, final String n, final Habitacion h) {
@@ -58,8 +53,6 @@ public class Jugador {
     this.abandonados = 0;
     ArrayList<Laberinto> _arrayList_1 = new ArrayList<Laberinto>();
     this.laberintos = _arrayList_1;
-    Juego _juego = new Juego(this);
-    this.juego = _juego;
   }
   
   public Jugador(final int id, final String n) {
@@ -72,8 +65,6 @@ public class Jugador {
     this.abandonados = 0;
     ArrayList<Laberinto> _arrayList_1 = new ArrayList<Laberinto>();
     this.laberintos = _arrayList_1;
-    Juego _juego = new Juego(this);
-    this.juego = _juego;
   }
   
   public int abandonar() {
@@ -165,13 +156,6 @@ public class Jugador {
     return IterableExtensions.<Laberinto>toList(_filter);
   }
   
-  public Juego iniciarJuego(final Laberinto l) {
-    Juego _juego = new Juego(this);
-    this.juego = _juego;
-    this.juego.agregarLaberinto(l);
-    return this.juego;
-  }
-  
   @Pure
   public int getId() {
     return this.id;
@@ -233,14 +217,5 @@ public class Jugador {
   
   public void setAbandonados(final int abandonados) {
     this.abandonados = abandonados;
-  }
-  
-  @Pure
-  public Juego getJuego() {
-    return this.juego;
-  }
-  
-  public void setJuego(final Juego juego) {
-    this.juego = juego;
   }
 }

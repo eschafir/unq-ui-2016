@@ -14,7 +14,7 @@ class Item {
 	
 	new(){
 		this.id = RandomUtils.nextInt
-		this.nombre = null
+		this.nombre = ""
 	}
 
 	new(String nombre) {

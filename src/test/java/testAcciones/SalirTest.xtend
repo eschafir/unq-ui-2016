@@ -182,7 +182,7 @@ class SalirTest {
 	@Test
 	def void testSalirSiNoEsLaHabitacionFinalEsIncorrecto() {
 		try {
-			salir.ejecutar(juego)
+			salir.ejecutar(hab0, jugador)
 		} catch (NoHasGanadoException e) {
 			println(e.message)
 		}
@@ -194,7 +194,7 @@ class SalirTest {
 		assertEquals(lab.estado, Estado.NO_RESUELTO)
 		assertTrue(jugador.laberintosNoResueltos.contains(laberinto))
 
-		salir.ejecutar(juego)
+		salir.ejecutar(hab8, jugador)
 
 		assertTrue(jugador.laberintosResueltos.contains(laberinto))
 		assertEquals(lab.estado, Estado.RESUELTO)

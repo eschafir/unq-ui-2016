@@ -28,7 +28,10 @@ public class Agarrar extends Accion {
   }
   
   public Agarrar(final int id, final Item item) {
-    super(id, ("Agarrar " + item.getNombre()));
+    this.setId(id);
+    String _nombre = item.getNombre();
+    String _plus = ("Agarrar " + _nombre);
+    this.nombre = _plus;
     this.item = item;
   }
   

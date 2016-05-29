@@ -1,9 +1,15 @@
 package testAcciones;
 
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import unq_ciu.gatoEncerrado.Estado;
+import unq_ciu.gatoEncerrado.Excepciones.NoHasGanadoException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Juego;
@@ -225,16 +231,34 @@ public class SalirTest {
   
   @Test
   public void testSalirSiNoEsLaHabitacionFinalEsIncorrecto() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nType mismatch: cannot convert from Juego to Habitacion");
+    try {
+      this.salir.ejecutar(this.hab0, this.jugador);
+    } catch (final Throwable _t) {
+      if (_t instanceof NoHasGanadoException) {
+        final NoHasGanadoException e = (NoHasGanadoException)_t;
+        String _message = e.getMessage();
+        InputOutput.<String>println(_message);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
   }
   
   @Test
   public void testSalirEnLaHabitacionFinalAgregaElLaberintoActualALaListaDeGanadosDelJugador() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nType mismatch: cannot convert from Juego to Habitacion");
+    Habitacion _habitacion = this.jugador.getHabitacion();
+    final Laberinto lab = _habitacion.getLaberinto(this.juego);
+    Estado _estado = lab.getEstado();
+    Assert.assertEquals(_estado, Estado.NO_RESUELTO);
+    List<Laberinto> _laberintosNoResueltos = this.jugador.getLaberintosNoResueltos();
+    boolean _contains = _laberintosNoResueltos.contains(this.laberinto);
+    Assert.assertTrue(_contains);
+    this.salir.ejecutar(this.hab8, this.jugador);
+    List<Laberinto> _laberintosResueltos = this.jugador.getLaberintosResueltos();
+    boolean _contains_1 = _laberintosResueltos.contains(this.laberinto);
+    Assert.assertTrue(_contains_1);
+    Estado _estado_1 = lab.getEstado();
+    Assert.assertEquals(_estado_1, Estado.RESUELTO);
   }
   
   @Pure

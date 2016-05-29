@@ -118,6 +118,7 @@ class UsarTest {
 		hab0.agregarAccion(moverA1)
 		hab0.agregarAccion(usarManivela)
 		hab0.agregarAccion(agarrarManivela)
+		hab0.agregarAccion(moverA5)
 
 		hab1.agregarAccion(moverA0)
 		hab1.agregarAccion(moverA3)
@@ -182,11 +183,11 @@ class UsarTest {
 	def void testUnJugadorUsaAlgoCorrectamenteYHabilitaAccionConsecuencia() {
 
 		//El jugador puede usar la manivela en la misma habitacion en la que empieza.
-		agarrarManivela.ejecutar(juego)
+		agarrarManivela.ejecutar(hab0, jugador)
 
 		//Hasta aqui no puede moverse a la habitacion 5.
 		assertFalse(juego.accionesPosibles.contains(moverA5))
-		usarManivela.ejecutar(juego)
+		usarManivela.ejecutar(hab0, jugador)
 
 		//Ahora deberia poder moverse
 		assertTrue(juego.accionesPosibles.contains(moverA5))
@@ -194,8 +195,8 @@ class UsarTest {
 
 	@Test
 	def void testAlUtilizarUnItemSeBorraDelInventario() {
-		agarrarManivela.ejecutar(juego)
-		usarManivela.ejecutar(juego)
+		agarrarManivela.ejecutar(hab0, jugador)
+		usarManivela.ejecutar(hab0, jugador)
 		assertEquals(0, jugador.inventario.size)
 		assertFalse(jugador.tiene(manivela))
 	}
@@ -204,14 +205,14 @@ class UsarTest {
 	def void testNoPuedoUsarUnItemEnUnaHabitacionIncorrecta() {
 
 		//El jugador puede usar la manivela en la misma habitacion en la que empieza.
-		agarrarManivela.ejecutar(juego)
+		agarrarManivela.ejecutar(hab0, jugador)
 
 		//Me muevo a la habitacion 5
-		usarManivela.ejecutar(juego)
-		moverA5.ejecutar(juego)
+		moverA5.ejecutar(hab0, jugador)
+		//usarManivela.ejecutar(hab0, jugador)
 
 		try {
-			usarManivela.ejecutar(juego)
+			usarManivela.ejecutar(hab0, jugador)
 		} catch (NoEstaDisponibleEstaAccionException e) {
 		}
 

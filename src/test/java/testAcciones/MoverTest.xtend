@@ -179,9 +179,9 @@ class MoverTest {
 	@Test
 	def void testMoverDaOK() {
 
-		moverA1.ejecutar(juego)
+		moverA1.ejecutar(hab0,jugador)
 		assertEquals(hab1, jugador.habitacion)
-		moverA3.ejecutar(juego)
+		moverA3.ejecutar(hab1, jugador)
 		assertEquals(hab3, jugador.habitacion)
 
 	}
@@ -189,7 +189,7 @@ class MoverTest {
 	@Test
 	def void testMoverAUnaHabitacionNoContenidaEnSusAccionesDisponiblesNoHaceNada() {
 		try {
-			moverA5.ejecutar(juego)
+			moverA5.ejecutar(hab0, jugador)
 		} catch (NoEstaDisponibleEstaAccionException e) {
 			assertEquals(hab0, jugador.habitacion)
 		}

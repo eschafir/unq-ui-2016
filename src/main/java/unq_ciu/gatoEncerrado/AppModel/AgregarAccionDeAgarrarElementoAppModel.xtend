@@ -16,7 +16,7 @@ class AgregarAccionDeAgarrarElementoAppModel {
 
 	new(Habitacion habitacion) {
 		this.habitacion = habitacion
-		item = new Item()
+		item = new Item("")
 	}
 
 	def agregarAcccionAgarrar() {

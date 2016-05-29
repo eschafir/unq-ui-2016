@@ -1,9 +1,12 @@
 package testAcciones;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Juego;
@@ -219,18 +222,27 @@ public class MoverTest {
   
   @Test
   public void testMoverDaOK() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nType mismatch: cannot convert from Juego to Habitacion"
-      + "\nType mismatch: cannot convert from Juego to Habitacion");
+    this.moverA1.ejecutar(this.hab0, this.jugador);
+    Habitacion _habitacion = this.jugador.getHabitacion();
+    Assert.assertEquals(this.hab1, _habitacion);
+    this.moverA3.ejecutar(this.hab1, this.jugador);
+    Habitacion _habitacion_1 = this.jugador.getHabitacion();
+    Assert.assertEquals(this.hab3, _habitacion_1);
   }
   
   @Test
   public void testMoverAUnaHabitacionNoContenidaEnSusAccionesDisponiblesNoHaceNada() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The method ejecutar(Habitacion, Jugador) is not applicable for the arguments (Juego)"
-      + "\nType mismatch: cannot convert from Juego to Habitacion");
+    try {
+      this.moverA5.ejecutar(this.hab0, this.jugador);
+    } catch (final Throwable _t) {
+      if (_t instanceof NoEstaDisponibleEstaAccionException) {
+        final NoEstaDisponibleEstaAccionException e = (NoEstaDisponibleEstaAccionException)_t;
+        Habitacion _habitacion = this.jugador.getHabitacion();
+        Assert.assertEquals(this.hab0, _habitacion);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
   }
   
   @Pure
