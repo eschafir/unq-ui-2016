@@ -10,6 +10,7 @@ import unq_ciu.gatoEncerrado.Excepciones.NoEstaDisponibleEstaAccionException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Jugador;
+import unq_ciu.gatoEncerrado.acciones.ResultadoAccion;
 
 @Accessors
 @Observable
@@ -43,7 +44,9 @@ public class Mover extends Accion {
       } else {
         throw new NoEstaDisponibleEstaAccionException();
       }
-      return j.getHabitacion();
+      List<Item> _inventario = j.getInventario();
+      Habitacion _habitacion = j.getHabitacion();
+      return new ResultadoAccion(_inventario, _habitacion);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -10,6 +10,7 @@ import unq_ciu.gatoEncerrado.Excepciones.NoHayItemNecesarioException;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Jugador;
+import unq_ciu.gatoEncerrado.acciones.ResultadoAccion;
 
 @Accessors
 @SuppressWarnings("all")
@@ -44,7 +45,8 @@ public class Usar extends Accion {
       } else {
         throw new UserException("No existe esta accion en la habitacion");
       }
-      return this.accionConsecuencia;
+      List<Item> _inventario = j.getInventario();
+      return new ResultadoAccion(_inventario, h);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -11,6 +11,7 @@ import unq_ciu.gatoEncerrado.Excepciones.NoSePuedeAgregarItemAlInventarioExcepti
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Jugador;
+import unq_ciu.gatoEncerrado.acciones.ResultadoAccion;
 
 @Accessors
 @Observable
@@ -50,7 +51,8 @@ public class Agarrar extends Accion {
       } else {
         throw new NoEstaDisponibleEstaAccionException();
       }
-      return j.getInventario();
+      List<Item> _inventario = j.getInventario();
+      return new ResultadoAccion(_inventario, h);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

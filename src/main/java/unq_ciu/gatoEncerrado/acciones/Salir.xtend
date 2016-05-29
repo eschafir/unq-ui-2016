@@ -32,7 +32,7 @@ class Salir extends Accion {
 			throw new NoHasGanadoException()
 		}
 
-		return j.ganados
+		return new ResultadoAccion(j.inventario, h)
 	}
 
 	override execute() {

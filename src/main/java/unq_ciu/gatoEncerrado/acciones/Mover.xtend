@@ -32,7 +32,7 @@ class Mover extends Accion {
 		} else {
 			throw new NoEstaDisponibleEstaAccionException()
 		}
-		return j.habitacion
+		return new ResultadoAccion(j.inventario, j.habitacion)
 	}
 
 	override getItem() {
