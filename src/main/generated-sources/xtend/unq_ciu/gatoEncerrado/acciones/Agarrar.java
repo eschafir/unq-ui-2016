@@ -52,7 +52,7 @@ public class Agarrar extends Accion {
         throw new NoEstaDisponibleEstaAccionException();
       }
       List<Item> _inventario = j.getInventario();
-      return new ResultadoAccion(_inventario, h);
+      return new ResultadoAccion(_inventario, h, Boolean.valueOf(false));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

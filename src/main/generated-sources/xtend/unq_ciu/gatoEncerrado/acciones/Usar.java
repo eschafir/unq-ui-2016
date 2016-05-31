@@ -46,7 +46,7 @@ public class Usar extends Accion {
         throw new UserException("No existe esta accion en la habitacion");
       }
       List<Item> _inventario = j.getInventario();
-      return new ResultadoAccion(_inventario, h);
+      return new ResultadoAccion(_inventario, h, Boolean.valueOf(false));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

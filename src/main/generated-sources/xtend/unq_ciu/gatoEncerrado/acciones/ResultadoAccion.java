@@ -13,9 +13,12 @@ public class ResultadoAccion {
   
   private Habitacion habitacion;
   
-  public ResultadoAccion(final List<Item> inventario, final Habitacion habitacion) {
+  private Boolean ganaste;
+  
+  public ResultadoAccion(final List<Item> inventario, final Habitacion habitacion, final Boolean ganaste) {
     this.inventario = inventario;
     this.habitacion = habitacion;
+    this.ganaste = ganaste;
   }
   
   @Pure
@@ -34,5 +37,14 @@ public class ResultadoAccion {
   
   public void setHabitacion(final Habitacion habitacion) {
     this.habitacion = habitacion;
+  }
+  
+  @Pure
+  public Boolean getGanaste() {
+    return this.ganaste;
+  }
+  
+  public void setGanaste(final Boolean ganaste) {
+    this.ganaste = ganaste;
   }
 }

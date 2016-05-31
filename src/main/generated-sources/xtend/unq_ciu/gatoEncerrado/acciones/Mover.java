@@ -46,7 +46,7 @@ public class Mover extends Accion {
       }
       List<Item> _inventario = j.getInventario();
       Habitacion _habitacion = j.getHabitacion();
-      return new ResultadoAccion(_inventario, _habitacion);
+      return new ResultadoAccion(_inventario, _habitacion, Boolean.valueOf(false));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -9,9 +9,11 @@ import unq_ciu.gatoEncerrado.Item
 class ResultadoAccion {
 	List<Item> inventario
 	Habitacion habitacion
+	Boolean ganaste
 
-	new(List<Item> inventario, Habitacion habitacion) {
+	new(List<Item> inventario, Habitacion habitacion, Boolean ganaste) {
 		this.inventario = inventario
 		this.habitacion = habitacion
+		this.ganaste = ganaste
 	}
 }

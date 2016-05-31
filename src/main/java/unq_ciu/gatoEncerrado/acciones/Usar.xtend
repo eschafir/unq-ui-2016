@@ -38,10 +38,10 @@ class Usar extends Accion {
 		} else {
 			throw new UserException("No existe esta accion en la habitacion")
 		}
-		return new ResultadoAccion(j.inventario, h)
+		return new ResultadoAccion(j.inventario, h, false)
 	}
-	
-	override execute(){
+
+	override execute() {
 		return this
 	}
 }

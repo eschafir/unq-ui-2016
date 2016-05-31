@@ -41,7 +41,7 @@ class Agarrar extends Accion {
 			throw new NoEstaDisponibleEstaAccionException()
 		}
 
-		return new ResultadoAccion(j.inventario, h)
+		return new ResultadoAccion(j.inventario, h, false)
 	}
 
 	override execute() {

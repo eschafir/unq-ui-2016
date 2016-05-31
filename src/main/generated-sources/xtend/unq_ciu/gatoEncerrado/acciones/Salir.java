@@ -35,12 +35,11 @@ public class Salir extends Accion {
         int _ganados = j.getGanados();
         int _plus = (_ganados + 1);
         j.setGanados(_plus);
-        this.laberintoActual.setEstado(Estado.RESUELTO);
       } else {
         throw new NoHasGanadoException();
       }
       List<Item> _inventario = j.getInventario();
-      return new ResultadoAccion(_inventario, h);
+      return new ResultadoAccion(_inventario, h, Boolean.valueOf(true));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
